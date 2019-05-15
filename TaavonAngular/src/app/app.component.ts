@@ -6,5 +6,5 @@ import { Http } from '@angular/http';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  
+  logedin: boolean = false;
 }

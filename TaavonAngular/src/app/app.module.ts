@@ -14,6 +14,7 @@ import { IndicatorsComponent } from './indicators/indicators.component';
 import { NewsComponent } from './news/news.component';
 import { UsersComponent } from './users/users.component';
 import { EditUsersComponent } from './edit-users/edit-users.component';
+import { LoginComponent } from './login/login.component';
 
 const AppRoutes: Route[] = [
   { path: 'new', component: NewLetterComponent },
@@ -38,7 +39,8 @@ const AppRoutes: Route[] = [
     IndicatorsComponent,
     NewsComponent,
     UsersComponent,
-    EditUsersComponent
+    EditUsersComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
