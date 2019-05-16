@@ -26,6 +26,7 @@ const AppRoutes: Route[] = [
   { path: 'news', component: NewsComponent},
   { path: 'users', component: UsersComponent },
   { path: 'editusers', component: EditUsersComponent},
+  { path: 'login', component: LoginComponent},
 ]
 
 @NgModule({

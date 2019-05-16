@@ -1,10 +1,10 @@
 <div class="w-100 text-center p-5 sans">
-  <form class="card card-body w-50 m-auto">
+  <div class="card card-body w-50 m-auto">
     <p class="h4 mb-4">ورود به سیستم</p>
     <!-- Email -->
-    <input type="email" id="defaultLoginFormEmail" class="form-control mb-4 text-right rtl" placeholder="نام کاربری">
+    <input type="email" id="defaultLoginFormEmail" [(ngModel)]="username" class="form-control mb-4 text-right rtl" placeholder="نام کاربری">
     <!-- Password -->
-    <input type="password" id="defaultLoginFormPassword" class="form-control mb-4 text-right rtl" placeholder="رمز عبور">
+    <input type="password" id="defaultLoginFormPassword" [(ngModel)]="password" class="form-control mb-4 text-right rtl" placeholder="رمز عبور">
     <div class="d-flex justify-content-around">
       <div class="sans">
         <!-- Remember me -->
@@ -19,6 +19,6 @@
       </div>
     </div>
     <!-- Sign in button -->
-    <button class="btn btn-info btn-block my-4" type="submit">ورود</button>
-  </form>
+    <button class="btn btn-info btn-block my-4" type="submit" (click)="Login()">ورود</button>
+  </div>
 </div>

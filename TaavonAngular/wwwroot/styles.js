@@ -639,9 +639,9 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Omid\source\repos\TaavonAngular\TaavonAngular\src\assets\css\bootstrap.min.css */"./src/assets/css/bootstrap.min.css");
-__webpack_require__(/*! C:\Users\Omid\source\repos\TaavonAngular\TaavonAngular\src\assets\css\mdb.min.css */"./src/assets/css/mdb.min.css");
-module.exports = __webpack_require__(/*! C:\Users\Omid\source\repos\TaavonAngular\TaavonAngular\src\assets\css\font-awesome.min.css */"./src/assets/css/font-awesome.min.css");
+__webpack_require__(/*! C:\Users\IT2\source\repos\TaavonAngular\TaavonAngular\src\assets\css\bootstrap.min.css */"./src/assets/css/bootstrap.min.css");
+__webpack_require__(/*! C:\Users\IT2\source\repos\TaavonAngular\TaavonAngular\src\assets\css\mdb.min.css */"./src/assets/css/mdb.min.css");
+module.exports = __webpack_require__(/*! C:\Users\IT2\source\repos\TaavonAngular\TaavonAngular\src\assets\css\font-awesome.min.css */"./src/assets/css/font-awesome.min.css");
 
 
 /***/ })

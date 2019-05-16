@@ -1,15 +1,14 @@
 <div class="w-100" style="background-image: url(../assets/images/gplaypattern.jpg)">
   <div class="container">
-    <img src="../assets/images/bornaheader.png" *ngIf="logedin" class="w-100 rounded-top mb-1 z-depth-1" />
+    <img src="../assets/images/bornaheader.png" class="w-100 rounded-top mb-1 z-depth-1" />
   </div>
   <div class="container">
-    <app-login *ngIf="!logedin"></app-login>
     <div class="row">
       <div class="col-md-9 pr-0" style="min-height: 100vh;">
-        <router-outlet *ngIf="logedin"></router-outlet>
+        <router-outlet></router-outlet>
       </div>
       <div class="col-md-3 pl-1">
-        <div id="cssmenu" *ngIf="logedin">
+        <div id="cssmenu">
           <ul>
             <li class="active"><a><span></span></a></li>
             <li class='has-sub'>
@@ -43,7 +42,7 @@
                 <li><a id="aboutUs" data-toggle="modal" data-target="#aboutUsmodal">درباره ما<img class="subimage" src="../assets/images/aboutus.png" /></a></li>
               </ul>
             </li>
-            <li><a href="login.aspx"><span><img src="../assets/images/signout.png" class="exit" />خروج</span></a></li>
+            <li><a (click)="LogoutUser()"><span><img src="../assets/images/signout.png" class="exit" />خروج</span></a></li>
           </ul>
         </div>
       </div>
