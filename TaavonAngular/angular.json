@@ -25,14 +25,15 @@
             "styles": [
               "src/assets/css/bootstrap.min.css",
               "src/assets/css/mdb.min.css",
-              "src/assets/css/font-awesome.min.css"
+              "src/assets/css/font-awesome.min.css",
+              "node_modules/angular-notifier/styles.css"
             ],
             "scripts": [
               "src/assets/js/jquery-3.3.1.min.js",
               "src/assets/js/popper.min.js",
               "src/assets/js/bootstrap.min.js",
               "src/assets/js/mdb.min.js",
-              "src/assets/js/script.js"
+              "src/assets/js/main-script.js"
             ],
             "es5BrowserSupport": true
           },

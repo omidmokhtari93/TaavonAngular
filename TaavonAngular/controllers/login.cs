@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -17,15 +18,15 @@ namespace TaavonAngular.controllers
     {
       if (obj.Username == "omid" && obj.Password == "123")
       {
-        return new JsonResult(new Error() { Status = true, Message = "you're succefully logged in" });
+        return new JsonResult(new Error() { Status = true, Message = "شما با موفقیت وارد شدید" });
       }
-      return new JsonResult(new Error() { Status = false, Message = "Wrong username or paasword" });
+      return new JsonResult(new Error() { Status = false, Message = "نام کاربری یا رمز عبور اشتباه است" });
     }
 
     [HttpGet("/api/logout")]
     public JsonResult Logout()
     {
-      return new JsonResult(new Error() { Status = true, Message = "you're succefully logged out" });
+      return new JsonResult(new Error() { Status = true, Message = "شما با موفقیت وارد شدید" });
     }
   }
 }

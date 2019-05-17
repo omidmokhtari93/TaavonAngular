@@ -1,24 +1,24 @@
-<div class="w-100 text-center p-5 sans">
-  <div class="card card-body w-50 m-auto">
-    <p class="h4 mb-4">ورود به سیستم</p>
-    <!-- Email -->
-    <input type="email" id="defaultLoginFormEmail" [(ngModel)]="username" class="form-control mb-4 text-right rtl" placeholder="نام کاربری">
-    <!-- Password -->
-    <input type="password" id="defaultLoginFormPassword" [(ngModel)]="password" class="form-control mb-4 text-right rtl" placeholder="رمز عبور">
-    <div class="d-flex justify-content-around">
-      <div class="sans">
-        <!-- Remember me -->
-        <div class="custom-control custom-checkbox align-middle">
-          <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember">
-          <label class="custom-control-label" for="defaultLoginFormRemember">مرا به خاطر بسپار</label>
+<div class="login-body">
+  <div class="container p-5 sans">
+    <div class="card m-auto text-center mt-lg-5" style="width: 40%">
+      <p class="card-header bg-primary text-white">ورود به سیستم</p>
+      <div class="card-body">
+        <input type="text" id="defaultLoginFormEmail" [(ngModel)]="username" class="form-control mb-4 text-right rtl" placeholder="نام کاربری">
+        <input type="password" id="defaultLoginFormPassword" [(ngModel)]="password" class="form-control mb-4 text-right rtl" placeholder="رمز عبور">
+        <div class="row sans-small mb-3">
+          <div class="col-sm-5 text-left">
+            <div class="align-middle">
+              <input type="checkbox" [(ngModel)]="rememberMe" id="defaultLoginFormRemember">
+              <label class="align-middle ml-1" for="defaultLoginFormRemember">مرا به خاطر بسپار</label>
+            </div>
+          </div>
+          <div class="col-sm-7 text-right">
+            <a [routerLink]="['/forget']">رمز عبور خود را فراموش کرده اید؟</a>
+          </div>
         </div>
-      </div>
-      <div class="sans">
-        <!-- Forgot password -->
-        <a href="">رمز عبور خود را فراموش کرده اید؟</a>
+        <button class="btn btn-info btn-block mb-0" type="submit" (click)="userLogin()">ورود</button>
       </div>
     </div>
-    <!-- Sign in button -->
-    <button class="btn btn-info btn-block my-4" type="submit" (click)="Login()">ورود</button>
   </div>
+  <notifier-container></notifier-container>
 </div>
