@@ -19,13 +19,20 @@ import { MainComponent } from './main/main.component';
 import { NotifierModule } from 'angular-notifier';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { DpDatePickerModule } from 'ng2-jalali-date-picker';
+import { LetterNumberDirective } from './shared/directives/letter-number.directive';
+import { A4Component } from './main/new-letter/a4/a4.component';
+import { A5Component } from './main/new-letter/a5/a5.component';
 
 const appRoutes: Route[] = [
-  { path: 'login', component: LoginComponent},
-  { path: 'forget', component: ForgetPasswordComponent},
+  { path: 'login', component: LoginComponent },
+  { path: 'forget', component: ForgetPasswordComponent },
   {
     path: 'main', component: MainComponent, children: [
-      { path: 'new', component: NewLetterComponent },
+      {
+        path: 'new', component: NewLetterComponent, children: [
+          { path: 'A4', component: A4Component },
+          { path: 'A5' , component : A5Component}]
+      },
       { path: 'received', component: ReceivedLetterComponent },
       { path: 'sended', component: SendedLetterComponent },
       { path: 'entry', component: LetterEntryComponent },
@@ -72,7 +79,10 @@ const notifierOptions: {} = {
     EditUsersComponent,
     LoginComponent,
     MainComponent,
-    ForgetPasswordComponent
+    ForgetPasswordComponent,
+    LetterNumberDirective,
+    A4Component,
+    A5Component,
   ],
   imports: [
     BrowserModule,

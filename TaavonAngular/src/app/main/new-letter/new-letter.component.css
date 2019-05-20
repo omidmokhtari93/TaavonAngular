@@ -1,3 +1,23 @@
 #RecieverBadgeArea span{
   cursor:pointer;
 }
+.button-group input { display: none; }
+
+.button-group { padding: 1px; }
+
+.button-group label {
+  padding: 0px 15px;
+  font-family: 'sans';
+  font-weight: 300;
+  background: #dadada;
+  color: #6b6b6b;
+  margin: 0;
+  cursor: pointer;
+  line-height: 30px;
+}
+
+.button-group input:checked + label,
+.button-group input:checked + label:active {
+  background-color: #1779b9;
+  color: white;
+}

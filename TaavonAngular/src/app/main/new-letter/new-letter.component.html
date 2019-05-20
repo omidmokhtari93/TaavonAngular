@@ -9,11 +9,11 @@
     <div class="row">
       <div class="col-md-6">
         عنوان نامه
-        <input class="form-control" dir="rtl" />
+        <input class="form-control" dir="rtl" [(ngModel)]="letterSubject"/>
       </div>
       <div class="col-md-6">
         فرستنده
-        <input class="form-control" dir="rtl" readonly />
+        <input class="form-control" dir="rtl" readonly [(ngModel)]="sender"/>
       </div>
     </div>
     <div class="row mt-3">
@@ -28,14 +28,18 @@
     </div>
     <div class="row mt-3">
       <div class="col-md-12">
-        <div id="ReplicaBadgeArea p-1"></div>
+        <div id="ReplicaBadgeArea">
+          <span class="sans-xsmall bg-default text-white m-1 pl-1 pr-1 rounded"
+                (click)="removeReplicaBadge($event)"
+                *ngFor="let rep of replica">{{rep}}</span>
+        </div>
         <input class="form-control" placeholder="رونوشت به ..." />
       </div>
     </div>
     <div class="row mt-3">
       <div class="col-md-12">
         متن رونوشت
-        <textarea class="form-control" rows="3" style="resize: none;"></textarea>
+        <textarea class="form-control" rows="3" style="resize: none;" [(ngModel)]="replicaText"></textarea>
       </div>
     </div>
     <hr />
@@ -44,47 +48,35 @@
         <div class="row">
           <div class="col-md-3 pr-3">
             <p>نیاز به پاسخ</p>
-            <div class="custom-control custom-radio custom-control-inline">
-              <input type="radio" class="custom-control-input" id="reposnse-yes" name="resp">
-              <label class="custom-control-label" for="reposnse-yes">دارد</label>
-            </div>
-            <div class="custom-control custom-radio custom-control-inline">
-              <input type="radio" class="custom-control-input" id="response-no" name="resp" checked>
-              <label class="custom-control-label" for="response-no">ندارد</label>
+            <div class="button-group">
+              <input type="radio" id="reposnse-yes" name="resp" [value]="true" [(ngModel)]="needResponse" [checked]="needResponse">
+              <label for="reposnse-yes">دارد</label>
+              <input type="radio" id="response-no" name="resp" checked [value]="false" [(ngModel)]="needResponse" [checked]="!needResponse">
+              <label for="response-no">ندارد</label>
             </div>
           </div>
           <div class="col-md-3 pr-3 border-right">
             <p>سایز نامه</p>
-            <div class="custom-control custom-radio custom-control-inline">
-              <input type="radio" class="custom-control-input" id="A4size" name="size" checked>
-              <label class="custom-control-label" for="A4size">A4</label>
-            </div>
-            <div class="custom-control custom-radio custom-control-inline">
-              <input type="radio" class="custom-control-input" id="A5size" name="size">
-              <label class="custom-control-label" for="A5size">A5</label>
+            <div class="button-group">
+              <input type="radio" id="A4size" name="size" checked [value]="true" [(ngModel)]="letterSize" [checked]="letterSize">
+              <label for="A4size">A4</label>
+              <input type="radio" id="A5size" name="size" [value]="false" [(ngModel)]="letterSize" [checked]="!letterSize">
+              <label for="A5size">A5</label>
             </div>
           </div>
           <div class="col-md-6 pr-3 border-right" dir="rtl">
             <p>نوع نامه</p>
-            <div class="custom-control custom-radio custom-control-inline mr-1">
-              <input type="radio" class="custom-control-input" id="adi" name="type" checked>
-              <label class="custom-control-label" for="adi">عادی</label>
-            </div>
-            <div class="custom-control custom-radio custom-control-inline  mr-1">
-              <input type="radio" class="custom-control-input" id="eb" name="type">
-              <label class="custom-control-label" for="eb">ابلاغیه</label>
-            </div>
-            <div class="custom-control custom-radio custom-control-inline  mr-1">
-              <input type="radio" class="custom-control-input" id="mo" name="type">
-              <label class="custom-control-label" for="mo">مهم</label>
-            </div>
-            <div class="custom-control custom-radio custom-control-inline  mr-1">
-              <input type="radio" class="custom-control-input" id="fo" name="type">
-              <label class="custom-control-label" for="fo">فوری</label>
-            </div>
-            <div class="custom-control custom-radio custom-control-inline mr-1">
-              <input type="radio" class="custom-control-input" id="khfo" name="type">
-              <label class="custom-control-label" for="khfo">خیلی فوری</label>
+            <div class="button-group">
+              <input type="radio" id="adi" name="type" checked [value]="0" [(ngModel)]="letterType">
+              <label for="adi">عادی</label>
+              <input type="radio" id="eb" name="type" [value]="1" [(ngModel)]="letterType">
+              <label for="eb">ابلاغیه</label>
+              <input type="radio" id="mo" name="type" [value]="2" [(ngModel)]="letterType">
+              <label for="mo">مهم</label>
+              <input type="radio" id="fo" name="type" [value]="3" [(ngModel)]="letterType">
+              <label for="fo">فوری</label>
+              <input type="radio" id="khfo" name="type" [value]="4" [(ngModel)]="letterType">
+              <label for="khfo">خیلی فوری</label>
             </div>
           </div>
         </div>
@@ -98,15 +90,15 @@
             <div class="row mt-3" dir="rtl">
               <div class="col-md-6">
                 مدت زمان پاسخ
-                <input type="number" class="form-control" />
-              </div>
-              <div class="col-md-6">
-                &nbsp;
-                <select class="form-control">
+                <select class="form-control" [(ngModel)]="responseType">
                   <option value="1">نامحدود</option>
                   <option value="2">ساعت</option>
                   <option value="3">روز</option>
                 </select>
+              </div>
+              <div class="col-md-6">
+                &nbsp;
+                <input type="number" class="form-control text-center" [(ngModel)]="responseTime" *ngIf="responseType !== 1"/>
               </div>
             </div>
           </div>
