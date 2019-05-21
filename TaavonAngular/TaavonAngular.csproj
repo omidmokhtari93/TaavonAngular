@@ -7,13 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="src\app\shared\directives\files.service.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.2.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="src\app\shared\directives\" />
+    <TypeScriptCompile Include="src\app\shared\services\files.service.ts" />
   </ItemGroup>
 
 </Project>

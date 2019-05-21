@@ -86,42 +86,42 @@
     <div class="row">
       <div class="col-md-12">
         <div class="card">
-          <div class="card-body pt-0 bg-light">
-            <div class="row mt-3" dir="rtl">
+          <div class="card-body bg-light">
+            <p>مدت زمان پاسخ</p>
+            <div class="row" dir="rtl">
               <div class="col-md-6">
-                مدت زمان پاسخ
-                <select class="form-control" [(ngModel)]="responseType">
-                  <option value="1">نامحدود</option>
-                  <option value="2">ساعت</option>
-                  <option value="3">روز</option>
-                </select>
+                <div class="button-group mt-1">
+                  <input type="radio" [value]="1" [(ngModel)]="responseType" id="unlimit" name="response-type">
+                  <label for="unlimit">نامحدود</label>
+                  <input type="radio" [value]="2" [(ngModel)]="responseType" id="hours" name="response-type">
+                  <label for="hours">ساعت</label>
+                  <input type="radio" [value]="3" [(ngModel)]="responseType" id="days" name="response-type">
+                  <label for="days">روز</label>
+                </div>
               </div>
               <div class="col-md-6">
-                &nbsp;
-                <input type="number" class="form-control text-center" [(ngModel)]="responseTime" *ngIf="responseType !== 1"/>
+                <input type="number" class="form-control text-center" placeholder="مدت زمان" [(ngModel)]="responseTime" *ngIf="responseType !== 1"/>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="row mt-3 pr-3">
-      <div class="col-md-3 border-right">
-        <p>پیوست</p>
-        <div class="custom-control custom-radio custom-control-inline">
-          <input type="radio" class="custom-control-input" [value]="true" [checked]="hasfile" [(ngModel)]="hasfile" id="pdar">
-          <label class="custom-control-label" for="pdar">دارد</label>
+    <div class="card card-body bg-light mt-3">
+      <p>پیوست</p>
+      <div class="row">
+        <div class="col-md-6 border-right">
+          <div class="button-group">
+            <input type="radio" [value]="true" [checked]="hasfile" [(ngModel)]="hasfile" id="pdar" name="attachment">
+            <label for="pdar">دارد</label>
+            <input type="radio" [value]="false" [checked]="!hasfile" [(ngModel)]="hasfile" id="pnadar" name="attachment">
+            <label for="pnadar">ندارد</label>
+          </div>
         </div>
-        <div class="custom-control custom-radio custom-control-inline">
-          <input type="radio" class="custom-control-input" [value]="false" [checked]="!hasfile" [(ngModel)]="hasfile" id="pnadar">
-          <label class="custom-control-label" for="pnadar">ندارد</label>
-        </div>
-      </div>
-      <div class="col-md-9">
-        <div class="card" *ngIf="hasfile">
-          <div class="card-body pt-2 pb-2 text-right bg-light">
-            <div>انتخاب فایل ها</div>
-            <input style="direction: rtl;" multiple type="file" />
+        <div class="col-md-6">
+          <div *ngIf="hasfile">
+            <span>انتخاب فایل ها</span>
+            <input style="direction: rtl;" multiple type="file"/>
           </div>
         </div>
       </div>

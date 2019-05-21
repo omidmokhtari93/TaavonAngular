@@ -1,3 +1,98 @@
-<p>
-  users works!
-</p>
+<div class="card sans">
+  <div class="card-header text-white bg-primary text-center">کاربران</div>
+  <div class="card-body bg-white text-dark text-right" id="inputsArea">
+      <div class="row">
+          <div class="col-lg-4">
+              آدرس ایمیل
+              <input class="form-control" [(ngModel)]="email" tabindex="3" dir="ltr" id="txtemail"/>
+          </div>
+          <div class="col-lg-4">
+             شماره تماس
+              <input class="form-control" [(ngModel)]="tell" tabindex="2" dir="ltr" id="txttell"/>
+          </div>
+          <div class="col-lg-4">
+             نام و نام خانوادگی
+              <input class="form-control" [(ngModel)]="name" tabindex="1" required id="txtname"/>
+          </div>
+      </div>
+      <div class="row" style="margin-top: 10px;">
+          <div class="col-lg-4">
+              تکرار رمز عبور
+              <input class="form-control" [(ngModel)]="confirmPassword" tabindex="6" required dir="ltr" id="txtRepeatPass"/>
+          </div>
+          <div class="col-lg-4">
+              رمز عبور
+              <input class="form-control" [(ngModel)]="password" tabindex="5" dir="ltr" required id="txtPass"/>
+          </div>
+          <div class="col-lg-4">
+              نام کاربری
+              <input class="form-control" [(ngModel)]="userName" tabindex="4" required dir="ltr" id="txtUserName"/>
+          </div>
+      </div>
+      <div class="row" style="margin-top: 10px;">
+          <div class="col-lg-4">
+              وضعیت
+              <div class="button-group text-center sans-xsmall mt-1" id="rbStatus">
+                  <input type="radio" id="rbactive" name="status" [value]="1" [(ngModel)]="status">
+                  <label for="rbactive" style="width: 49%;">فعال</label>
+                  <input type="radio" id="rbdeactive" data="0" name="status" [value]="0" [(ngModel)]="status">
+                  <label for="rbdeactive" style="width: 49%;">غیرفعال</label>
+              </div>
+          </div>
+          <div class="col-lg-4">
+              سطح دسترسی
+              <div class="button-group sans-xsmall text-center mt-1" id="rbAccessLevel">
+                  <input type="radio" id="user" name="acclevel" [value]="2" [(ngModel)]="accessLevel">
+                  <label for="user" style="width: 32%;">شرکت تابعه</label>
+                  <input type="radio" id="dabir" name="acclevel" [value]="1" [(ngModel)]="accessLevel">
+                  <label for="dabir" style="width: 32%;">دبیرخانه</label>
+                  <input type="radio" id="manager" name="acclevel" [value]="0" [(ngModel)]="accessLevel">
+                  <label for="manager" style="width: 32%;">مدیریت</label>
+              </div>
+          </div>
+          <div class="col-lg-4">
+              نام شرکت
+              <div id="badgeArea" style="position: relative;">
+                  <input autocomplete="off" [(ngModel)]="company" tabindex="7" required dir="rtl" class="form-control text-right" id="txtCoSearch" placeholder="جستجوی شرکت ..."/>
+              </div>
+              <div id="CoSearchResulat">
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="card-footer bg-light">
+      <button class="btn btn-primary" *ngIf="editState" type="button" onclick="EditUser();" id="btnEdit">ویرایش</button>
+      <button class="btn btn-light" *ngIf="editState" type="button" onclick="CancelEdit();" id="btnCancel" >انصراف</button>
+      <button class="btn btn-primary" type="button" id="btnSave">ثبت</button>
+  </div>
+  <div class="card-footer bg-light">
+      <table class="table rtl table-sm">
+        <thead *ngIf="hasUser">
+            <tr>
+                <th>نام و نام خانوادگی</th>
+                <th>نام کاربری</th>
+                <th>رمز عبور</th>
+                <th>نام شرکت</th>
+                <th>سطح دسترسی</th>
+                <th>فعال</th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{user.name}}</td>
+          <td>{{user.userName}}</td>
+          <td>{{user.password}}</td>
+          <td>{{user.officeName}}</td>
+          <td>{{user.usrLvl}}</td>
+          <td>{{user.permit == 1 ? 'فعال' : 'غیرفعال'}}</td>
+          <td><a class="fa fa-image" title="ثبت امضا"></a></td>
+          <td><a class="fa fa-pencil" title="ویرایش"></a></td>
+          <td><a class="fa fa-trash" title="حذف"></a></td>
+        </tr>
+        </tbody>
+      </table>
+  </div>
+</div>
