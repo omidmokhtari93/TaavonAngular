@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { Route,RouterModule } from '@angular/router';
+import { Route, RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NewLetterComponent } from './main/new-letter/new-letter.component';
@@ -22,6 +22,7 @@ import { DpDatePickerModule } from 'ng2-jalali-date-picker';
 import { LetterNumberDirective } from './shared/directives/letter-number.directive';
 import { A4Component } from './main/new-letter/a4/a4.component';
 import { A5Component } from './main/new-letter/a5/a5.component';
+import { SignUploadComponent } from './main/users/sign-upload/sign-upload.component';
 
 const appRoutes: Route[] = [
   { path: 'login', component: LoginComponent },
@@ -31,7 +32,8 @@ const appRoutes: Route[] = [
       {
         path: 'new', component: NewLetterComponent, children: [
           { path: 'A4', component: A4Component },
-          { path: 'A5' , component : A5Component}]
+          { path: 'A5', component: A5Component }
+        ]
       },
       { path: 'received', component: ReceivedLetterComponent },
       { path: 'sended', component: SendedLetterComponent },
@@ -41,8 +43,8 @@ const appRoutes: Route[] = [
       { path: 'news', component: NewsComponent },
       { path: 'users', component: UsersComponent },
       { path: 'editusers', component: EditUsersComponent },
-      ]
-  },
+    ]
+  }
 ]
 const notifierOptions: {} = {
   position: {
@@ -83,6 +85,7 @@ const notifierOptions: {} = {
     LetterNumberDirective,
     A4Component,
     A5Component,
+    SignUploadComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,31 @@
+<div class="card">
+  <img class="img-thumbnail" id="imgUserSign" />
+  <div class="card-header bg-primary text-white" style="font-weight: 800;">ثبت امضا</div>
+  <div class="card-body bg-white text-dark" style="text-align: center!important;">
+    <label id="lbl_username" style="display: block; font-size: 12pt;" class="label bg-primary text-white"></label>
+    <div id="fileArea">
+      <form id="signform">
+        <label id="chooselbl">انتخاب تصویر امضا</label>
+        <input id="signfile" onchange="DetectFile($(this),'pnlcontrols');" type="file" style="display: inline-block; margin: 5px;" />
+      </form>
+    </div>
+    <div id="pnlcontrols" style="display: none;">
+      <div style="padding: 5px;">
+        <button id="cropbutton" class="btn btn-sm btn-info" type="button">برش</button>
+        <button id="scalebutton" class="btn btn-sm btn-info" type="button">تغییر اندازه</button>
+        <button id="rotatebutton" class="btn btn-sm btn-info" type="button">چرخش</button>
+        <button id="hflipbutton" class="btn btn-sm btn-info" type="button">چرخش افقی</button>
+        <button id="vflipbutton" class="btn btn-sm btn-info" type="button">چرخش عمودی</button>
+      </div>
+      <div style="width: 100%;">
+        <div id="views" class="img-thumbnail" style="padding: 5px; z-index: -1; display: inline-block !important;">
+        </div>
+      </div>
+      <button type="button" id="uploadfile" class="btn btn-primary" onclick="UploadSign();" style="width: 20%; position: relative;">
+        <img src="images/loading.gif" id="loadingsignupload" />
+        ثبت امضا
+      </button>
+    </div>
+  </div>
+</div>
+

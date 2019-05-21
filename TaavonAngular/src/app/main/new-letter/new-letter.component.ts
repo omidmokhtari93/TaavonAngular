@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import * as moment from 'jalali-moment';
+import { Router } from '@angular/router';
+import { NotifierService } from 'angular-notifier';
 
 @Component({
   selector: 'app-new-letter',
@@ -11,8 +13,9 @@ export class NewLetterComponent implements OnInit {
     format: 'jYYYY/jMM/jDD'
   }
   selectedDate = moment().locale('fa').format('jYYYY/jMM/jDD');
-  letterSubject:string ='';
+  letterSubject: string = '';
   receivers: string[] = [];
+  receiverDropDown:string[] = [];
   sender: string = '';
   replica: string[] = [];
   replicaText: string = '';
@@ -22,8 +25,11 @@ export class NewLetterComponent implements OnInit {
   responseTime: number;
   responseType: number = 1;
   hasfile: boolean = false;
-  constructor() { }
-
+  private readonly notifier: NotifierService;
+  constructor(private route: Router, notifierService: NotifierService) {
+    this.notifier = notifierService;
+  }
+  
   ngOnInit() {
   }
   removeBadge(event) {
@@ -39,5 +45,18 @@ export class NewLetterComponent implements OnInit {
         this.replica.splice(i, 1);
       }
     }
+  }
+  createLetter() {
+    if (this.letterSubject === '') {
+      this.notifier.notify('error', 'لطفا عنوان نامه را مشخص  کنید');
+      return;
+    }
+    if (!this.receivers.length) {
+      this.notifier.notify('error', 'لطفا گیرنده نامه را مشخص  کنید');
+      return;
+    }
+    this.route.navigate(["main/new/A5"])
+    $('#letter-modal').modal('show');
+
   }
 }
