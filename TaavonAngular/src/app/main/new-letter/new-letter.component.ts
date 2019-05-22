@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import * as moment from 'jalali-moment';
 import { Router } from '@angular/router';
 import { NotifierService } from 'angular-notifier';
+declare var $: any;
 
 @Component({
   selector: 'app-new-letter',
@@ -14,7 +15,7 @@ export class NewLetterComponent implements OnInit {
   }
   selectedDate = moment().locale('fa').format('jYYYY/jMM/jDD');
   letterSubject: string = '';
-  receivers: string[] = [];
+  receivers: string[] = ['شرکت شماره1'];
   receiverDropDown:string[] = [];
   sender: string = '';
   replica: string[] = [];
@@ -57,6 +58,5 @@ export class NewLetterComponent implements OnInit {
     }
     this.route.navigate(["main/new/A5"])
     $('#letter-modal').modal('show');
-
   }
 }

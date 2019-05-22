@@ -448,12 +448,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _main_new_letter_a4_a4_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./main/new-letter/a4/a4.component */ "./src/app/main/new-letter/a4/a4.component.ts");
 /* harmony import */ var _main_new_letter_a5_a5_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./main/new-letter/a5/a5.component */ "./src/app/main/new-letter/a5/a5.component.ts");
 /* harmony import */ var _main_users_sign_upload_sign_upload_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./main/users/sign-upload/sign-upload.component */ "./src/app/main/users/sign-upload/sign-upload.component.ts");
+/* harmony import */ var _shared_directives_search_receiver_directive__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./shared/directives/search-receiver.directive */ "./src/app/shared/directives/search-receiver.directive.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -543,6 +545,7 @@ AppModule = __decorate([
             _main_new_letter_a4_a4_component__WEBPACK_IMPORTED_MODULE_22__["A4Component"],
             _main_new_letter_a5_a5_component__WEBPACK_IMPORTED_MODULE_23__["A5Component"],
             _main_users_sign_upload_sign_upload_component__WEBPACK_IMPORTED_MODULE_24__["SignUploadComponent"],
+            _shared_directives_search_receiver_directive__WEBPACK_IMPORTED_MODULE_25__["SearchReceiverDirective"],
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -580,7 +583,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<input class=\"{{fc}}\" />\r\n<br />\r\n<input [class]=\"exp == true ? bgLight : formControl\" />\r\n<br />\r\n\r\n<input class=\"{{exp == true ? bgLight : formControl}}\" />\r\n<br />\r\n<button [disabled]='isDisabled'>Try Me property</button>\r\n<br />\r\n<button disabled='{{isDisabled}}'>Try Me interplution</button>\r\n<br />\r\n<button bind-disabled='isDisabled'>Try Me bind</button>\r\n<br />\r\n\r\n<input #searchBox />\r\n\r\n<button (click)=\"Callphone(searchBox.value)\">Call</button>\r\n<br />\r\n\r\n<input [ngModel]=\"username\" (ngModelChange)=\"username = $event\">\r\n\r\n<p>Hello {{username}}!</p>\r\n\r\n"
+module.exports = "<!--<input class=\"{{fc}}\" />\r\n<br />\r\n<input [class]=\"exp == true ? bgLight : formControl\" />\r\n<br />\r\n\r\n<input class=\"{{exp == true ? bgLight : formControl}}\" />\r\n<br />\r\n<button [disabled]='isDisabled'>Try Me property</button>\r\n<br />\r\n<button disabled='{{isDisabled}}'>Try Me interplution</button>\r\n<br />\r\n<button bind-disabled='isDisabled'>Try Me bind</button>\r\n<br />\r\n\r\n<input #searchBox />\r\n\r\n<button (click)=\"Callphone(searchBox.value)\">Call</button>\r\n<br />\r\n\r\n<input [ngModel]=\"username\" (ngModelChange)=\"username = $event\">\r\n\r\n<p>Hello {{username}}!</p>-->\r\n<div appSearchReceiver [width]=\"30\" [arg]=\"\" [id]=\"\" [text]=\"\" [placeholder]=\"'جستجو ...'\"></div>\r\n"
 
 /***/ }),
 
@@ -606,18 +609,8 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 let ForgetPasswordComponent = class ForgetPasswordComponent {
-    constructor() {
-        this.fc = 'form-control';
-        this.exp = true;
-        this.isDisabled = false;
-        this.formControl = 'form-control';
-        this.bgLight = 'bg-light';
-        this.username = 'omid';
-    }
+    constructor() { }
     ngOnInit() {
-    }
-    Callphone(p) {
-        console.log(p);
     }
 };
 ForgetPasswordComponent = __decorate([
@@ -1014,7 +1007,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  a4 works!\n</p>\n"
+module.exports = "<p>\r\n  a4 works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -1075,7 +1068,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  a5 works!\n</p>\n"
+module.exports = "<p>\r\n  a5 works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -1136,7 +1129,7 @@ module.exports = "#RecieverBadgeArea span{\r\n  cursor:pointer;\r\n}\r\n.button-
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card rtl text-right sans\">\r\n  <div class=\"card-header text-white bg-primary\">ارسال نامه</div>\r\n  <div class=\"card-body\">\r\n    <div class=\"w-100 ltr\">\r\n      <input class=\"form-control text-center\" readonly style=\"width: 25%\" placeholder=\"تاریخ\"\r\n             [(ngModel)]=\"selectedDate\" [dpDayPicker]=\"datePickerConfig\" theme=\"dp-material\" />\r\n    </div>\r\n    <hr class=\"mt-0\" />\r\n    <div class=\"row\">\r\n      <div class=\"col-md-6\">\r\n        عنوان نامه\r\n        <input class=\"form-control\" dir=\"rtl\" [(ngModel)]=\"letterSubject\"/>\r\n      </div>\r\n      <div class=\"col-md-6\">\r\n        فرستنده\r\n        <input class=\"form-control\" dir=\"rtl\" readonly [(ngModel)]=\"sender\"/>\r\n      </div>\r\n    </div>\r\n    <div class=\"row mt-3\">\r\n      <div class=\"col-md-12 position-relative\">\r\n        <div id=\"RecieverBadgeArea\">\r\n          <span class=\"sans-xsmall bg-default text-white m-1 pl-1 pr-1 rounded\"\r\n                (click)=\"removeBadge($event)\"\r\n                *ngFor=\"let receiver of receivers\">{{receiver}}</span>\r\n        </div>\r\n        <input class=\"form-control\" placeholder=\"جستجوی گیرنده ...\" />\r\n        <div id=\"receiverDropDown\" class=\"w-100 position-absolute\">\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"row mt-3\">\r\n      <div class=\"col-md-12\">\r\n        <div id=\"ReplicaBadgeArea\">\r\n          <span class=\"sans-xsmall bg-default text-white m-1 pl-1 pr-1 rounded\"\r\n                (click)=\"removeReplicaBadge($event)\"\r\n                *ngFor=\"let rep of replica\">{{rep}}</span>\r\n        </div>\r\n        <input class=\"form-control\" placeholder=\"رونوشت به ...\" />\r\n      </div>\r\n    </div>\r\n    <div class=\"row mt-3\">\r\n      <div class=\"col-md-12\">\r\n        متن رونوشت\r\n        <textarea class=\"form-control\" rows=\"3\" style=\"resize: none;\" [(ngModel)]=\"replicaText\"></textarea>\r\n      </div>\r\n    </div>\r\n    <hr />\r\n    <div class=\"row mt-3\">\r\n      <div class=\"col-md-12\">\r\n        <div class=\"row\">\r\n          <div class=\"col-md-3 pr-3\">\r\n            <p>نیاز به پاسخ</p>\r\n            <div class=\"button-group\">\r\n              <input type=\"radio\" id=\"reposnse-yes\" name=\"resp\" [value]=\"true\" [(ngModel)]=\"needResponse\" [checked]=\"needResponse\">\r\n              <label for=\"reposnse-yes\">دارد</label>\r\n              <input type=\"radio\" id=\"response-no\" name=\"resp\" checked [value]=\"false\" [(ngModel)]=\"needResponse\" [checked]=\"!needResponse\">\r\n              <label for=\"response-no\">ندارد</label>\r\n            </div>\r\n          </div>\r\n          <div class=\"col-md-3 pr-3 border-right\">\r\n            <p>سایز نامه</p>\r\n            <div class=\"button-group\">\r\n              <input type=\"radio\" id=\"A4size\" name=\"size\" checked [value]=\"true\" [(ngModel)]=\"letterSize\" [checked]=\"letterSize\">\r\n              <label for=\"A4size\">A4</label>\r\n              <input type=\"radio\" id=\"A5size\" name=\"size\" [value]=\"false\" [(ngModel)]=\"letterSize\" [checked]=\"!letterSize\">\r\n              <label for=\"A5size\">A5</label>\r\n            </div>\r\n          </div>\r\n          <div class=\"col-md-6 pr-3 border-right\" dir=\"rtl\">\r\n            <p>نوع نامه</p>\r\n            <div class=\"button-group\">\r\n              <input type=\"radio\" id=\"adi\" name=\"type\" checked [value]=\"0\" [(ngModel)]=\"letterType\">\r\n              <label for=\"adi\">عادی</label>\r\n              <input type=\"radio\" id=\"eb\" name=\"type\" [value]=\"1\" [(ngModel)]=\"letterType\">\r\n              <label for=\"eb\">ابلاغیه</label>\r\n              <input type=\"radio\" id=\"mo\" name=\"type\" [value]=\"2\" [(ngModel)]=\"letterType\">\r\n              <label for=\"mo\">مهم</label>\r\n              <input type=\"radio\" id=\"fo\" name=\"type\" [value]=\"3\" [(ngModel)]=\"letterType\">\r\n              <label for=\"fo\">فوری</label>\r\n              <input type=\"radio\" id=\"khfo\" name=\"type\" [value]=\"4\" [(ngModel)]=\"letterType\">\r\n              <label for=\"khfo\">خیلی فوری</label>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <hr />\r\n    <div class=\"row\">\r\n      <div class=\"col-md-12\">\r\n        <div class=\"card\">\r\n          <div class=\"card-body bg-light\">\r\n            <p>مدت زمان پاسخ</p>\r\n            <div class=\"row\" dir=\"rtl\">\r\n              <div class=\"col-md-6\">\r\n                <div class=\"button-group mt-1\">\r\n                  <input type=\"radio\" [value]=\"1\" [(ngModel)]=\"responseType\" id=\"unlimit\" name=\"response-type\">\r\n                  <label for=\"unlimit\">نامحدود</label>\r\n                  <input type=\"radio\" [value]=\"2\" [(ngModel)]=\"responseType\" id=\"hours\" name=\"response-type\">\r\n                  <label for=\"hours\">ساعت</label>\r\n                  <input type=\"radio\" [value]=\"3\" [(ngModel)]=\"responseType\" id=\"days\" name=\"response-type\">\r\n                  <label for=\"days\">روز</label>\r\n                </div>\r\n              </div>\r\n              <div class=\"col-md-6\">\r\n                <input type=\"number\" class=\"form-control text-center\" placeholder=\"مدت زمان\" [(ngModel)]=\"responseTime\" *ngIf=\"responseType !== 1\"/>\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"card card-body bg-light mt-3\">\r\n      <p>پیوست</p>\r\n      <div class=\"row\">\r\n        <div class=\"col-md-6 border-right\">\r\n          <div class=\"button-group\">\r\n            <input type=\"radio\" [value]=\"true\" [checked]=\"hasfile\" [(ngModel)]=\"hasfile\" id=\"pdar\" name=\"attachment\">\r\n            <label for=\"pdar\">دارد</label>\r\n            <input type=\"radio\" [value]=\"false\" [checked]=\"!hasfile\" [(ngModel)]=\"hasfile\" id=\"pnadar\" name=\"attachment\">\r\n            <label for=\"pnadar\">ندارد</label>\r\n          </div>\r\n        </div>\r\n        <div class=\"col-md-6\">\r\n          <div *ngIf=\"hasfile\">\r\n            <span>انتخاب فایل ها</span>\r\n            <input style=\"direction: rtl;\" multiple type=\"file\"/>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"row mt-3\">\r\n      <div class=\"col-md-12 text-left\">\r\n        <button class=\"btn btn-info\" (click)=\"createLetter()\">تولید نامه</button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"modal fade show\" id=\"letter-modal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">\r\n  <div class=\"modal-dialog modal-lg\" role=\"document\">\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <h5 class=\"modal-title\" id=\"exampleModalLabel\"> title</h5>\r\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n          <span aria-hidden=\"true\">&times;</span>\r\n        </button>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        <router-outlet></router-outlet>\r\n      </div>\r\n      <div class=\"modal-footer d-block\">\r\n        <button type=\"button\" id=\"btn\" class=\"btn btn-primary sans\">ارسال نامه</button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n<notifier-container></notifier-container>\r\n"
+module.exports = "<div class=\"card rtl text-right sans\">\r\n  <div class=\"card-header text-white bg-primary\">ارسال نامه</div>\r\n  <div class=\"card-body\">\r\n    <div class=\"w-100 ltr\">\r\n      <input class=\"form-control text-center\" readonly style=\"width: 25%\" placeholder=\"تاریخ\"\r\n             [(ngModel)]=\"selectedDate\" [dpDayPicker]=\"datePickerConfig\" theme=\"dp-material\" />\r\n    </div>\r\n    <hr class=\"mt-0\" />\r\n    <div class=\"row\">\r\n      <div class=\"col-md-6\">\r\n        عنوان نامه\r\n        <input class=\"form-control\" dir=\"rtl\" [(ngModel)]=\"letterSubject\"/>\r\n      </div>\r\n      <div class=\"col-md-6\">\r\n        فرستنده\r\n        <input class=\"form-control\" dir=\"rtl\" readonly [(ngModel)]=\"sender\"/>\r\n      </div>\r\n    </div>\r\n    <div class=\"row mt-3\">\r\n      <div class=\"col-md-12 position-relative\">\r\n        <div id=\"RecieverBadgeArea\">\r\n          <span class=\"sans-xsmall bg-default text-white m-1 pl-1 pr-1 rounded\"\r\n                (click)=\"removeBadge($event)\"\r\n                *ngFor=\"let receiver of receivers\">{{receiver}}</span>\r\n        </div>\r\n        <input class=\"form-control\" placeholder=\"جستجوی گیرنده ...\"/>\r\n        <div id=\"receiverDropDown\" class=\"w-100 position-absolute\">\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"row mt-3\">\r\n      <div class=\"col-md-12\">\r\n        <div id=\"ReplicaBadgeArea\">\r\n          <span class=\"sans-xsmall bg-default text-white m-1 pl-1 pr-1 rounded\"\r\n                (click)=\"removeReplicaBadge($event)\"\r\n                *ngFor=\"let rep of replica\">{{rep}}</span>\r\n        </div>\r\n        <input class=\"form-control\" placeholder=\"رونوشت به ...\" />\r\n      </div>\r\n    </div>\r\n    <div class=\"row mt-3\">\r\n      <div class=\"col-md-12\">\r\n        متن رونوشت\r\n        <textarea class=\"form-control\" rows=\"3\" style=\"resize: none;\" [(ngModel)]=\"replicaText\"></textarea>\r\n      </div>\r\n    </div>\r\n    <hr />\r\n    <div class=\"row mt-3\">\r\n      <div class=\"col-md-12\">\r\n        <div class=\"row\">\r\n          <div class=\"col-md-3 pr-3\">\r\n            <p>نیاز به پاسخ</p>\r\n            <div class=\"button-group\">\r\n              <input type=\"radio\" id=\"reposnse-yes\" name=\"resp\" [value]=\"true\" [(ngModel)]=\"needResponse\" [checked]=\"needResponse\">\r\n              <label for=\"reposnse-yes\">دارد</label>\r\n              <input type=\"radio\" id=\"response-no\" name=\"resp\" checked [value]=\"false\" [(ngModel)]=\"needResponse\" [checked]=\"!needResponse\">\r\n              <label for=\"response-no\">ندارد</label>\r\n            </div>\r\n          </div>\r\n          <div class=\"col-md-3 pr-3 border-right\">\r\n            <p>سایز نامه</p>\r\n            <div class=\"button-group\">\r\n              <input type=\"radio\" id=\"A4size\" name=\"size\" checked [value]=\"true\" [(ngModel)]=\"letterSize\" [checked]=\"letterSize\">\r\n              <label for=\"A4size\">A4</label>\r\n              <input type=\"radio\" id=\"A5size\" name=\"size\" [value]=\"false\" [(ngModel)]=\"letterSize\" [checked]=\"!letterSize\">\r\n              <label for=\"A5size\">A5</label>\r\n            </div>\r\n          </div>\r\n          <div class=\"col-md-6 pr-3 border-right\" dir=\"rtl\">\r\n            <p>نوع نامه</p>\r\n            <div class=\"button-group\">\r\n              <input type=\"radio\" id=\"adi\" name=\"type\" checked [value]=\"0\" [(ngModel)]=\"letterType\">\r\n              <label for=\"adi\">عادی</label>\r\n              <input type=\"radio\" id=\"eb\" name=\"type\" [value]=\"1\" [(ngModel)]=\"letterType\">\r\n              <label for=\"eb\">ابلاغیه</label>\r\n              <input type=\"radio\" id=\"mo\" name=\"type\" [value]=\"2\" [(ngModel)]=\"letterType\">\r\n              <label for=\"mo\">مهم</label>\r\n              <input type=\"radio\" id=\"fo\" name=\"type\" [value]=\"3\" [(ngModel)]=\"letterType\">\r\n              <label for=\"fo\">فوری</label>\r\n              <input type=\"radio\" id=\"khfo\" name=\"type\" [value]=\"4\" [(ngModel)]=\"letterType\">\r\n              <label for=\"khfo\">خیلی فوری</label>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <hr />\r\n    <div class=\"row\">\r\n      <div class=\"col-md-12\">\r\n        <div class=\"card\">\r\n          <div class=\"card-body bg-light\">\r\n            <p>مدت زمان پاسخ</p>\r\n            <div class=\"row\" dir=\"rtl\">\r\n              <div class=\"col-md-6\">\r\n                <div class=\"button-group mt-1\">\r\n                  <input type=\"radio\" [value]=\"1\" [(ngModel)]=\"responseType\" id=\"unlimit\" name=\"response-type\">\r\n                  <label for=\"unlimit\">نامحدود</label>\r\n                  <input type=\"radio\" [value]=\"2\" [(ngModel)]=\"responseType\" id=\"hours\" name=\"response-type\">\r\n                  <label for=\"hours\">ساعت</label>\r\n                  <input type=\"radio\" [value]=\"3\" [(ngModel)]=\"responseType\" id=\"days\" name=\"response-type\">\r\n                  <label for=\"days\">روز</label>\r\n                </div>\r\n              </div>\r\n              <div class=\"col-md-6\">\r\n                <input type=\"number\" class=\"form-control text-center\" placeholder=\"مدت زمان\" [(ngModel)]=\"responseTime\" *ngIf=\"responseType !== 1\"/>\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"card card-body bg-light mt-3\">\r\n      <p>پیوست</p>\r\n      <div class=\"row\">\r\n        <div class=\"col-md-6 border-right\">\r\n          <div class=\"button-group\">\r\n            <input type=\"radio\" [value]=\"true\" [checked]=\"hasfile\" [(ngModel)]=\"hasfile\" id=\"pdar\" name=\"attachment\">\r\n            <label for=\"pdar\">دارد</label>\r\n            <input type=\"radio\" [value]=\"false\" [checked]=\"!hasfile\" [(ngModel)]=\"hasfile\" id=\"pnadar\" name=\"attachment\">\r\n            <label for=\"pnadar\">ندارد</label>\r\n          </div>\r\n        </div>\r\n        <div class=\"col-md-6\">\r\n          <div *ngIf=\"hasfile\">\r\n            <span>انتخاب فایل ها</span>\r\n            <input style=\"direction: rtl;\" multiple type=\"file\"/>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"row mt-3\">\r\n      <div class=\"col-md-12 text-left\">\r\n        <button class=\"btn btn-info\" (click)=\"createLetter()\">تولید نامه</button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"modal fade show\" id=\"letter-modal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">\r\n  <div class=\"modal-dialog modal-lg\" role=\"document\">\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <h5 class=\"modal-title\" id=\"exampleModalLabel\"> title</h5>\r\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n          <span aria-hidden=\"true\">&times;</span>\r\n        </button>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        <router-outlet></router-outlet>\r\n      </div>\r\n      <div class=\"modal-footer d-block\">\r\n        <button type=\"button\" id=\"btn\" class=\"btn btn-primary sans\">ارسال نامه</button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n<notifier-container></notifier-container>\r\n"
 
 /***/ }),
 
@@ -1176,7 +1169,7 @@ let NewLetterComponent = class NewLetterComponent {
         };
         this.selectedDate = jalali_moment__WEBPACK_IMPORTED_MODULE_1__().locale('fa').format('jYYYY/jMM/jDD');
         this.letterSubject = '';
-        this.receivers = [];
+        this.receivers = ['شرکت شماره1'];
         this.receiverDropDown = [];
         this.sender = '';
         this.replica = [];
@@ -1492,7 +1485,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card\">\n  <img class=\"img-thumbnail\" id=\"imgUserSign\" />\n  <div class=\"card-header bg-primary text-white\" style=\"font-weight: 800;\">ثبت امضا</div>\n  <div class=\"card-body bg-white text-dark\" style=\"text-align: center!important;\">\n    <label id=\"lbl_username\" style=\"display: block; font-size: 12pt;\" class=\"label bg-primary text-white\"></label>\n    <div id=\"fileArea\">\n      <form id=\"signform\">\n        <label id=\"chooselbl\">انتخاب تصویر امضا</label>\n        <input id=\"signfile\" onchange=\"DetectFile($(this),'pnlcontrols');\" type=\"file\" style=\"display: inline-block; margin: 5px;\" />\n      </form>\n    </div>\n    <div id=\"pnlcontrols\" style=\"display: none;\">\n      <div style=\"padding: 5px;\">\n        <button id=\"cropbutton\" class=\"btn btn-sm btn-info\" type=\"button\">برش</button>\n        <button id=\"scalebutton\" class=\"btn btn-sm btn-info\" type=\"button\">تغییر اندازه</button>\n        <button id=\"rotatebutton\" class=\"btn btn-sm btn-info\" type=\"button\">چرخش</button>\n        <button id=\"hflipbutton\" class=\"btn btn-sm btn-info\" type=\"button\">چرخش افقی</button>\n        <button id=\"vflipbutton\" class=\"btn btn-sm btn-info\" type=\"button\">چرخش عمودی</button>\n      </div>\n      <div style=\"width: 100%;\">\n        <div id=\"views\" class=\"img-thumbnail\" style=\"padding: 5px; z-index: -1; display: inline-block !important;\">\n        </div>\n      </div>\n      <button type=\"button\" id=\"uploadfile\" class=\"btn btn-primary\" onclick=\"UploadSign();\" style=\"width: 20%; position: relative;\">\n        <img src=\"images/loading.gif\" id=\"loadingsignupload\" />\n        ثبت امضا\n      </button>\n    </div>\n  </div>\n</div>\n\n"
+module.exports = "<div class=\"card\">\r\n  <img class=\"img-thumbnail\" id=\"imgUserSign\" />\r\n  <div class=\"card-header bg-primary text-white\" style=\"font-weight: 800;\">ثبت امضا</div>\r\n  <div class=\"card-body bg-white text-dark\" style=\"text-align: center!important;\">\r\n    <label id=\"lbl_username\" style=\"display: block; font-size: 12pt;\" class=\"label bg-primary text-white\"></label>\r\n    <div id=\"fileArea\">\r\n      <form id=\"signform\">\r\n        <label id=\"chooselbl\">انتخاب تصویر امضا</label>\r\n        <input id=\"signfile\" onchange=\"DetectFile($(this),'pnlcontrols');\" type=\"file\" style=\"display: inline-block; margin: 5px;\" />\r\n      </form>\r\n    </div>\r\n    <div id=\"pnlcontrols\" style=\"display: none;\">\r\n      <div style=\"padding: 5px;\">\r\n        <button id=\"cropbutton\" class=\"btn btn-sm btn-info\" type=\"button\">برش</button>\r\n        <button id=\"scalebutton\" class=\"btn btn-sm btn-info\" type=\"button\">تغییر اندازه</button>\r\n        <button id=\"rotatebutton\" class=\"btn btn-sm btn-info\" type=\"button\">چرخش</button>\r\n        <button id=\"hflipbutton\" class=\"btn btn-sm btn-info\" type=\"button\">چرخش افقی</button>\r\n        <button id=\"vflipbutton\" class=\"btn btn-sm btn-info\" type=\"button\">چرخش عمودی</button>\r\n      </div>\r\n      <div style=\"width: 100%;\">\r\n        <div id=\"views\" class=\"img-thumbnail\" style=\"padding: 5px; z-index: -1; display: inline-block !important;\">\r\n        </div>\r\n      </div>\r\n      <button type=\"button\" id=\"uploadfile\" class=\"btn btn-primary\" onclick=\"UploadSign();\" style=\"width: 20%; position: relative;\">\r\n        <img src=\"images/loading.gif\" id=\"loadingsignupload\" />\r\n        ثبت امضا\r\n      </button>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n"
 
 /***/ }),
 
@@ -1662,6 +1655,81 @@ LetterNumberDirective = __decorate([
 
 /***/ }),
 
+/***/ "./src/app/shared/directives/search-receiver.directive.ts":
+/*!****************************************************************!*\
+  !*** ./src/app/shared/directives/search-receiver.directive.ts ***!
+  \****************************************************************/
+/*! exports provided: SearchReceiverDirective */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SearchReceiverDirective", function() { return SearchReceiverDirective; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm2015/http.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+let SearchReceiverDirective = class SearchReceiverDirective {
+    constructor(elementRef, http) {
+        this.elementRef = elementRef;
+        this.http = http;
+        this.element = elementRef.nativeElement;
+    }
+    ngOnInit() {
+        this.element.style = 'width:' + this.width + '%;' +
+            'background-image: url(../../assets/images/Search_Dark.png); ' +
+            'background-repeat: no-repeat; ' +
+            'background-position: right 8px top 9px; ' +
+            'background-size: 15px;' +
+            'padding-right: 30px;';
+        this.element.innerHTML = '<input name="search-field" placeholder="' + this.placeholder + '" ' +
+            'autocomplete="off" style="width: 100%;border: none;outline: none;height: 100%;direction: rtl;font-family:sans-small;"/>';
+        this.element.classList.add('form-control');
+        console.log(this.element);
+    }
+};
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('width'),
+    __metadata("design:type", String)
+], SearchReceiverDirective.prototype, "width", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('arg'),
+    __metadata("design:type", String)
+], SearchReceiverDirective.prototype, "argument", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('id'),
+    __metadata("design:type", String)
+], SearchReceiverDirective.prototype, "id", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('text'),
+    __metadata("design:type", String)
+], SearchReceiverDirective.prototype, "text", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('placeholder'),
+    __metadata("design:type", String)
+], SearchReceiverDirective.prototype, "placeholder", void 0);
+SearchReceiverDirective = __decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"])({
+        selector: '[appSearchReceiver]'
+    }),
+    __metadata("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"], _angular_http__WEBPACK_IMPORTED_MODULE_1__["Http"]])
+], SearchReceiverDirective);
+
+
+
+/***/ }),
+
 /***/ "./src/environments/environment.ts":
 /*!*****************************************!*\
   !*** ./src/environments/environment.ts ***!
@@ -1723,7 +1791,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Omid\source\repos\TaavonAngular\TaavonAngular\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\IT2\source\repos\TaavonAngular\TaavonAngular\src\main.ts */"./src/main.ts");
 
 
 /***/ })

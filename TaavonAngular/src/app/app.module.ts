@@ -23,6 +23,7 @@ import { LetterNumberDirective } from './shared/directives/letter-number.directi
 import { A4Component } from './main/new-letter/a4/a4.component';
 import { A5Component } from './main/new-letter/a5/a5.component';
 import { SignUploadComponent } from './main/users/sign-upload/sign-upload.component';
+import { SearchReceiverDirective } from './shared/directives/search-receiver.directive';
 
 const appRoutes: Route[] = [
   { path: 'login', component: LoginComponent },
@@ -86,6 +87,7 @@ const notifierOptions: {} = {
     A4Component,
     A5Component,
     SignUploadComponent,
+    SearchReceiverDirective,
   ],
   imports: [
     BrowserModule,
