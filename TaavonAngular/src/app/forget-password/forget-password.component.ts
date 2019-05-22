@@ -8,8 +8,5 @@ import { ViewChild } from '@angular/core';
 })
 export class ForgetPasswordComponent implements OnInit {
   constructor() { }
-
-  ngOnInit() {
-    
-  }
+  ngOnInit() {}
 }

@@ -13,6 +13,7 @@ export class NewLetterComponent implements OnInit {
   datePickerConfig = {
     format: 'jYYYY/jMM/jDD'
   }
+  placeholder = 'جستجوی شرکت ...';
   selectedDate = moment().locale('fa').format('jYYYY/jMM/jDD');
   letterSubject: string = '';
   receivers: string[] = ['شرکت شماره1'];

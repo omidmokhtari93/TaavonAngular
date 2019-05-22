@@ -1,4 +1,4 @@
-import { Directive } from '@angular/core';
+import { Directive, HostListener, SimpleChanges } from '@angular/core';
 import { ElementRef } from '@angular/core';
 import { Http } from '@angular/http';
 import { OnInit } from '@angular/core';
@@ -14,6 +14,7 @@ export class SearchReceiverDirective implements OnInit {
   @Input('text') text: string;
   @Input('placeholder') placeholder: string;
   element: any;
+  input: any;
   constructor(private elementRef: ElementRef, private http: Http) {
     this.element = elementRef.nativeElement;
   }
@@ -23,10 +24,11 @@ export class SearchReceiverDirective implements OnInit {
       'background-repeat: no-repeat; ' +
       'background-position: right 8px top 9px; ' +
       'background-size: 15px;' +
-      'padding-right: 30px;'
+      'padding-right: 30px;' +
+      'font-family:sans;'
     this.element.innerHTML = '<input name="search-field" placeholder="' + this.placeholder + '" ' +
-      'autocomplete="off" style="width: 100%;border: none;outline: none;height: 100%;direction: rtl;font-family:sans-small;"/>';
+      'autocomplete="off" style="width: 100%;border: none;outline: none;height: 100%;direction: rtl;font-family:inherit;"/>';
     this.element.classList.add('form-control');
-    console.log(this.element);
+    this.input = this.element.querySelector('input');
   }
 }

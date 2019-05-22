@@ -24,6 +24,7 @@ import { A4Component } from './main/new-letter/a4/a4.component';
 import { A5Component } from './main/new-letter/a5/a5.component';
 import { SignUploadComponent } from './main/users/sign-upload/sign-upload.component';
 import { SearchReceiverDirective } from './shared/directives/search-receiver.directive';
+import { SearchComponent } from './shared/components/search/search.component';
 
 const appRoutes: Route[] = [
   { path: 'login', component: LoginComponent },
@@ -88,6 +89,7 @@ const notifierOptions: {} = {
     A5Component,
     SignUploadComponent,
     SearchReceiverDirective,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,

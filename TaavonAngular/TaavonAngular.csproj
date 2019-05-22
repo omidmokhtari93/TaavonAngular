@@ -20,4 +20,8 @@
     <TypeScriptCompile Include="src\app\shared\services\files.service.ts" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="src\app\shared\components\" />
+  </ItemGroup>
+
 </Project>
