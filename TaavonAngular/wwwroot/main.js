@@ -1019,7 +1019,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\r\n  a4 works!\r\n</p>\r\n"
+module.exports = "<p>\n  a4 works!\n</p>\n"
 
 /***/ }),
 
@@ -1080,7 +1080,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\r\n  a5 works!\r\n</p>\r\n"
+module.exports = "<p>\n  a5 works!\n</p>\n"
 
 /***/ }),
 
@@ -1187,7 +1187,6 @@ let NewLetterComponent = class NewLetterComponent {
         this.selectedDate = jalali_moment__WEBPACK_IMPORTED_MODULE_1__().locale('fa').format('jYYYY/jMM/jDD');
         this.letterSubject = '';
         this.receivers = [];
-        this.receiverDropDown = [];
         this.sender = '';
         this.replica = [];
         this.replicaText = '';
@@ -1208,7 +1207,7 @@ let NewLetterComponent = class NewLetterComponent {
     }
     removeBadge(id) {
         this.receivers.forEach((item, index) => {
-            if (item.id === id)
+            if (item.id == id)
                 this.receivers.splice(index, 1);
         });
     }
@@ -1507,7 +1506,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card\">\r\n  <img class=\"img-thumbnail\" id=\"imgUserSign\" />\r\n  <div class=\"card-header bg-primary text-white\" style=\"font-weight: 800;\">ثبت امضا</div>\r\n  <div class=\"card-body bg-white text-dark\" style=\"text-align: center!important;\">\r\n    <label id=\"lbl_username\" style=\"display: block; font-size: 12pt;\" class=\"label bg-primary text-white\"></label>\r\n    <div id=\"fileArea\">\r\n      <form id=\"signform\">\r\n        <label id=\"chooselbl\">انتخاب تصویر امضا</label>\r\n        <input id=\"signfile\" onchange=\"DetectFile($(this),'pnlcontrols');\" type=\"file\" style=\"display: inline-block; margin: 5px;\" />\r\n      </form>\r\n    </div>\r\n    <div id=\"pnlcontrols\" style=\"display: none;\">\r\n      <div style=\"padding: 5px;\">\r\n        <button id=\"cropbutton\" class=\"btn btn-sm btn-info\" type=\"button\">برش</button>\r\n        <button id=\"scalebutton\" class=\"btn btn-sm btn-info\" type=\"button\">تغییر اندازه</button>\r\n        <button id=\"rotatebutton\" class=\"btn btn-sm btn-info\" type=\"button\">چرخش</button>\r\n        <button id=\"hflipbutton\" class=\"btn btn-sm btn-info\" type=\"button\">چرخش افقی</button>\r\n        <button id=\"vflipbutton\" class=\"btn btn-sm btn-info\" type=\"button\">چرخش عمودی</button>\r\n      </div>\r\n      <div style=\"width: 100%;\">\r\n        <div id=\"views\" class=\"img-thumbnail\" style=\"padding: 5px; z-index: -1; display: inline-block !important;\">\r\n        </div>\r\n      </div>\r\n      <button type=\"button\" id=\"uploadfile\" class=\"btn btn-primary\" onclick=\"UploadSign();\" style=\"width: 20%; position: relative;\">\r\n        <img src=\"images/loading.gif\" id=\"loadingsignupload\" />\r\n        ثبت امضا\r\n      </button>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n"
+module.exports = "<div class=\"card\">\n  <img class=\"img-thumbnail\" id=\"imgUserSign\" />\n  <div class=\"card-header bg-primary text-white\" style=\"font-weight: 800;\">ثبت امضا</div>\n  <div class=\"card-body bg-white text-dark\" style=\"text-align: center!important;\">\n    <label id=\"lbl_username\" style=\"display: block; font-size: 12pt;\" class=\"label bg-primary text-white\"></label>\n    <div id=\"fileArea\">\n      <form id=\"signform\">\n        <label id=\"chooselbl\">انتخاب تصویر امضا</label>\n        <input id=\"signfile\" onchange=\"DetectFile($(this),'pnlcontrols');\" type=\"file\" style=\"display: inline-block; margin: 5px;\" />\n      </form>\n    </div>\n    <div id=\"pnlcontrols\" style=\"display: none;\">\n      <div style=\"padding: 5px;\">\n        <button id=\"cropbutton\" class=\"btn btn-sm btn-info\" type=\"button\">برش</button>\n        <button id=\"scalebutton\" class=\"btn btn-sm btn-info\" type=\"button\">تغییر اندازه</button>\n        <button id=\"rotatebutton\" class=\"btn btn-sm btn-info\" type=\"button\">چرخش</button>\n        <button id=\"hflipbutton\" class=\"btn btn-sm btn-info\" type=\"button\">چرخش افقی</button>\n        <button id=\"vflipbutton\" class=\"btn btn-sm btn-info\" type=\"button\">چرخش عمودی</button>\n      </div>\n      <div style=\"width: 100%;\">\n        <div id=\"views\" class=\"img-thumbnail\" style=\"padding: 5px; z-index: -1; display: inline-block !important;\">\n        </div>\n      </div>\n      <button type=\"button\" id=\"uploadfile\" class=\"btn btn-primary\" onclick=\"UploadSign();\" style=\"width: 20%; position: relative;\">\n        <img src=\"images/loading.gif\" id=\"loadingsignupload\" />\n        ثبت امضا\n      </button>\n    </div>\n  </div>\n</div>\n\n"
 
 /***/ }),
 
@@ -1980,7 +1979,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\IT2\source\repos\TaavonAngular\TaavonAngular\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\Omid\source\repos\TaavonAngular\TaavonAngular\src\main.ts */"./src/main.ts");
 
 
 /***/ })

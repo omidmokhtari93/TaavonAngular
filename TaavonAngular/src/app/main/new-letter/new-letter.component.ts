@@ -17,8 +17,7 @@ export class NewLetterComponent implements OnInit {
   placeholder = 'جستجوی شرکت ...';
   selectedDate = moment().locale('fa').format('jYYYY/jMM/jDD');
   letterSubject: string = '';
-  receivers: string[] = [];
-  receiverDropDown: string[] = [];
+  receivers = [];
   sender: string = '';
   replica: string[] = [];
   replicaText: string = '';
@@ -35,16 +34,15 @@ export class NewLetterComponent implements OnInit {
 
   ngOnInit() {
     this.searchConfig.setConfig({ placeholder: 'جستجوی شرکت ...', width: '100%' });
-    this.getdata.getData.subscribe(res =>
-    {
+    this.getdata.getData.subscribe(res => {
       if (res !== null) {
-        this.receivers.push({ id: res.itemid, text: res.itemname});
+        this.receivers.push({ id: res.itemid, text: res.itemname });
       }
     })
   }
   removeBadge(id) {
     this.receivers.forEach((item, index) => {
-      if (item.id === id) this.receivers.splice(index, 1);
+      if (item.id == id) this.receivers.splice(index, 1);
     });
   }
   removeReplicaBadge(event) {
