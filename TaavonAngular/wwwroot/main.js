@@ -450,12 +450,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _main_users_sign_upload_sign_upload_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./main/users/sign-upload/sign-upload.component */ "./src/app/main/users/sign-upload/sign-upload.component.ts");
 /* harmony import */ var _shared_directives_search_receiver_directive__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./shared/directives/search-receiver.directive */ "./src/app/shared/directives/search-receiver.directive.ts");
 /* harmony import */ var _shared_components_search_search_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./shared/components/search/search.component */ "./src/app/shared/components/search/search.component.ts");
+/* harmony import */ var src_app_shared_services_data_service__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! src/app/shared/services/data.service */ "./src/app/shared/services/data.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -559,7 +561,9 @@ AppModule = __decorate([
             angular_notifier__WEBPACK_IMPORTED_MODULE_18__["NotifierModule"].withConfig(notifierOptions),
             ng2_jalali_date_picker__WEBPACK_IMPORTED_MODULE_20__["DpDatePickerModule"]
         ],
-        providers: [],
+        providers: [
+            src_app_shared_services_data_service__WEBPACK_IMPORTED_MODULE_27__["DataService"]
+        ],
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]]
     })
 ], AppModule);
@@ -601,6 +605,7 @@ module.exports = "<!--<input class=\"{{fc}}\" />\r\n<br />\r\n<input [class]=\"e
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ForgetPasswordComponent", function() { return ForgetPasswordComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var src_app_shared_services_data_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/shared/services/data.service */ "./src/app/shared/services/data.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -611,9 +616,14 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 let ForgetPasswordComponent = class ForgetPasswordComponent {
-    constructor() { }
-    ngOnInit() { }
+    constructor(searchConfig) {
+        this.searchConfig = searchConfig;
+    }
+    ngOnInit() {
+        this.searchConfig.setConfig({ placeholder: 'جستجوی شرکت ...', width: '80%' });
+    }
 };
 ForgetPasswordComponent = __decorate([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -621,7 +631,7 @@ ForgetPasswordComponent = __decorate([
         template: __webpack_require__(/*! ./forget-password.component.html */ "./src/app/forget-password/forget-password.component.html"),
         styles: [__webpack_require__(/*! ./forget-password.component.css */ "./src/app/forget-password/forget-password.component.css")]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [src_app_shared_services_data_service__WEBPACK_IMPORTED_MODULE_1__["DataService"]])
 ], ForgetPasswordComponent);
 
 
@@ -1009,7 +1019,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  a4 works!\n</p>\n"
+module.exports = "<p>\r\n  a4 works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -1070,7 +1080,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  a5 works!\n</p>\n"
+module.exports = "<p>\r\n  a5 works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -1131,7 +1141,7 @@ module.exports = "#RecieverBadgeArea span{\r\n  cursor:pointer;\r\n}\r\n.button-
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card rtl text-right sans\">\r\n  <div class=\"card-header text-white bg-primary\">ارسال نامه</div>\r\n  <div class=\"card-body\">\r\n    <div class=\"w-100 ltr\">\r\n      <input class=\"form-control text-center\" readonly style=\"width: 25%\" placeholder=\"تاریخ\"\r\n             [(ngModel)]=\"selectedDate\" [dpDayPicker]=\"datePickerConfig\" theme=\"dp-material\" />\r\n    </div>\r\n    <hr class=\"mt-0\" />\r\n    <div class=\"row\">\r\n      <div class=\"col-md-6\">\r\n        عنوان نامه\r\n        <input class=\"form-control\" dir=\"rtl\" [(ngModel)]=\"letterSubject\"/>\r\n      </div>\r\n      <div class=\"col-md-6\">\r\n        فرستنده\r\n        <input class=\"form-control\" dir=\"rtl\" readonly [(ngModel)]=\"sender\"/>\r\n      </div>\r\n    </div>\r\n    <div class=\"row mt-3\">\r\n      <div class=\"col-md-12 position-relative\">\r\n        <div id=\"RecieverBadgeArea\">\r\n          <span class=\"sans-xsmall bg-default text-white m-1 pl-1 pr-1 rounded\"\r\n                (click)=\"removeBadge($event)\"\r\n                *ngFor=\"let receiver of receivers\">{{receiver}}</span>\r\n        </div>\r\n        <app-search [placeholder]=\"placeholder\" place=\"somthing\"></app-search>\r\n        <div id=\"receiverDropDown\" class=\"w-100 position-absolute\">\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"row mt-3\">\r\n      <div class=\"col-md-12\">\r\n        <div id=\"ReplicaBadgeArea\">\r\n          <span class=\"sans-xsmall bg-default text-white m-1 pl-1 pr-1 rounded\"\r\n                (click)=\"removeReplicaBadge($event)\"\r\n                *ngFor=\"let rep of replica\">{{rep}}</span>\r\n        </div>\r\n        <input class=\"form-control\" placeholder=\"رونوشت به ...\" />\r\n      </div>\r\n    </div>\r\n    <div class=\"row mt-3\">\r\n      <div class=\"col-md-12\">\r\n        متن رونوشت\r\n        <textarea class=\"form-control\" rows=\"3\" style=\"resize: none;\" [(ngModel)]=\"replicaText\"></textarea>\r\n      </div>\r\n    </div>\r\n    <hr />\r\n    <div class=\"row mt-3\">\r\n      <div class=\"col-md-12\">\r\n        <div class=\"row\">\r\n          <div class=\"col-md-3 pr-3\">\r\n            <p>نیاز به پاسخ</p>\r\n            <div class=\"button-group\">\r\n              <input type=\"radio\" id=\"reposnse-yes\" name=\"resp\" [value]=\"true\" [(ngModel)]=\"needResponse\" [checked]=\"needResponse\">\r\n              <label for=\"reposnse-yes\">دارد</label>\r\n              <input type=\"radio\" id=\"response-no\" name=\"resp\" checked [value]=\"false\" [(ngModel)]=\"needResponse\" [checked]=\"!needResponse\">\r\n              <label for=\"response-no\">ندارد</label>\r\n            </div>\r\n          </div>\r\n          <div class=\"col-md-3 pr-3 border-right\">\r\n            <p>سایز نامه</p>\r\n            <div class=\"button-group\">\r\n              <input type=\"radio\" id=\"A4size\" name=\"size\" checked [value]=\"true\" [(ngModel)]=\"letterSize\" [checked]=\"letterSize\">\r\n              <label for=\"A4size\">A4</label>\r\n              <input type=\"radio\" id=\"A5size\" name=\"size\" [value]=\"false\" [(ngModel)]=\"letterSize\" [checked]=\"!letterSize\">\r\n              <label for=\"A5size\">A5</label>\r\n            </div>\r\n          </div>\r\n          <div class=\"col-md-6 pr-3 border-right\" dir=\"rtl\">\r\n            <p>نوع نامه</p>\r\n            <div class=\"button-group\">\r\n              <input type=\"radio\" id=\"adi\" name=\"type\" checked [value]=\"0\" [(ngModel)]=\"letterType\">\r\n              <label for=\"adi\">عادی</label>\r\n              <input type=\"radio\" id=\"eb\" name=\"type\" [value]=\"1\" [(ngModel)]=\"letterType\">\r\n              <label for=\"eb\">ابلاغیه</label>\r\n              <input type=\"radio\" id=\"mo\" name=\"type\" [value]=\"2\" [(ngModel)]=\"letterType\">\r\n              <label for=\"mo\">مهم</label>\r\n              <input type=\"radio\" id=\"fo\" name=\"type\" [value]=\"3\" [(ngModel)]=\"letterType\">\r\n              <label for=\"fo\">فوری</label>\r\n              <input type=\"radio\" id=\"khfo\" name=\"type\" [value]=\"4\" [(ngModel)]=\"letterType\">\r\n              <label for=\"khfo\">خیلی فوری</label>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <hr />\r\n    <div class=\"row\">\r\n      <div class=\"col-md-12\">\r\n        <div class=\"card\">\r\n          <div class=\"card-body bg-light\">\r\n            <p>مدت زمان پاسخ</p>\r\n            <div class=\"row\" dir=\"rtl\">\r\n              <div class=\"col-md-6\">\r\n                <div class=\"button-group mt-1\">\r\n                  <input type=\"radio\" [value]=\"1\" [(ngModel)]=\"responseType\" id=\"unlimit\" name=\"response-type\">\r\n                  <label for=\"unlimit\">نامحدود</label>\r\n                  <input type=\"radio\" [value]=\"2\" [(ngModel)]=\"responseType\" id=\"hours\" name=\"response-type\">\r\n                  <label for=\"hours\">ساعت</label>\r\n                  <input type=\"radio\" [value]=\"3\" [(ngModel)]=\"responseType\" id=\"days\" name=\"response-type\">\r\n                  <label for=\"days\">روز</label>\r\n                </div>\r\n              </div>\r\n              <div class=\"col-md-6\">\r\n                <input type=\"number\" class=\"form-control text-center\" placeholder=\"مدت زمان\" [(ngModel)]=\"responseTime\" *ngIf=\"responseType !== 1\"/>\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"card card-body bg-light mt-3\">\r\n      <p>پیوست</p>\r\n      <div class=\"row\">\r\n        <div class=\"col-md-6 border-right\">\r\n          <div class=\"button-group\">\r\n            <input type=\"radio\" [value]=\"true\" [checked]=\"hasfile\" [(ngModel)]=\"hasfile\" id=\"pdar\" name=\"attachment\">\r\n            <label for=\"pdar\">دارد</label>\r\n            <input type=\"radio\" [value]=\"false\" [checked]=\"!hasfile\" [(ngModel)]=\"hasfile\" id=\"pnadar\" name=\"attachment\">\r\n            <label for=\"pnadar\">ندارد</label>\r\n          </div>\r\n        </div>\r\n        <div class=\"col-md-6\">\r\n          <div *ngIf=\"hasfile\">\r\n            <span>انتخاب فایل ها</span>\r\n            <input style=\"direction: rtl;\" multiple type=\"file\"/>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"row mt-3\">\r\n      <div class=\"col-md-12 text-left\">\r\n        <button class=\"btn btn-info\" (click)=\"createLetter()\">تولید نامه</button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"modal fade show\" id=\"letter-modal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">\r\n  <div class=\"modal-dialog modal-lg\" role=\"document\">\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <h5 class=\"modal-title\" id=\"exampleModalLabel\"> title</h5>\r\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n          <span aria-hidden=\"true\">&times;</span>\r\n        </button>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        <router-outlet></router-outlet>\r\n      </div>\r\n      <div class=\"modal-footer d-block\">\r\n        <button type=\"button\" id=\"btn\" class=\"btn btn-primary sans\">ارسال نامه</button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n<notifier-container></notifier-container>\r\n"
+module.exports = "<div class=\"card rtl text-right sans\">\r\n  <div class=\"card-header text-white bg-primary\">ارسال نامه</div>\r\n  <div class=\"card-body\">\r\n    <div class=\"w-100 ltr\">\r\n      <input class=\"form-control text-center\" readonly style=\"width: 25%\" placeholder=\"تاریخ\"\r\n             [(ngModel)]=\"selectedDate\" [dpDayPicker]=\"datePickerConfig\" theme=\"dp-material\" />\r\n    </div>\r\n    <hr class=\"mt-0\" />\r\n    <div class=\"row\">\r\n      <div class=\"col-md-6\">\r\n        عنوان نامه\r\n        <input class=\"form-control\" dir=\"rtl\" [(ngModel)]=\"letterSubject\"/>\r\n      </div>\r\n      <div class=\"col-md-6\">\r\n        فرستنده\r\n        <input class=\"form-control\" dir=\"rtl\" readonly [(ngModel)]=\"sender\"/>\r\n      </div>\r\n    </div>\r\n    <div class=\"row mt-3\">\r\n      <div class=\"col-md-12 position-relative\">\r\n        <div id=\"RecieverBadgeArea\">\r\n          <span class=\"sans-xsmall bg-default text-white m-1 pl-1 pr-1 rounded\"\r\n                (click)=\"removeBadge(receiver.id)\"\r\n                *ngFor=\"let receiver of receivers\">{{receiver.text}}</span>\r\n        </div>\r\n        <app-search></app-search>\r\n        <div id=\"receiverDropDown\" class=\"w-100 position-absolute\">\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"row mt-3\">\r\n      <div class=\"col-md-12\">\r\n        <div id=\"ReplicaBadgeArea\">\r\n          <span class=\"sans-xsmall bg-default text-white m-1 pl-1 pr-1 rounded\"\r\n                (click)=\"removeReplicaBadge($event)\"\r\n                *ngFor=\"let rep of replica\">{{rep}}</span>\r\n        </div>\r\n        <input class=\"form-control\" placeholder=\"رونوشت به ...\" />\r\n      </div>\r\n    </div>\r\n    <div class=\"row mt-3\">\r\n      <div class=\"col-md-12\">\r\n        متن رونوشت\r\n        <textarea class=\"form-control\" rows=\"3\" style=\"resize: none;\" [(ngModel)]=\"replicaText\"></textarea>\r\n      </div>\r\n    </div>\r\n    <hr />\r\n    <div class=\"row mt-3\">\r\n      <div class=\"col-md-12\">\r\n        <div class=\"row\">\r\n          <div class=\"col-md-3 pr-3\">\r\n            <p>نیاز به پاسخ</p>\r\n            <div class=\"button-group\">\r\n              <input type=\"radio\" id=\"reposnse-yes\" name=\"resp\" [value]=\"true\" [(ngModel)]=\"needResponse\" [checked]=\"needResponse\">\r\n              <label for=\"reposnse-yes\">دارد</label>\r\n              <input type=\"radio\" id=\"response-no\" name=\"resp\" checked [value]=\"false\" [(ngModel)]=\"needResponse\" [checked]=\"!needResponse\">\r\n              <label for=\"response-no\">ندارد</label>\r\n            </div>\r\n          </div>\r\n          <div class=\"col-md-3 pr-3 border-right\">\r\n            <p>سایز نامه</p>\r\n            <div class=\"button-group\">\r\n              <input type=\"radio\" id=\"A4size\" name=\"size\" checked [value]=\"true\" [(ngModel)]=\"letterSize\" [checked]=\"letterSize\">\r\n              <label for=\"A4size\">A4</label>\r\n              <input type=\"radio\" id=\"A5size\" name=\"size\" [value]=\"false\" [(ngModel)]=\"letterSize\" [checked]=\"!letterSize\">\r\n              <label for=\"A5size\">A5</label>\r\n            </div>\r\n          </div>\r\n          <div class=\"col-md-6 pr-3 border-right\" dir=\"rtl\">\r\n            <p>نوع نامه</p>\r\n            <div class=\"button-group\">\r\n              <input type=\"radio\" id=\"adi\" name=\"type\" checked [value]=\"0\" [(ngModel)]=\"letterType\">\r\n              <label for=\"adi\">عادی</label>\r\n              <input type=\"radio\" id=\"eb\" name=\"type\" [value]=\"1\" [(ngModel)]=\"letterType\">\r\n              <label for=\"eb\">ابلاغیه</label>\r\n              <input type=\"radio\" id=\"mo\" name=\"type\" [value]=\"2\" [(ngModel)]=\"letterType\">\r\n              <label for=\"mo\">مهم</label>\r\n              <input type=\"radio\" id=\"fo\" name=\"type\" [value]=\"3\" [(ngModel)]=\"letterType\">\r\n              <label for=\"fo\">فوری</label>\r\n              <input type=\"radio\" id=\"khfo\" name=\"type\" [value]=\"4\" [(ngModel)]=\"letterType\">\r\n              <label for=\"khfo\">خیلی فوری</label>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <hr />\r\n    <div class=\"row\">\r\n      <div class=\"col-md-12\">\r\n        <div class=\"card\">\r\n          <div class=\"card-body bg-light\">\r\n            <p>مدت زمان پاسخ</p>\r\n            <div class=\"row\" dir=\"rtl\">\r\n              <div class=\"col-md-6\">\r\n                <div class=\"button-group mt-1\">\r\n                  <input type=\"radio\" [value]=\"1\" [(ngModel)]=\"responseType\" id=\"unlimit\" name=\"response-type\">\r\n                  <label for=\"unlimit\">نامحدود</label>\r\n                  <input type=\"radio\" [value]=\"2\" [(ngModel)]=\"responseType\" id=\"hours\" name=\"response-type\">\r\n                  <label for=\"hours\">ساعت</label>\r\n                  <input type=\"radio\" [value]=\"3\" [(ngModel)]=\"responseType\" id=\"days\" name=\"response-type\">\r\n                  <label for=\"days\">روز</label>\r\n                </div>\r\n              </div>\r\n              <div class=\"col-md-6\">\r\n                <input type=\"number\" class=\"form-control text-center\" placeholder=\"مدت زمان\" [(ngModel)]=\"responseTime\" *ngIf=\"responseType !== 1\"/>\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"card card-body bg-light mt-3\">\r\n      <p>پیوست</p>\r\n      <div class=\"row\">\r\n        <div class=\"col-md-6 border-right\">\r\n          <div class=\"button-group\">\r\n            <input type=\"radio\" [value]=\"true\" [checked]=\"hasfile\" [(ngModel)]=\"hasfile\" id=\"pdar\" name=\"attachment\">\r\n            <label for=\"pdar\">دارد</label>\r\n            <input type=\"radio\" [value]=\"false\" [checked]=\"!hasfile\" [(ngModel)]=\"hasfile\" id=\"pnadar\" name=\"attachment\">\r\n            <label for=\"pnadar\">ندارد</label>\r\n          </div>\r\n        </div>\r\n        <div class=\"col-md-6\">\r\n          <div *ngIf=\"hasfile\">\r\n            <span>انتخاب فایل ها</span>\r\n            <input style=\"direction: rtl;\" multiple type=\"file\"/>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"row mt-3\">\r\n      <div class=\"col-md-12 text-left\">\r\n        <button class=\"btn btn-info\" (click)=\"createLetter()\">تولید نامه</button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"modal fade show\" id=\"letter-modal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">\r\n  <div class=\"modal-dialog modal-lg\" role=\"document\">\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <h5 class=\"modal-title\" id=\"exampleModalLabel\"> title</h5>\r\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n          <span aria-hidden=\"true\">&times;</span>\r\n        </button>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        <router-outlet></router-outlet>\r\n      </div>\r\n      <div class=\"modal-footer d-block\">\r\n        <button type=\"button\" id=\"btn\" class=\"btn btn-primary sans\">ارسال نامه</button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n<notifier-container></notifier-container>\r\n"
 
 /***/ }),
 
@@ -1150,6 +1160,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jalali_moment__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jalali_moment__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 /* harmony import */ var angular_notifier__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! angular-notifier */ "./node_modules/angular-notifier/esm2015/angular-notifier.js");
+/* harmony import */ var src_app_shared_services_data_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/services/data.service */ "./src/app/shared/services/data.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1163,16 +1174,19 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 let NewLetterComponent = class NewLetterComponent {
-    constructor(route, notifierService) {
+    constructor(route, notifierService, searchConfig, getdata) {
         this.route = route;
+        this.searchConfig = searchConfig;
+        this.getdata = getdata;
         this.datePickerConfig = {
             format: 'jYYYY/jMM/jDD'
         };
         this.placeholder = 'جستجوی شرکت ...';
         this.selectedDate = jalali_moment__WEBPACK_IMPORTED_MODULE_1__().locale('fa').format('jYYYY/jMM/jDD');
         this.letterSubject = '';
-        this.receivers = ['شرکت شماره1'];
+        this.receivers = [];
         this.receiverDropDown = [];
         this.sender = '';
         this.replica = [];
@@ -1185,13 +1199,18 @@ let NewLetterComponent = class NewLetterComponent {
         this.notifier = notifierService;
     }
     ngOnInit() {
-    }
-    removeBadge(event) {
-        for (var i = this.receivers.length - 1; i >= 0; i--) {
-            if (this.receivers[i] === event.target.innerText) {
-                this.receivers.splice(i, 1);
+        this.searchConfig.setConfig({ placeholder: 'جستجوی شرکت ...', width: '100%' });
+        this.getdata.getData.subscribe(res => {
+            if (res !== null) {
+                this.receivers.push({ id: res.itemid, text: res.itemname });
             }
-        }
+        });
+    }
+    removeBadge(id) {
+        this.receivers.forEach((item, index) => {
+            if (item.id === id)
+                this.receivers.splice(index, 1);
+        });
     }
     removeReplicaBadge(event) {
         for (var i = this.replica.length - 1; i >= 0; i--) {
@@ -1219,7 +1238,7 @@ NewLetterComponent = __decorate([
         template: __webpack_require__(/*! ./new-letter.component.html */ "./src/app/main/new-letter/new-letter.component.html"),
         styles: [__webpack_require__(/*! ./new-letter.component.css */ "./src/app/main/new-letter/new-letter.component.css")]
     }),
-    __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], angular_notifier__WEBPACK_IMPORTED_MODULE_3__["NotifierService"]])
+    __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], angular_notifier__WEBPACK_IMPORTED_MODULE_3__["NotifierService"], src_app_shared_services_data_service__WEBPACK_IMPORTED_MODULE_4__["DataService"], src_app_shared_services_data_service__WEBPACK_IMPORTED_MODULE_4__["DataService"]])
 ], NewLetterComponent);
 
 
@@ -1488,7 +1507,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card\">\n  <img class=\"img-thumbnail\" id=\"imgUserSign\" />\n  <div class=\"card-header bg-primary text-white\" style=\"font-weight: 800;\">ثبت امضا</div>\n  <div class=\"card-body bg-white text-dark\" style=\"text-align: center!important;\">\n    <label id=\"lbl_username\" style=\"display: block; font-size: 12pt;\" class=\"label bg-primary text-white\"></label>\n    <div id=\"fileArea\">\n      <form id=\"signform\">\n        <label id=\"chooselbl\">انتخاب تصویر امضا</label>\n        <input id=\"signfile\" onchange=\"DetectFile($(this),'pnlcontrols');\" type=\"file\" style=\"display: inline-block; margin: 5px;\" />\n      </form>\n    </div>\n    <div id=\"pnlcontrols\" style=\"display: none;\">\n      <div style=\"padding: 5px;\">\n        <button id=\"cropbutton\" class=\"btn btn-sm btn-info\" type=\"button\">برش</button>\n        <button id=\"scalebutton\" class=\"btn btn-sm btn-info\" type=\"button\">تغییر اندازه</button>\n        <button id=\"rotatebutton\" class=\"btn btn-sm btn-info\" type=\"button\">چرخش</button>\n        <button id=\"hflipbutton\" class=\"btn btn-sm btn-info\" type=\"button\">چرخش افقی</button>\n        <button id=\"vflipbutton\" class=\"btn btn-sm btn-info\" type=\"button\">چرخش عمودی</button>\n      </div>\n      <div style=\"width: 100%;\">\n        <div id=\"views\" class=\"img-thumbnail\" style=\"padding: 5px; z-index: -1; display: inline-block !important;\">\n        </div>\n      </div>\n      <button type=\"button\" id=\"uploadfile\" class=\"btn btn-primary\" onclick=\"UploadSign();\" style=\"width: 20%; position: relative;\">\n        <img src=\"images/loading.gif\" id=\"loadingsignupload\" />\n        ثبت امضا\n      </button>\n    </div>\n  </div>\n</div>\n\n"
+module.exports = "<div class=\"card\">\r\n  <img class=\"img-thumbnail\" id=\"imgUserSign\" />\r\n  <div class=\"card-header bg-primary text-white\" style=\"font-weight: 800;\">ثبت امضا</div>\r\n  <div class=\"card-body bg-white text-dark\" style=\"text-align: center!important;\">\r\n    <label id=\"lbl_username\" style=\"display: block; font-size: 12pt;\" class=\"label bg-primary text-white\"></label>\r\n    <div id=\"fileArea\">\r\n      <form id=\"signform\">\r\n        <label id=\"chooselbl\">انتخاب تصویر امضا</label>\r\n        <input id=\"signfile\" onchange=\"DetectFile($(this),'pnlcontrols');\" type=\"file\" style=\"display: inline-block; margin: 5px;\" />\r\n      </form>\r\n    </div>\r\n    <div id=\"pnlcontrols\" style=\"display: none;\">\r\n      <div style=\"padding: 5px;\">\r\n        <button id=\"cropbutton\" class=\"btn btn-sm btn-info\" type=\"button\">برش</button>\r\n        <button id=\"scalebutton\" class=\"btn btn-sm btn-info\" type=\"button\">تغییر اندازه</button>\r\n        <button id=\"rotatebutton\" class=\"btn btn-sm btn-info\" type=\"button\">چرخش</button>\r\n        <button id=\"hflipbutton\" class=\"btn btn-sm btn-info\" type=\"button\">چرخش افقی</button>\r\n        <button id=\"vflipbutton\" class=\"btn btn-sm btn-info\" type=\"button\">چرخش عمودی</button>\r\n      </div>\r\n      <div style=\"width: 100%;\">\r\n        <div id=\"views\" class=\"img-thumbnail\" style=\"padding: 5px; z-index: -1; display: inline-block !important;\">\r\n        </div>\r\n      </div>\r\n      <button type=\"button\" id=\"uploadfile\" class=\"btn btn-primary\" onclick=\"UploadSign();\" style=\"width: 20%; position: relative;\">\r\n        <img src=\"images/loading.gif\" id=\"loadingsignupload\" />\r\n        ثبت امضا\r\n      </button>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n"
 
 /***/ }),
 
@@ -1620,7 +1639,7 @@ UsersComponent = __decorate([
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".search-input {\r\n  position: relative;\r\n  display: inline-block;\r\n  width: 100%;\r\n  min-height: 38px;\r\n  padding: 3px;\r\n  font-size: 1rem;\r\n  line-height: 1.5;\r\n  color: #495057;\r\n  background-color: #e6f3ff;\r\n  background-clip: padding-box;\r\n  border: 1px solid #ced4da;\r\n  border-radius: .25rem;\r\n  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;\r\n}\r\n\r\n  .search-input div[name=result-area] {\r\n    position: absolute;\r\n    background-color: #e6f3ff;\r\n    padding: 0px 3px 3px 3px;\r\n    left: -1px;\r\n    border-right: 1px solid #ced4da;\r\n    border-left: 1px solid #ced4da;\r\n    border-bottom: 1px solid #ced4da;\r\n    border-bottom-right-radius: .25rem;\r\n    border-bottom-left-radius: .25rem;\r\n  }\r\n\r\n  .search-input input[name=search-field] {\r\n    border: none;\r\n    width: 100%;\r\n    height: 30px;\r\n    direction: rtl;\r\n    outline: none;\r\n    font-size: 10pt;\r\n    font-family: sans;\r\n    font-weight: bold;\r\n    padding: 2px 30px 2px 2px;\r\n    background-image: url(/assets/Images/Search_Dark.png);\r\n    background-repeat: no-repeat;\r\n    background-position: right 8px top 7px;\r\n    background-size: 15px;\r\n  }\r\n\r\n  .search-input input[name=filter-items] {\r\n    border: none;\r\n    width: 100%;\r\n    margin: 3px 0;\r\n    outline: none;\r\n    padding-right: 30px;\r\n    background-image: url(/assets/Images/funnel.png);\r\n    background-repeat: no-repeat;\r\n    background-position: right 8px top 5px;\r\n    background-size: 15px;\r\n    font-family: sans;\r\n    font-size: 10pt;\r\n  }\r\n\r\n  .search-input img {\r\n    width: 15px;\r\n    height: auto;\r\n    z-index: 99;\r\n    position: absolute;\r\n    top: 10px;\r\n    left: 10px;\r\n  }\r\n\r\n  .search-input ul {\r\n    width: 100%;\r\n    background: white;\r\n    direction: rtl;\r\n    margin-bottom: 0px;\r\n    list-style-type: none;\r\n    font-family: sans;\r\n    padding-right: 0;\r\n    max-height: 150px;\r\n    overflow: auto;\r\n  }\r\n\r\n  .search-input ul li:hover {\r\n      background-color: #4646ff;\r\n      color: #ced4da;\r\n      cursor: pointer;\r\n    }\r\n\r\n  .search-input ul li {\r\n      direction: rtl;\r\n      text-align: right;\r\n      font-size: 10pt;\r\n      padding: 2px 5px;\r\n    }\r\n\r\n  .search-input span i {\r\n    position: absolute;\r\n  }\r\n\r\n  .search-input span {\r\n    z-index: 999;\r\n    position: absolute;\r\n    right: 30px;\r\n    top: 4px;\r\n    line-height: 21px;\r\n    font-family: sans;\r\n    font-size: 10pt;\r\n    cursor: pointer;\r\n    border: 1px solid #e3e3e3;\r\n    background-color: #ced4da;\r\n    color: #495057;\r\n    direction: rtl;\r\n    border-radius: 3px;\r\n    padding: 2px 5px;\r\n  }\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2hhcmVkL2NvbXBvbmVudHMvc2VhcmNoL3NlYXJjaC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0Usa0JBQWtCO0VBQ2xCLHFCQUFxQjtFQUNyQixXQUFXO0VBQ1gsZ0JBQWdCO0VBQ2hCLFlBQVk7RUFDWixlQUFlO0VBQ2YsZ0JBQWdCO0VBQ2hCLGNBQWM7RUFDZCx5QkFBeUI7RUFDekIsNEJBQTRCO0VBQzVCLHlCQUF5QjtFQUN6QixxQkFBcUI7RUFDckIsc0VBQXNFO0FBQ3hFOztFQUVFO0lBQ0Usa0JBQWtCO0lBQ2xCLHlCQUF5QjtJQUN6Qix3QkFBd0I7SUFDeEIsVUFBVTtJQUNWLCtCQUErQjtJQUMvQiw4QkFBOEI7SUFDOUIsZ0NBQWdDO0lBQ2hDLGtDQUFrQztJQUNsQyxpQ0FBaUM7RUFDbkM7O0VBRUE7SUFDRSxZQUFZO0lBQ1osV0FBVztJQUNYLFlBQVk7SUFDWixjQUFjO0lBQ2QsYUFBYTtJQUNiLGVBQWU7SUFDZixpQkFBaUI7SUFDakIsaUJBQWlCO0lBQ2pCLHlCQUF5QjtJQUN6QixxREFBcUQ7SUFDckQsNEJBQTRCO0lBQzVCLHNDQUFzQztJQUN0QyxxQkFBcUI7RUFDdkI7O0VBRUE7SUFDRSxZQUFZO0lBQ1osV0FBVztJQUNYLGFBQWE7SUFDYixhQUFhO0lBQ2IsbUJBQW1CO0lBQ25CLGdEQUFnRDtJQUNoRCw0QkFBNEI7SUFDNUIsc0NBQXNDO0lBQ3RDLHFCQUFxQjtJQUNyQixpQkFBaUI7SUFDakIsZUFBZTtFQUNqQjs7RUFFQTtJQUNFLFdBQVc7SUFDWCxZQUFZO0lBQ1osV0FBVztJQUNYLGtCQUFrQjtJQUNsQixTQUFTO0lBQ1QsVUFBVTtFQUNaOztFQUVBO0lBQ0UsV0FBVztJQUNYLGlCQUFpQjtJQUNqQixjQUFjO0lBQ2Qsa0JBQWtCO0lBQ2xCLHFCQUFxQjtJQUNyQixpQkFBaUI7SUFDakIsZ0JBQWdCO0lBQ2hCLGlCQUFpQjtJQUNqQixjQUFjO0VBQ2hCOztFQUVFO01BQ0UseUJBQXlCO01BQ3pCLGNBQWM7TUFDZCxlQUFlO0lBQ2pCOztFQUVBO01BQ0UsY0FBYztNQUNkLGlCQUFpQjtNQUNqQixlQUFlO01BQ2YsZ0JBQWdCO0lBQ2xCOztFQUVGO0lBQ0Usa0JBQWtCO0VBQ3BCOztFQUVBO0lBQ0UsWUFBWTtJQUNaLGtCQUFrQjtJQUNsQixXQUFXO0lBQ1gsUUFBUTtJQUNSLGlCQUFpQjtJQUNqQixpQkFBaUI7SUFDakIsZUFBZTtJQUNmLGVBQWU7SUFDZix5QkFBeUI7SUFDekIseUJBQXlCO0lBQ3pCLGNBQWM7SUFDZCxjQUFjO0lBQ2Qsa0JBQWtCO0lBQ2xCLGdCQUFnQjtFQUNsQiIsImZpbGUiOiJzcmMvYXBwL3NoYXJlZC9jb21wb25lbnRzL3NlYXJjaC9zZWFyY2guY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5zZWFyY2gtaW5wdXQge1xyXG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbiAgbWluLWhlaWdodDogMzhweDtcclxuICBwYWRkaW5nOiAzcHg7XHJcbiAgZm9udC1zaXplOiAxcmVtO1xyXG4gIGxpbmUtaGVpZ2h0OiAxLjU7XHJcbiAgY29sb3I6ICM0OTUwNTc7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogI2U2ZjNmZjtcclxuICBiYWNrZ3JvdW5kLWNsaXA6IHBhZGRpbmctYm94O1xyXG4gIGJvcmRlcjogMXB4IHNvbGlkICNjZWQ0ZGE7XHJcbiAgYm9yZGVyLXJhZGl1czogLjI1cmVtO1xyXG4gIHRyYW5zaXRpb246IGJvcmRlci1jb2xvciAuMTVzIGVhc2UtaW4tb3V0LCBib3gtc2hhZG93IC4xNXMgZWFzZS1pbi1vdXQ7XHJcbn1cclxuXHJcbiAgLnNlYXJjaC1pbnB1dCBkaXZbbmFtZT1yZXN1bHQtYXJlYV0ge1xyXG4gICAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogI2U2ZjNmZjtcclxuICAgIHBhZGRpbmc6IDBweCAzcHggM3B4IDNweDtcclxuICAgIGxlZnQ6IC0xcHg7XHJcbiAgICBib3JkZXItcmlnaHQ6IDFweCBzb2xpZCAjY2VkNGRhO1xyXG4gICAgYm9yZGVyLWxlZnQ6IDFweCBzb2xpZCAjY2VkNGRhO1xyXG4gICAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkICNjZWQ0ZGE7XHJcbiAgICBib3JkZXItYm90dG9tLXJpZ2h0LXJhZGl1czogLjI1cmVtO1xyXG4gICAgYm9yZGVyLWJvdHRvbS1sZWZ0LXJhZGl1czogLjI1cmVtO1xyXG4gIH1cclxuXHJcbiAgLnNlYXJjaC1pbnB1dCBpbnB1dFtuYW1lPXNlYXJjaC1maWVsZF0ge1xyXG4gICAgYm9yZGVyOiBub25lO1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbiAgICBoZWlnaHQ6IDMwcHg7XHJcbiAgICBkaXJlY3Rpb246IHJ0bDtcclxuICAgIG91dGxpbmU6IG5vbmU7XHJcbiAgICBmb250LXNpemU6IDEwcHQ7XHJcbiAgICBmb250LWZhbWlseTogc2FucztcclxuICAgIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG4gICAgcGFkZGluZzogMnB4IDMwcHggMnB4IDJweDtcclxuICAgIGJhY2tncm91bmQtaW1hZ2U6IHVybCgvYXNzZXRzL0ltYWdlcy9TZWFyY2hfRGFyay5wbmcpO1xyXG4gICAgYmFja2dyb3VuZC1yZXBlYXQ6IG5vLXJlcGVhdDtcclxuICAgIGJhY2tncm91bmQtcG9zaXRpb246IHJpZ2h0IDhweCB0b3AgN3B4O1xyXG4gICAgYmFja2dyb3VuZC1zaXplOiAxNXB4O1xyXG4gIH1cclxuXHJcbiAgLnNlYXJjaC1pbnB1dCBpbnB1dFtuYW1lPWZpbHRlci1pdGVtc10ge1xyXG4gICAgYm9yZGVyOiBub25lO1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbiAgICBtYXJnaW46IDNweCAwO1xyXG4gICAgb3V0bGluZTogbm9uZTtcclxuICAgIHBhZGRpbmctcmlnaHQ6IDMwcHg7XHJcbiAgICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoL2Fzc2V0cy9JbWFnZXMvZnVubmVsLnBuZyk7XHJcbiAgICBiYWNrZ3JvdW5kLXJlcGVhdDogbm8tcmVwZWF0O1xyXG4gICAgYmFja2dyb3VuZC1wb3NpdGlvbjogcmlnaHQgOHB4IHRvcCA1cHg7XHJcbiAgICBiYWNrZ3JvdW5kLXNpemU6IDE1cHg7XHJcbiAgICBmb250LWZhbWlseTogc2FucztcclxuICAgIGZvbnQtc2l6ZTogMTBwdDtcclxuICB9XHJcblxyXG4gIC5zZWFyY2gtaW5wdXQgaW1nIHtcclxuICAgIHdpZHRoOiAxNXB4O1xyXG4gICAgaGVpZ2h0OiBhdXRvO1xyXG4gICAgei1pbmRleDogOTk7XHJcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICB0b3A6IDEwcHg7XHJcbiAgICBsZWZ0OiAxMHB4O1xyXG4gIH1cclxuXHJcbiAgLnNlYXJjaC1pbnB1dCB1bCB7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICAgIGJhY2tncm91bmQ6IHdoaXRlO1xyXG4gICAgZGlyZWN0aW9uOiBydGw7XHJcbiAgICBtYXJnaW4tYm90dG9tOiAwcHg7XHJcbiAgICBsaXN0LXN0eWxlLXR5cGU6IG5vbmU7XHJcbiAgICBmb250LWZhbWlseTogc2FucztcclxuICAgIHBhZGRpbmctcmlnaHQ6IDA7XHJcbiAgICBtYXgtaGVpZ2h0OiAxNTBweDtcclxuICAgIG92ZXJmbG93OiBhdXRvO1xyXG4gIH1cclxuXHJcbiAgICAuc2VhcmNoLWlucHV0IHVsIGxpOmhvdmVyIHtcclxuICAgICAgYmFja2dyb3VuZC1jb2xvcjogIzQ2NDZmZjtcclxuICAgICAgY29sb3I6ICNjZWQ0ZGE7XHJcbiAgICAgIGN1cnNvcjogcG9pbnRlcjtcclxuICAgIH1cclxuXHJcbiAgICAuc2VhcmNoLWlucHV0IHVsIGxpIHtcclxuICAgICAgZGlyZWN0aW9uOiBydGw7XHJcbiAgICAgIHRleHQtYWxpZ246IHJpZ2h0O1xyXG4gICAgICBmb250LXNpemU6IDEwcHQ7XHJcbiAgICAgIHBhZGRpbmc6IDJweCA1cHg7XHJcbiAgICB9XHJcblxyXG4gIC5zZWFyY2gtaW5wdXQgc3BhbiBpIHtcclxuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICB9XHJcblxyXG4gIC5zZWFyY2gtaW5wdXQgc3BhbiB7XHJcbiAgICB6LWluZGV4OiA5OTk7XHJcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICByaWdodDogMzBweDtcclxuICAgIHRvcDogNHB4O1xyXG4gICAgbGluZS1oZWlnaHQ6IDIxcHg7XHJcbiAgICBmb250LWZhbWlseTogc2FucztcclxuICAgIGZvbnQtc2l6ZTogMTBwdDtcclxuICAgIGN1cnNvcjogcG9pbnRlcjtcclxuICAgIGJvcmRlcjogMXB4IHNvbGlkICNlM2UzZTM7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjY2VkNGRhO1xyXG4gICAgY29sb3I6ICM0OTUwNTc7XHJcbiAgICBkaXJlY3Rpb246IHJ0bDtcclxuICAgIGJvcmRlci1yYWRpdXM6IDNweDtcclxuICAgIHBhZGRpbmc6IDJweCA1cHg7XHJcbiAgfVxyXG4iXX0= */"
+module.exports = ".search-input {\r\n  z-index: 999;\r\n  position: relative;\r\n  display: inline-block;\r\n  width: 100%;\r\n  min-height: 38px;\r\n  padding: 3px;\r\n  font-size: 1rem;\r\n  line-height: 1.5;\r\n  color: #495057;\r\n  background-color: #e6f3ff;\r\n  background-clip: padding-box;\r\n  border: 1px solid #ced4da;\r\n  border-radius: .25rem;\r\n  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;\r\n}\r\n\r\n  .search-input div[name=result-area] {\r\n    position: absolute;\r\n    background-color: #e6f3ff;\r\n    padding: 0px 3px 3px 3px;\r\n    left: -1px;\r\n    border-right: 1px solid #ced4da;\r\n    border-left: 1px solid #ced4da;\r\n    border-bottom: 1px solid #ced4da;\r\n    border-bottom-right-radius: .25rem;\r\n    border-bottom-left-radius: .25rem;\r\n  }\r\n\r\n  .search-input input[name=search-field] {\r\n    border: none;\r\n    width: 100%;\r\n    height: 30px;\r\n    direction: rtl;\r\n    outline: none;\r\n    font-size: 10pt;\r\n    font-family: sans;\r\n    font-weight: bold;\r\n    padding: 2px 30px 2px 2px;\r\n    background-image: url(/assets/Images/Search_Dark.png);\r\n    background-repeat: no-repeat;\r\n    background-position: right 8px top 7px;\r\n    background-size: 15px;\r\n  }\r\n\r\n  .search-input input[name=filter-items] {\r\n    border: none;\r\n    width: 100%;\r\n    margin: 3px 0;\r\n    outline: none;\r\n    padding-right: 30px;\r\n    background-image: url(/assets/Images/funnel.png);\r\n    background-repeat: no-repeat;\r\n    background-position: right 8px top 5px;\r\n    background-size: 15px;\r\n    font-family: sans;\r\n    font-size: 10pt;\r\n  }\r\n\r\n  .search-input img {\r\n    width: 15px;\r\n    height: auto;\r\n    z-index: 99;\r\n    position: absolute;\r\n    top: 10px;\r\n    left: 10px;\r\n  }\r\n\r\n  .search-input ul {\r\n    width: 100%;\r\n    background: white;\r\n    direction: rtl;\r\n    margin-bottom: 0px;\r\n    list-style-type: none;\r\n    font-family: sans;\r\n    padding-right: 0;\r\n    max-height: 150px;\r\n    overflow: auto;\r\n  }\r\n\r\n  .search-input ul li:hover {\r\n      background-color: #4646ff;\r\n      color: #ced4da;\r\n      cursor: pointer;\r\n    }\r\n\r\n  .search-input ul li {\r\n      direction: rtl;\r\n      text-align: right;\r\n      font-size: 10pt;\r\n      padding: 2px 5px;\r\n    }\r\n\r\n  .search-input span i {\r\n    position: absolute;\r\n  }\r\n\r\n  .search-input span {\r\n    z-index: 999;\r\n    position: absolute;\r\n    right: 30px;\r\n    top: 4px;\r\n    line-height: 21px;\r\n    font-family: sans;\r\n    font-size: 10pt;\r\n    cursor: pointer;\r\n    border: 1px solid #e3e3e3;\r\n    background-color: #ced4da;\r\n    color: #495057;\r\n    direction: rtl;\r\n    border-radius: 3px;\r\n    padding: 2px 5px;\r\n  }\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2hhcmVkL2NvbXBvbmVudHMvc2VhcmNoL3NlYXJjaC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsWUFBWTtFQUNaLGtCQUFrQjtFQUNsQixxQkFBcUI7RUFDckIsV0FBVztFQUNYLGdCQUFnQjtFQUNoQixZQUFZO0VBQ1osZUFBZTtFQUNmLGdCQUFnQjtFQUNoQixjQUFjO0VBQ2QseUJBQXlCO0VBQ3pCLDRCQUE0QjtFQUM1Qix5QkFBeUI7RUFDekIscUJBQXFCO0VBQ3JCLHNFQUFzRTtBQUN4RTs7RUFFRTtJQUNFLGtCQUFrQjtJQUNsQix5QkFBeUI7SUFDekIsd0JBQXdCO0lBQ3hCLFVBQVU7SUFDViwrQkFBK0I7SUFDL0IsOEJBQThCO0lBQzlCLGdDQUFnQztJQUNoQyxrQ0FBa0M7SUFDbEMsaUNBQWlDO0VBQ25DOztFQUVBO0lBQ0UsWUFBWTtJQUNaLFdBQVc7SUFDWCxZQUFZO0lBQ1osY0FBYztJQUNkLGFBQWE7SUFDYixlQUFlO0lBQ2YsaUJBQWlCO0lBQ2pCLGlCQUFpQjtJQUNqQix5QkFBeUI7SUFDekIscURBQXFEO0lBQ3JELDRCQUE0QjtJQUM1QixzQ0FBc0M7SUFDdEMscUJBQXFCO0VBQ3ZCOztFQUVBO0lBQ0UsWUFBWTtJQUNaLFdBQVc7SUFDWCxhQUFhO0lBQ2IsYUFBYTtJQUNiLG1CQUFtQjtJQUNuQixnREFBZ0Q7SUFDaEQsNEJBQTRCO0lBQzVCLHNDQUFzQztJQUN0QyxxQkFBcUI7SUFDckIsaUJBQWlCO0lBQ2pCLGVBQWU7RUFDakI7O0VBRUE7SUFDRSxXQUFXO0lBQ1gsWUFBWTtJQUNaLFdBQVc7SUFDWCxrQkFBa0I7SUFDbEIsU0FBUztJQUNULFVBQVU7RUFDWjs7RUFFQTtJQUNFLFdBQVc7SUFDWCxpQkFBaUI7SUFDakIsY0FBYztJQUNkLGtCQUFrQjtJQUNsQixxQkFBcUI7SUFDckIsaUJBQWlCO0lBQ2pCLGdCQUFnQjtJQUNoQixpQkFBaUI7SUFDakIsY0FBYztFQUNoQjs7RUFFRTtNQUNFLHlCQUF5QjtNQUN6QixjQUFjO01BQ2QsZUFBZTtJQUNqQjs7RUFFQTtNQUNFLGNBQWM7TUFDZCxpQkFBaUI7TUFDakIsZUFBZTtNQUNmLGdCQUFnQjtJQUNsQjs7RUFFRjtJQUNFLGtCQUFrQjtFQUNwQjs7RUFFQTtJQUNFLFlBQVk7SUFDWixrQkFBa0I7SUFDbEIsV0FBVztJQUNYLFFBQVE7SUFDUixpQkFBaUI7SUFDakIsaUJBQWlCO0lBQ2pCLGVBQWU7SUFDZixlQUFlO0lBQ2YseUJBQXlCO0lBQ3pCLHlCQUF5QjtJQUN6QixjQUFjO0lBQ2QsY0FBYztJQUNkLGtCQUFrQjtJQUNsQixnQkFBZ0I7RUFDbEIiLCJmaWxlIjoic3JjL2FwcC9zaGFyZWQvY29tcG9uZW50cy9zZWFyY2gvc2VhcmNoLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuc2VhcmNoLWlucHV0IHtcclxuICB6LWluZGV4OiA5OTk7XHJcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICB3aWR0aDogMTAwJTtcclxuICBtaW4taGVpZ2h0OiAzOHB4O1xyXG4gIHBhZGRpbmc6IDNweDtcclxuICBmb250LXNpemU6IDFyZW07XHJcbiAgbGluZS1oZWlnaHQ6IDEuNTtcclxuICBjb2xvcjogIzQ5NTA1NztcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZTZmM2ZmO1xyXG4gIGJhY2tncm91bmQtY2xpcDogcGFkZGluZy1ib3g7XHJcbiAgYm9yZGVyOiAxcHggc29saWQgI2NlZDRkYTtcclxuICBib3JkZXItcmFkaXVzOiAuMjVyZW07XHJcbiAgdHJhbnNpdGlvbjogYm9yZGVyLWNvbG9yIC4xNXMgZWFzZS1pbi1vdXQsIGJveC1zaGFkb3cgLjE1cyBlYXNlLWluLW91dDtcclxufVxyXG5cclxuICAuc2VhcmNoLWlucHV0IGRpdltuYW1lPXJlc3VsdC1hcmVhXSB7XHJcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjZTZmM2ZmO1xyXG4gICAgcGFkZGluZzogMHB4IDNweCAzcHggM3B4O1xyXG4gICAgbGVmdDogLTFweDtcclxuICAgIGJvcmRlci1yaWdodDogMXB4IHNvbGlkICNjZWQ0ZGE7XHJcbiAgICBib3JkZXItbGVmdDogMXB4IHNvbGlkICNjZWQ0ZGE7XHJcbiAgICBib3JkZXItYm90dG9tOiAxcHggc29saWQgI2NlZDRkYTtcclxuICAgIGJvcmRlci1ib3R0b20tcmlnaHQtcmFkaXVzOiAuMjVyZW07XHJcbiAgICBib3JkZXItYm90dG9tLWxlZnQtcmFkaXVzOiAuMjVyZW07XHJcbiAgfVxyXG5cclxuICAuc2VhcmNoLWlucHV0IGlucHV0W25hbWU9c2VhcmNoLWZpZWxkXSB7XHJcbiAgICBib3JkZXI6IG5vbmU7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICAgIGhlaWdodDogMzBweDtcclxuICAgIGRpcmVjdGlvbjogcnRsO1xyXG4gICAgb3V0bGluZTogbm9uZTtcclxuICAgIGZvbnQtc2l6ZTogMTBwdDtcclxuICAgIGZvbnQtZmFtaWx5OiBzYW5zO1xyXG4gICAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbiAgICBwYWRkaW5nOiAycHggMzBweCAycHggMnB4O1xyXG4gICAgYmFja2dyb3VuZC1pbWFnZTogdXJsKC9hc3NldHMvSW1hZ2VzL1NlYXJjaF9EYXJrLnBuZyk7XHJcbiAgICBiYWNrZ3JvdW5kLXJlcGVhdDogbm8tcmVwZWF0O1xyXG4gICAgYmFja2dyb3VuZC1wb3NpdGlvbjogcmlnaHQgOHB4IHRvcCA3cHg7XHJcbiAgICBiYWNrZ3JvdW5kLXNpemU6IDE1cHg7XHJcbiAgfVxyXG5cclxuICAuc2VhcmNoLWlucHV0IGlucHV0W25hbWU9ZmlsdGVyLWl0ZW1zXSB7XHJcbiAgICBib3JkZXI6IG5vbmU7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICAgIG1hcmdpbjogM3B4IDA7XHJcbiAgICBvdXRsaW5lOiBub25lO1xyXG4gICAgcGFkZGluZy1yaWdodDogMzBweDtcclxuICAgIGJhY2tncm91bmQtaW1hZ2U6IHVybCgvYXNzZXRzL0ltYWdlcy9mdW5uZWwucG5nKTtcclxuICAgIGJhY2tncm91bmQtcmVwZWF0OiBuby1yZXBlYXQ7XHJcbiAgICBiYWNrZ3JvdW5kLXBvc2l0aW9uOiByaWdodCA4cHggdG9wIDVweDtcclxuICAgIGJhY2tncm91bmQtc2l6ZTogMTVweDtcclxuICAgIGZvbnQtZmFtaWx5OiBzYW5zO1xyXG4gICAgZm9udC1zaXplOiAxMHB0O1xyXG4gIH1cclxuXHJcbiAgLnNlYXJjaC1pbnB1dCBpbWcge1xyXG4gICAgd2lkdGg6IDE1cHg7XHJcbiAgICBoZWlnaHQ6IGF1dG87XHJcbiAgICB6LWluZGV4OiA5OTtcclxuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgIHRvcDogMTBweDtcclxuICAgIGxlZnQ6IDEwcHg7XHJcbiAgfVxyXG5cclxuICAuc2VhcmNoLWlucHV0IHVsIHtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgYmFja2dyb3VuZDogd2hpdGU7XHJcbiAgICBkaXJlY3Rpb246IHJ0bDtcclxuICAgIG1hcmdpbi1ib3R0b206IDBweDtcclxuICAgIGxpc3Qtc3R5bGUtdHlwZTogbm9uZTtcclxuICAgIGZvbnQtZmFtaWx5OiBzYW5zO1xyXG4gICAgcGFkZGluZy1yaWdodDogMDtcclxuICAgIG1heC1oZWlnaHQ6IDE1MHB4O1xyXG4gICAgb3ZlcmZsb3c6IGF1dG87XHJcbiAgfVxyXG5cclxuICAgIC5zZWFyY2gtaW5wdXQgdWwgbGk6aG92ZXIge1xyXG4gICAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjNDY0NmZmO1xyXG4gICAgICBjb2xvcjogI2NlZDRkYTtcclxuICAgICAgY3Vyc29yOiBwb2ludGVyO1xyXG4gICAgfVxyXG5cclxuICAgIC5zZWFyY2gtaW5wdXQgdWwgbGkge1xyXG4gICAgICBkaXJlY3Rpb246IHJ0bDtcclxuICAgICAgdGV4dC1hbGlnbjogcmlnaHQ7XHJcbiAgICAgIGZvbnQtc2l6ZTogMTBwdDtcclxuICAgICAgcGFkZGluZzogMnB4IDVweDtcclxuICAgIH1cclxuXHJcbiAgLnNlYXJjaC1pbnB1dCBzcGFuIGkge1xyXG4gICAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIH1cclxuXHJcbiAgLnNlYXJjaC1pbnB1dCBzcGFuIHtcclxuICAgIHotaW5kZXg6IDk5OTtcclxuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgIHJpZ2h0OiAzMHB4O1xyXG4gICAgdG9wOiA0cHg7XHJcbiAgICBsaW5lLWhlaWdodDogMjFweDtcclxuICAgIGZvbnQtZmFtaWx5OiBzYW5zO1xyXG4gICAgZm9udC1zaXplOiAxMHB0O1xyXG4gICAgY3Vyc29yOiBwb2ludGVyO1xyXG4gICAgYm9yZGVyOiAxcHggc29saWQgI2UzZTNlMztcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICNjZWQ0ZGE7XHJcbiAgICBjb2xvcjogIzQ5NTA1NztcclxuICAgIGRpcmVjdGlvbjogcnRsO1xyXG4gICAgYm9yZGVyLXJhZGl1czogM3B4O1xyXG4gICAgcGFkZGluZzogMnB4IDVweDtcclxuICB9XHJcbiJdfQ== */"
 
 /***/ }),
 
@@ -1631,7 +1650,7 @@ module.exports = ".search-input {\r\n  position: relative;\r\n  display: inline-
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"search-input\">\r\n  <input name=\"search-field\" [placeholder]=\"placeholder\"/>\r\n  <div name=\"result-area\"></div>\r\n</div>\r\n"
+module.exports = "<div class=\"search-input\" [style.width]=\"width\" #parentdiv>\r\n  <input name=\"search-field\" autocomplete=\"off\" [placeholder]=\"placeholder\" [(ngModel)]=\"searchField\" (input)=\"search()\"/>\r\n  <div name=\"result-area\" #resultWidth>\r\n    <ul>\r\n      <li *ngFor=\"let item of liItems\" (click)=\"addItem(item.id , item.name)\">{{item.name}}</li>\r\n    </ul>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -1646,6 +1665,8 @@ module.exports = "<div class=\"search-input\">\r\n  <input name=\"search-field\"
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SearchComponent", function() { return SearchComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var src_app_shared_services_data_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/shared/services/data.service */ "./src/app/shared/services/data.service.ts");
+/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm2015/http.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1656,28 +1677,74 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
+
+
 let SearchComponent = class SearchComponent {
-    constructor() { }
+    constructor(searchConfig, http, sendData) {
+        this.searchConfig = searchConfig;
+        this.http = http;
+        this.sendData = sendData;
+        this.placeholder = 'جستجو ...';
+        this.width = '100%';
+        this.searchField = '';
+        this.liItems = [];
+    }
+    clickout(event) {
+        if (this.parentdiv.nativeElement.contains(event.target)) {
+            return;
+        }
+        else {
+            this.liItems = [];
+        }
+    }
     ngOnInit() {
-        console.log(this.placeholder);
-        console.log(this.place);
+        this.searchConfig.getConfig.subscribe(e => {
+            this.placeholder = e.placeholder;
+            this.width = e.width;
+        });
+    }
+    ngAfterViewInit() {
+        this.resultWidth.nativeElement.style.width = (this.parentdiv.nativeElement.clientWidth + 2) + 'px';
+    }
+    search() {
+        if (this.searchField.length < 2 || this.isEmpty(this.searchField)) {
+            this.liItems = [];
+            return;
+        }
+        this.http.get('/api/SearchCompany', { params: { company: this.searchField } }).subscribe(e => {
+            this.liItems = e.json();
+        });
+    }
+    isEmpty(input) {
+        return !(input.replace(/\s/g, "").length > 0);
+    }
+    addItem(itemid, itemname) {
+        this.sendData.setData({ itemid: itemid, itemname: itemname });
     }
 };
 __decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
-    __metadata("design:type", String)
-], SearchComponent.prototype, "placeholder", void 0);
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('parentdiv'),
+    __metadata("design:type", Object)
+], SearchComponent.prototype, "parentdiv", void 0);
 __decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
-    __metadata("design:type", String)
-], SearchComponent.prototype, "place", void 0);
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('resultWidth'),
+    __metadata("design:type", Object)
+], SearchComponent.prototype, "resultWidth", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["HostListener"])('document:click', ['$event']),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], SearchComponent.prototype, "clickout", null);
 SearchComponent = __decorate([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
         selector: 'app-search',
         template: __webpack_require__(/*! ./search.component.html */ "./src/app/shared/components/search/search.component.html"),
         styles: [__webpack_require__(/*! ./search.component.css */ "./src/app/shared/components/search/search.component.css")]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [src_app_shared_services_data_service__WEBPACK_IMPORTED_MODULE_1__["DataService"], _angular_http__WEBPACK_IMPORTED_MODULE_2__["Http"], src_app_shared_services_data_service__WEBPACK_IMPORTED_MODULE_1__["DataService"]])
 ], SearchComponent);
 
 
@@ -1805,6 +1872,53 @@ SearchReceiverDirective = __decorate([
 
 /***/ }),
 
+/***/ "./src/app/shared/services/data.service.ts":
+/*!*************************************************!*\
+  !*** ./src/app/shared/services/data.service.ts ***!
+  \*************************************************/
+/*! exports provided: DataService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DataService", function() { return DataService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+let DataService = class DataService {
+    constructor() {
+        //defaultConfig: { palceholder: 'جستجو ...', width: '100%' }
+        this.configData = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"](null);
+        this.getConfig = this.configData.asObservable();
+        this.data = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"](null);
+        this.getData = this.data.asObservable();
+    }
+    setConfig(data) {
+        this.configData.next(data);
+    }
+    setData(data) {
+        this.data.next(data);
+    }
+};
+DataService = __decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
+    __metadata("design:paramtypes", [])
+], DataService);
+
+
+
+/***/ }),
+
 /***/ "./src/environments/environment.ts":
 /*!*****************************************!*\
   !*** ./src/environments/environment.ts ***!
@@ -1866,7 +1980,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Omid\source\repos\TaavonAngular\TaavonAngular\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\IT2\source\repos\TaavonAngular\TaavonAngular\src\main.ts */"./src/main.ts");
 
 
 /***/ })

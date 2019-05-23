@@ -20,10 +20,10 @@
       <div class="col-md-12 position-relative">
         <div id="RecieverBadgeArea">
           <span class="sans-xsmall bg-default text-white m-1 pl-1 pr-1 rounded"
-                (click)="removeBadge($event)"
-                *ngFor="let receiver of receivers">{{receiver}}</span>
+                (click)="removeBadge(receiver.id)"
+                *ngFor="let receiver of receivers">{{receiver.text}}</span>
         </div>
-        <app-search [placeholder]="placeholder" place="somthing"></app-search>
+        <app-search></app-search>
         <div id="receiverDropDown" class="w-100 position-absolute">
         </div>
       </div>

@@ -1,4 +1,8 @@
-<div class="search-input">
-  <input name="search-field" [placeholder]="placeholder"/>
-  <div name="result-area"></div>
+<div class="search-input" [style.width]="width" #parentdiv>
+  <input name="search-field" autocomplete="off" [placeholder]="placeholder" [(ngModel)]="searchField" (input)="search()"/>
+  <div name="result-area" #resultWidth>
+    <ul>
+      <li *ngFor="let item of liItems" (click)="addItem(item.id , item.name)">{{item.name}}</li>
+    </ul>
+  </div>
 </div>

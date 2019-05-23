@@ -1,4 +1,5 @@
 .search-input {
+  z-index: 999;
   position: relative;
   display: inline-block;
   width: 100%;
