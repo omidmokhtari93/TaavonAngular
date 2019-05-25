@@ -23,7 +23,7 @@
                 (click)="removeBadge(receiver.id)"
                 *ngFor="let receiver of receivers">{{receiver.text}}</span>
         </div>
-        <app-search></app-search>
+        <app-search [config]="searchConfig" (output)="createCompanyList($event)"></app-search>
         <div id="receiverDropDown" class="w-100 position-absolute">
         </div>
       </div>

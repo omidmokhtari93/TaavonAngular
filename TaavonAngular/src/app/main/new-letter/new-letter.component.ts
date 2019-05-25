@@ -11,6 +11,10 @@ declare var $: any;
   styleUrls: ['./new-letter.component.css']
 })
 export class NewLetterComponent implements OnInit {
+  searchConfig = {
+    placeholder: 'جستجوی شرکت ...',
+    width: '100%'
+  }
   datePickerConfig = {
     format: 'jYYYY/jMM/jDD'
   }
@@ -28,17 +32,14 @@ export class NewLetterComponent implements OnInit {
   responseType: number = 1;
   hasfile: boolean = false;
   private readonly notifier: NotifierService;
-  constructor(private route: Router, notifierService: NotifierService, private searchConfig: DataService, private getdata: DataService) {
+  constructor(private route: Router, notifierService: NotifierService) {
     this.notifier = notifierService;
   }
 
-  ngOnInit() {
-    this.searchConfig.setConfig({ placeholder: 'جستجوی شرکت ...', width: '100%' });
-    this.getdata.getData.subscribe(res => {
-      if (res !== null) {
-        this.receivers.push({ id: res.itemid, text: res.itemname });
-      }
-    })
+  ngOnInit() { }
+
+  createCompanyList(items: any) {
+    this.receivers.push({ id: items.id, text: items.text })
   }
   removeBadge(id) {
     this.receivers.forEach((item, index) => {

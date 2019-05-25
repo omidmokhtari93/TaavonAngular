@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { DataService } from 'src/app/shared/services/data.service';
 import { ViewChild } from '@angular/core';
 import { Http } from '@angular/http';
@@ -10,6 +10,8 @@ import { HostListener } from '@angular/core';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
+  @Input() config: any;
+  @Output() output = new EventEmitter<any>();
   @ViewChild('parentdiv') parentdiv: any;
   @ViewChild('resultWidth') resultWidth: any;
   placeholder: string = 'جستجو ...';
@@ -24,13 +26,13 @@ export class SearchComponent implements OnInit {
       this.liItems = [];
     }
   }
-  constructor(private searchConfig: DataService, private http: Http, private sendData: DataService) { }
+  constructor(private http: Http) { }
 
   ngOnInit() {
-    this.searchConfig.getConfig.subscribe(e => {
-      this.placeholder = e.placeholder;
-      this.width = e.width;
-    })
+    if (!this.config.length) {
+      this.width = this.config.width;
+      this.placeholder = this.config.placeholder;
+    }
   }
   ngAfterViewInit() {
     this.resultWidth.nativeElement.style.width = (this.parentdiv.nativeElement.clientWidth + 2) + 'px';
@@ -49,7 +51,7 @@ export class SearchComponent implements OnInit {
     return !(input.replace(/\s/g, "").length > 0);
   }
 
-  addItem(itemid , itemname) {
-    this.sendData.setData({itemid : itemid , itemname : itemname});
+  addItem(itemid, itemname) {
+    this.output.emit({ id: itemid, text: itemname });
   }
 }

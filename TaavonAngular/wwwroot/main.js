@@ -451,12 +451,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shared_directives_search_receiver_directive__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./shared/directives/search-receiver.directive */ "./src/app/shared/directives/search-receiver.directive.ts");
 /* harmony import */ var _shared_components_search_search_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./shared/components/search/search.component */ "./src/app/shared/components/search/search.component.ts");
 /* harmony import */ var src_app_shared_services_data_service__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! src/app/shared/services/data.service */ "./src/app/shared/services/data.service.ts");
+/* harmony import */ var _shared_components_test_test_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./shared/components/test/test.component */ "./src/app/shared/components/test/test.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -551,6 +553,7 @@ AppModule = __decorate([
             _main_users_sign_upload_sign_upload_component__WEBPACK_IMPORTED_MODULE_24__["SignUploadComponent"],
             _shared_directives_search_receiver_directive__WEBPACK_IMPORTED_MODULE_25__["SearchReceiverDirective"],
             _shared_components_search_search_component__WEBPACK_IMPORTED_MODULE_26__["SearchComponent"],
+            _shared_components_test_test_component__WEBPACK_IMPORTED_MODULE_28__["TestComponent"],
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -1019,7 +1022,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  a4 works!\n</p>\n"
+module.exports = "<p>{{omid}}</p>\r\n"
 
 /***/ }),
 
@@ -1049,6 +1052,10 @@ let A4Component = class A4Component {
     ngOnInit() {
     }
 };
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+    __metadata("design:type", String)
+], A4Component.prototype, "omid", void 0);
 A4Component = __decorate([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
         selector: 'app-a4',
@@ -1141,7 +1148,7 @@ module.exports = "#RecieverBadgeArea span{\r\n  cursor:pointer;\r\n}\r\n.button-
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card rtl text-right sans\">\r\n  <div class=\"card-header text-white bg-primary\">ارسال نامه</div>\r\n  <div class=\"card-body\">\r\n    <div class=\"w-100 ltr\">\r\n      <input class=\"form-control text-center\" readonly style=\"width: 25%\" placeholder=\"تاریخ\"\r\n             [(ngModel)]=\"selectedDate\" [dpDayPicker]=\"datePickerConfig\" theme=\"dp-material\" />\r\n    </div>\r\n    <hr class=\"mt-0\" />\r\n    <div class=\"row\">\r\n      <div class=\"col-md-6\">\r\n        عنوان نامه\r\n        <input class=\"form-control\" dir=\"rtl\" [(ngModel)]=\"letterSubject\"/>\r\n      </div>\r\n      <div class=\"col-md-6\">\r\n        فرستنده\r\n        <input class=\"form-control\" dir=\"rtl\" readonly [(ngModel)]=\"sender\"/>\r\n      </div>\r\n    </div>\r\n    <div class=\"row mt-3\">\r\n      <div class=\"col-md-12 position-relative\">\r\n        <div id=\"RecieverBadgeArea\">\r\n          <span class=\"sans-xsmall bg-default text-white m-1 pl-1 pr-1 rounded\"\r\n                (click)=\"removeBadge(receiver.id)\"\r\n                *ngFor=\"let receiver of receivers\">{{receiver.text}}</span>\r\n        </div>\r\n        <app-search></app-search>\r\n        <div id=\"receiverDropDown\" class=\"w-100 position-absolute\">\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"row mt-3\">\r\n      <div class=\"col-md-12\">\r\n        <div id=\"ReplicaBadgeArea\">\r\n          <span class=\"sans-xsmall bg-default text-white m-1 pl-1 pr-1 rounded\"\r\n                (click)=\"removeReplicaBadge($event)\"\r\n                *ngFor=\"let rep of replica\">{{rep}}</span>\r\n        </div>\r\n        <input class=\"form-control\" placeholder=\"رونوشت به ...\" />\r\n      </div>\r\n    </div>\r\n    <div class=\"row mt-3\">\r\n      <div class=\"col-md-12\">\r\n        متن رونوشت\r\n        <textarea class=\"form-control\" rows=\"3\" style=\"resize: none;\" [(ngModel)]=\"replicaText\"></textarea>\r\n      </div>\r\n    </div>\r\n    <hr />\r\n    <div class=\"row mt-3\">\r\n      <div class=\"col-md-12\">\r\n        <div class=\"row\">\r\n          <div class=\"col-md-3 pr-3\">\r\n            <p>نیاز به پاسخ</p>\r\n            <div class=\"button-group\">\r\n              <input type=\"radio\" id=\"reposnse-yes\" name=\"resp\" [value]=\"true\" [(ngModel)]=\"needResponse\" [checked]=\"needResponse\">\r\n              <label for=\"reposnse-yes\">دارد</label>\r\n              <input type=\"radio\" id=\"response-no\" name=\"resp\" checked [value]=\"false\" [(ngModel)]=\"needResponse\" [checked]=\"!needResponse\">\r\n              <label for=\"response-no\">ندارد</label>\r\n            </div>\r\n          </div>\r\n          <div class=\"col-md-3 pr-3 border-right\">\r\n            <p>سایز نامه</p>\r\n            <div class=\"button-group\">\r\n              <input type=\"radio\" id=\"A4size\" name=\"size\" checked [value]=\"true\" [(ngModel)]=\"letterSize\" [checked]=\"letterSize\">\r\n              <label for=\"A4size\">A4</label>\r\n              <input type=\"radio\" id=\"A5size\" name=\"size\" [value]=\"false\" [(ngModel)]=\"letterSize\" [checked]=\"!letterSize\">\r\n              <label for=\"A5size\">A5</label>\r\n            </div>\r\n          </div>\r\n          <div class=\"col-md-6 pr-3 border-right\" dir=\"rtl\">\r\n            <p>نوع نامه</p>\r\n            <div class=\"button-group\">\r\n              <input type=\"radio\" id=\"adi\" name=\"type\" checked [value]=\"0\" [(ngModel)]=\"letterType\">\r\n              <label for=\"adi\">عادی</label>\r\n              <input type=\"radio\" id=\"eb\" name=\"type\" [value]=\"1\" [(ngModel)]=\"letterType\">\r\n              <label for=\"eb\">ابلاغیه</label>\r\n              <input type=\"radio\" id=\"mo\" name=\"type\" [value]=\"2\" [(ngModel)]=\"letterType\">\r\n              <label for=\"mo\">مهم</label>\r\n              <input type=\"radio\" id=\"fo\" name=\"type\" [value]=\"3\" [(ngModel)]=\"letterType\">\r\n              <label for=\"fo\">فوری</label>\r\n              <input type=\"radio\" id=\"khfo\" name=\"type\" [value]=\"4\" [(ngModel)]=\"letterType\">\r\n              <label for=\"khfo\">خیلی فوری</label>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <hr />\r\n    <div class=\"row\">\r\n      <div class=\"col-md-12\">\r\n        <div class=\"card\">\r\n          <div class=\"card-body bg-light\">\r\n            <p>مدت زمان پاسخ</p>\r\n            <div class=\"row\" dir=\"rtl\">\r\n              <div class=\"col-md-6\">\r\n                <div class=\"button-group mt-1\">\r\n                  <input type=\"radio\" [value]=\"1\" [(ngModel)]=\"responseType\" id=\"unlimit\" name=\"response-type\">\r\n                  <label for=\"unlimit\">نامحدود</label>\r\n                  <input type=\"radio\" [value]=\"2\" [(ngModel)]=\"responseType\" id=\"hours\" name=\"response-type\">\r\n                  <label for=\"hours\">ساعت</label>\r\n                  <input type=\"radio\" [value]=\"3\" [(ngModel)]=\"responseType\" id=\"days\" name=\"response-type\">\r\n                  <label for=\"days\">روز</label>\r\n                </div>\r\n              </div>\r\n              <div class=\"col-md-6\">\r\n                <input type=\"number\" class=\"form-control text-center\" placeholder=\"مدت زمان\" [(ngModel)]=\"responseTime\" *ngIf=\"responseType !== 1\"/>\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"card card-body bg-light mt-3\">\r\n      <p>پیوست</p>\r\n      <div class=\"row\">\r\n        <div class=\"col-md-6 border-right\">\r\n          <div class=\"button-group\">\r\n            <input type=\"radio\" [value]=\"true\" [checked]=\"hasfile\" [(ngModel)]=\"hasfile\" id=\"pdar\" name=\"attachment\">\r\n            <label for=\"pdar\">دارد</label>\r\n            <input type=\"radio\" [value]=\"false\" [checked]=\"!hasfile\" [(ngModel)]=\"hasfile\" id=\"pnadar\" name=\"attachment\">\r\n            <label for=\"pnadar\">ندارد</label>\r\n          </div>\r\n        </div>\r\n        <div class=\"col-md-6\">\r\n          <div *ngIf=\"hasfile\">\r\n            <span>انتخاب فایل ها</span>\r\n            <input style=\"direction: rtl;\" multiple type=\"file\"/>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"row mt-3\">\r\n      <div class=\"col-md-12 text-left\">\r\n        <button class=\"btn btn-info\" (click)=\"createLetter()\">تولید نامه</button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"modal fade show\" id=\"letter-modal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">\r\n  <div class=\"modal-dialog modal-lg\" role=\"document\">\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <h5 class=\"modal-title\" id=\"exampleModalLabel\"> title</h5>\r\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n          <span aria-hidden=\"true\">&times;</span>\r\n        </button>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        <router-outlet></router-outlet>\r\n      </div>\r\n      <div class=\"modal-footer d-block\">\r\n        <button type=\"button\" id=\"btn\" class=\"btn btn-primary sans\">ارسال نامه</button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n<notifier-container></notifier-container>\r\n"
+module.exports = "<div class=\"card rtl text-right sans\">\r\n  <div class=\"card-header text-white bg-primary\">ارسال نامه</div>\r\n  <div class=\"card-body\">\r\n    <div class=\"w-100 ltr\">\r\n      <input class=\"form-control text-center\" readonly style=\"width: 25%\" placeholder=\"تاریخ\"\r\n             [(ngModel)]=\"selectedDate\" [dpDayPicker]=\"datePickerConfig\" theme=\"dp-material\" />\r\n    </div>\r\n    <hr class=\"mt-0\" />\r\n    <div class=\"row\">\r\n      <div class=\"col-md-6\">\r\n        عنوان نامه\r\n        <input class=\"form-control\" dir=\"rtl\" [(ngModel)]=\"letterSubject\"/>\r\n      </div>\r\n      <div class=\"col-md-6\">\r\n        فرستنده\r\n        <input class=\"form-control\" dir=\"rtl\" readonly [(ngModel)]=\"sender\"/>\r\n      </div>\r\n    </div>\r\n    <div class=\"row mt-3\">\r\n      <div class=\"col-md-12 position-relative\">\r\n        <div id=\"RecieverBadgeArea\">\r\n          <span class=\"sans-xsmall bg-default text-white m-1 pl-1 pr-1 rounded\"\r\n                (click)=\"removeBadge(receiver.id)\"\r\n                *ngFor=\"let receiver of receivers\">{{receiver.text}}</span>\r\n        </div>\r\n        <app-search [config]=\"searchConfig\" (output)=\"createCompanyList($event)\"></app-search>\r\n        <div id=\"receiverDropDown\" class=\"w-100 position-absolute\">\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"row mt-3\">\r\n      <div class=\"col-md-12\">\r\n        <div id=\"ReplicaBadgeArea\">\r\n          <span class=\"sans-xsmall bg-default text-white m-1 pl-1 pr-1 rounded\"\r\n                (click)=\"removeReplicaBadge($event)\"\r\n                *ngFor=\"let rep of replica\">{{rep}}</span>\r\n        </div>\r\n        <input class=\"form-control\" placeholder=\"رونوشت به ...\" />\r\n      </div>\r\n    </div>\r\n    <div class=\"row mt-3\">\r\n      <div class=\"col-md-12\">\r\n        متن رونوشت\r\n        <textarea class=\"form-control\" rows=\"3\" style=\"resize: none;\" [(ngModel)]=\"replicaText\"></textarea>\r\n      </div>\r\n    </div>\r\n    <hr />\r\n    <div class=\"row mt-3\">\r\n      <div class=\"col-md-12\">\r\n        <div class=\"row\">\r\n          <div class=\"col-md-3 pr-3\">\r\n            <p>نیاز به پاسخ</p>\r\n            <div class=\"button-group\">\r\n              <input type=\"radio\" id=\"reposnse-yes\" name=\"resp\" [value]=\"true\" [(ngModel)]=\"needResponse\" [checked]=\"needResponse\">\r\n              <label for=\"reposnse-yes\">دارد</label>\r\n              <input type=\"radio\" id=\"response-no\" name=\"resp\" checked [value]=\"false\" [(ngModel)]=\"needResponse\" [checked]=\"!needResponse\">\r\n              <label for=\"response-no\">ندارد</label>\r\n            </div>\r\n          </div>\r\n          <div class=\"col-md-3 pr-3 border-right\">\r\n            <p>سایز نامه</p>\r\n            <div class=\"button-group\">\r\n              <input type=\"radio\" id=\"A4size\" name=\"size\" checked [value]=\"true\" [(ngModel)]=\"letterSize\" [checked]=\"letterSize\">\r\n              <label for=\"A4size\">A4</label>\r\n              <input type=\"radio\" id=\"A5size\" name=\"size\" [value]=\"false\" [(ngModel)]=\"letterSize\" [checked]=\"!letterSize\">\r\n              <label for=\"A5size\">A5</label>\r\n            </div>\r\n          </div>\r\n          <div class=\"col-md-6 pr-3 border-right\" dir=\"rtl\">\r\n            <p>نوع نامه</p>\r\n            <div class=\"button-group\">\r\n              <input type=\"radio\" id=\"adi\" name=\"type\" checked [value]=\"0\" [(ngModel)]=\"letterType\">\r\n              <label for=\"adi\">عادی</label>\r\n              <input type=\"radio\" id=\"eb\" name=\"type\" [value]=\"1\" [(ngModel)]=\"letterType\">\r\n              <label for=\"eb\">ابلاغیه</label>\r\n              <input type=\"radio\" id=\"mo\" name=\"type\" [value]=\"2\" [(ngModel)]=\"letterType\">\r\n              <label for=\"mo\">مهم</label>\r\n              <input type=\"radio\" id=\"fo\" name=\"type\" [value]=\"3\" [(ngModel)]=\"letterType\">\r\n              <label for=\"fo\">فوری</label>\r\n              <input type=\"radio\" id=\"khfo\" name=\"type\" [value]=\"4\" [(ngModel)]=\"letterType\">\r\n              <label for=\"khfo\">خیلی فوری</label>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <hr />\r\n    <div class=\"row\">\r\n      <div class=\"col-md-12\">\r\n        <div class=\"card\">\r\n          <div class=\"card-body bg-light\">\r\n            <p>مدت زمان پاسخ</p>\r\n            <div class=\"row\" dir=\"rtl\">\r\n              <div class=\"col-md-6\">\r\n                <div class=\"button-group mt-1\">\r\n                  <input type=\"radio\" [value]=\"1\" [(ngModel)]=\"responseType\" id=\"unlimit\" name=\"response-type\">\r\n                  <label for=\"unlimit\">نامحدود</label>\r\n                  <input type=\"radio\" [value]=\"2\" [(ngModel)]=\"responseType\" id=\"hours\" name=\"response-type\">\r\n                  <label for=\"hours\">ساعت</label>\r\n                  <input type=\"radio\" [value]=\"3\" [(ngModel)]=\"responseType\" id=\"days\" name=\"response-type\">\r\n                  <label for=\"days\">روز</label>\r\n                </div>\r\n              </div>\r\n              <div class=\"col-md-6\">\r\n                <input type=\"number\" class=\"form-control text-center\" placeholder=\"مدت زمان\" [(ngModel)]=\"responseTime\" *ngIf=\"responseType !== 1\"/>\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"card card-body bg-light mt-3\">\r\n      <p>پیوست</p>\r\n      <div class=\"row\">\r\n        <div class=\"col-md-6 border-right\">\r\n          <div class=\"button-group\">\r\n            <input type=\"radio\" [value]=\"true\" [checked]=\"hasfile\" [(ngModel)]=\"hasfile\" id=\"pdar\" name=\"attachment\">\r\n            <label for=\"pdar\">دارد</label>\r\n            <input type=\"radio\" [value]=\"false\" [checked]=\"!hasfile\" [(ngModel)]=\"hasfile\" id=\"pnadar\" name=\"attachment\">\r\n            <label for=\"pnadar\">ندارد</label>\r\n          </div>\r\n        </div>\r\n        <div class=\"col-md-6\">\r\n          <div *ngIf=\"hasfile\">\r\n            <span>انتخاب فایل ها</span>\r\n            <input style=\"direction: rtl;\" multiple type=\"file\"/>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"row mt-3\">\r\n      <div class=\"col-md-12 text-left\">\r\n        <button class=\"btn btn-info\" (click)=\"createLetter()\">تولید نامه</button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"modal fade show\" id=\"letter-modal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">\r\n  <div class=\"modal-dialog modal-lg\" role=\"document\">\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <h5 class=\"modal-title\" id=\"exampleModalLabel\"> title</h5>\r\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n          <span aria-hidden=\"true\">&times;</span>\r\n        </button>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        <router-outlet></router-outlet>\r\n      </div>\r\n      <div class=\"modal-footer d-block\">\r\n        <button type=\"button\" id=\"btn\" class=\"btn btn-primary sans\">ارسال نامه</button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n<notifier-container></notifier-container>\r\n"
 
 /***/ }),
 
@@ -1160,7 +1167,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jalali_moment__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jalali_moment__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 /* harmony import */ var angular_notifier__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! angular-notifier */ "./node_modules/angular-notifier/esm2015/angular-notifier.js");
-/* harmony import */ var src_app_shared_services_data_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/services/data.service */ "./src/app/shared/services/data.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1174,12 +1180,13 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
-
 let NewLetterComponent = class NewLetterComponent {
-    constructor(route, notifierService, searchConfig, getdata) {
+    constructor(route, notifierService) {
         this.route = route;
-        this.searchConfig = searchConfig;
-        this.getdata = getdata;
+        this.searchConfig = {
+            placeholder: 'جستجوی شرکت ...',
+            width: '100%'
+        };
         this.datePickerConfig = {
             format: 'jYYYY/jMM/jDD'
         };
@@ -1197,13 +1204,9 @@ let NewLetterComponent = class NewLetterComponent {
         this.hasfile = false;
         this.notifier = notifierService;
     }
-    ngOnInit() {
-        this.searchConfig.setConfig({ placeholder: 'جستجوی شرکت ...', width: '100%' });
-        this.getdata.getData.subscribe(res => {
-            if (res !== null) {
-                this.receivers.push({ id: res.itemid, text: res.itemname });
-            }
-        });
+    ngOnInit() { }
+    createCompanyList(items) {
+        this.receivers.push({ id: items.id, text: items.text });
     }
     removeBadge(id) {
         this.receivers.forEach((item, index) => {
@@ -1237,7 +1240,7 @@ NewLetterComponent = __decorate([
         template: __webpack_require__(/*! ./new-letter.component.html */ "./src/app/main/new-letter/new-letter.component.html"),
         styles: [__webpack_require__(/*! ./new-letter.component.css */ "./src/app/main/new-letter/new-letter.component.css")]
     }),
-    __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], angular_notifier__WEBPACK_IMPORTED_MODULE_3__["NotifierService"], src_app_shared_services_data_service__WEBPACK_IMPORTED_MODULE_4__["DataService"], src_app_shared_services_data_service__WEBPACK_IMPORTED_MODULE_4__["DataService"]])
+    __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], angular_notifier__WEBPACK_IMPORTED_MODULE_3__["NotifierService"]])
 ], NewLetterComponent);
 
 
@@ -1262,7 +1265,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\r\n  news works!\r\n</p>\r\n"
+module.exports = "<p>{{saeed}}</p>\r\n"
 
 /***/ }),
 
@@ -1292,6 +1295,10 @@ let NewsComponent = class NewsComponent {
     ngOnInit() {
     }
 };
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+    __metadata("design:type", String)
+], NewsComponent.prototype, "saeed", void 0);
 NewsComponent = __decorate([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
         selector: 'app-news',
@@ -1664,8 +1671,7 @@ module.exports = "<div class=\"search-input\" [style.width]=\"width\" #parentdiv
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SearchComponent", function() { return SearchComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var src_app_shared_services_data_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/shared/services/data.service */ "./src/app/shared/services/data.service.ts");
-/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm2015/http.js");
+/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm2015/http.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1679,12 +1685,10 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
-
 let SearchComponent = class SearchComponent {
-    constructor(searchConfig, http, sendData) {
-        this.searchConfig = searchConfig;
+    constructor(http) {
         this.http = http;
-        this.sendData = sendData;
+        this.output = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
         this.placeholder = 'جستجو ...';
         this.width = '100%';
         this.searchField = '';
@@ -1699,10 +1703,10 @@ let SearchComponent = class SearchComponent {
         }
     }
     ngOnInit() {
-        this.searchConfig.getConfig.subscribe(e => {
-            this.placeholder = e.placeholder;
-            this.width = e.width;
-        });
+        if (!this.config.length) {
+            this.width = this.config.width;
+            this.placeholder = this.config.placeholder;
+        }
     }
     ngAfterViewInit() {
         this.resultWidth.nativeElement.style.width = (this.parentdiv.nativeElement.clientWidth + 2) + 'px';
@@ -1720,9 +1724,17 @@ let SearchComponent = class SearchComponent {
         return !(input.replace(/\s/g, "").length > 0);
     }
     addItem(itemid, itemname) {
-        this.sendData.setData({ itemid: itemid, itemname: itemname });
+        this.output.emit({ id: itemid, text: itemname });
     }
 };
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+    __metadata("design:type", Object)
+], SearchComponent.prototype, "config", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+    __metadata("design:type", Object)
+], SearchComponent.prototype, "output", void 0);
 __decorate([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('parentdiv'),
     __metadata("design:type", Object)
@@ -1743,8 +1755,73 @@ SearchComponent = __decorate([
         template: __webpack_require__(/*! ./search.component.html */ "./src/app/shared/components/search/search.component.html"),
         styles: [__webpack_require__(/*! ./search.component.css */ "./src/app/shared/components/search/search.component.css")]
     }),
-    __metadata("design:paramtypes", [src_app_shared_services_data_service__WEBPACK_IMPORTED_MODULE_1__["DataService"], _angular_http__WEBPACK_IMPORTED_MODULE_2__["Http"], src_app_shared_services_data_service__WEBPACK_IMPORTED_MODULE_1__["DataService"]])
+    __metadata("design:paramtypes", [_angular_http__WEBPACK_IMPORTED_MODULE_1__["Http"]])
 ], SearchComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/shared/components/test/test.component.css":
+/*!***********************************************************!*\
+  !*** ./src/app/shared/components/test/test.component.css ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3NoYXJlZC9jb21wb25lbnRzL3Rlc3QvdGVzdC5jb21wb25lbnQuY3NzIn0= */"
+
+/***/ }),
+
+/***/ "./src/app/shared/components/test/test.component.html":
+/*!************************************************************!*\
+  !*** ./src/app/shared/components/test/test.component.html ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "{{test.format}}\r\n"
+
+/***/ }),
+
+/***/ "./src/app/shared/components/test/test.component.ts":
+/*!**********************************************************!*\
+  !*** ./src/app/shared/components/test/test.component.ts ***!
+  \**********************************************************/
+/*! exports provided: TestComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TestComponent", function() { return TestComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+let TestComponent = class TestComponent {
+    constructor() { }
+    ngOnInit() {
+    }
+};
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+    __metadata("design:type", Object)
+], TestComponent.prototype, "test", void 0);
+TestComponent = __decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+        selector: 'app-test',
+        template: __webpack_require__(/*! ./test.component.html */ "./src/app/shared/components/test/test.component.html"),
+        styles: [__webpack_require__(/*! ./test.component.css */ "./src/app/shared/components/test/test.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], TestComponent);
 
 
 

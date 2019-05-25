@@ -26,6 +26,7 @@ import { SignUploadComponent } from './main/users/sign-upload/sign-upload.compon
 import { SearchReceiverDirective } from './shared/directives/search-receiver.directive';
 import { SearchComponent } from './shared/components/search/search.component';
 import { DataService } from 'src/app/shared/services/data.service';
+import { TestComponent } from './shared/components/test/test.component';
 
 const appRoutes: Route[] = [
   { path: 'login', component: LoginComponent },
@@ -91,6 +92,7 @@ const notifierOptions: {} = {
     SignUploadComponent,
     SearchReceiverDirective,
     SearchComponent,
+    TestComponent,
   ],
   imports: [
     BrowserModule,
