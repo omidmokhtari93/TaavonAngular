@@ -1,5 +1,5 @@
 .search-input {
-  z-index: 999;
+  z-index: 500;
   position: relative;
   display: inline-block;
   width: 100%;
@@ -14,7 +14,7 @@
   border-radius: .25rem;
   transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
-
+ 
   .search-input div[name=result-area] {
     position: absolute;
     background-color: #e6f3ff;
@@ -96,7 +96,7 @@
   }
 
   .search-input span {
-    z-index: 999;
+    z-index: 500;
     position: absolute;
     right: 30px;
     top: 4px;

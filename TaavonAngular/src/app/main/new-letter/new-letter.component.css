@@ -1,5 +1,5 @@
-#RecieverBadgeArea span{
-  cursor:pointer;
+#RecieverBadgeArea span, #ReplicaBadgeArea span{
+  cursor: pointer;
 }
 .button-group input { display: none; }
 

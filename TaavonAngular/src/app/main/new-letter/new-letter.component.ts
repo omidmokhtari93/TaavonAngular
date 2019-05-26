@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import * as moment from 'jalali-moment';
 import { Router } from '@angular/router';
 import { NotifierService } from 'angular-notifier';
-import { DataService } from 'src/app/shared/services/data.service';
 declare var $: any;
+import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 @Component({
   selector: 'app-new-letter',
@@ -11,9 +11,28 @@ declare var $: any;
   styleUrls: ['./new-letter.component.css']
 })
 export class NewLetterComponent implements OnInit {
-  searchConfig = {
+  public Editor = ClassicEditor;
+  editConfig = {
+    fontFamily: {
+      options: [
+        'default',
+        'Ubuntu, Arial, sans-serif',
+        'Ubuntu Mono, Courier New, Courier, monospace'
+      ]
+    },
+    toolbar: ['heading', 'bulletedList', 'numberedList', 'fontFamily', 'undo', 'redo']
+  }
+  receiverConfig = {
     placeholder: 'جستجوی شرکت ...',
-    width: '100%'
+    width: '100%',
+    api: '/api/SearchCompany',
+    zindex: '600'
+  }
+  replicaConfig = {
+    placeholder: 'رونوشت به ...',
+    width: '100%',
+    api: '/api/SearchCompany',
+    zindex: '500'
   }
   datePickerConfig = {
     format: 'jYYYY/jMM/jDD'
@@ -23,7 +42,7 @@ export class NewLetterComponent implements OnInit {
   letterSubject: string = '';
   receivers = [];
   sender: string = '';
-  replica: string[] = [];
+  replica = [];
   replicaText: string = '';
   needResponse: boolean = false;
   letterSize: boolean = true;
@@ -36,22 +55,29 @@ export class NewLetterComponent implements OnInit {
     this.notifier = notifierService;
   }
 
-  ngOnInit() { }
+  ngOnInit() {}
 
   createCompanyList(items: any) {
-    this.receivers.push({ id: items.id, text: items.text })
+    if (this.receivers.find(x => x.id == items.id) == undefined) {
+      this.receivers.push({ id: items.id, text: items.text })
+    }
   }
+
+  createReplicaList(rep: any) {
+    if (this.replica.find(x => x.id == rep.id) == undefined) {
+      this.replica.push({ id: rep.id, text: rep.text })
+    }
+  }
+
   removeBadge(id) {
     this.receivers.forEach((item, index) => {
       if (item.id == id) this.receivers.splice(index, 1);
     });
   }
-  removeReplicaBadge(event) {
-    for (var i = this.replica.length - 1; i >= 0; i--) {
-      if (this.replica[i] === event.target.innerText) {
-        this.replica.splice(i, 1);
-      }
-    }
+  removeReplicaBadge(id) {
+    this.replica.forEach((item, index) => {
+      if (item.id == id) this.replica.splice(index, 1);
+    });
   }
   createLetter() {
     if (this.letterSubject === '') {

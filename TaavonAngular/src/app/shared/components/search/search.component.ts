@@ -16,6 +16,7 @@ export class SearchComponent implements OnInit {
   @ViewChild('resultWidth') resultWidth: any;
   placeholder: string = 'جستجو ...';
   width: string = '100%';
+  zindex: string = '500';
   searchField: string = '';
   liItems: string[] = [];
   @HostListener('document:click', ['$event'])
@@ -24,6 +25,7 @@ export class SearchComponent implements OnInit {
       return;
     } else {
       this.liItems = [];
+      this.searchField = '';
     }
   }
   constructor(private http: Http) { }
@@ -32,6 +34,7 @@ export class SearchComponent implements OnInit {
     if (!this.config.length) {
       this.width = this.config.width;
       this.placeholder = this.config.placeholder;
+      this.zindex = this.config.zindex;
     }
   }
   ngAfterViewInit() {
@@ -42,7 +45,7 @@ export class SearchComponent implements OnInit {
       this.liItems = [];
       return;
     }
-    this.http.get('/api/SearchCompany', { params: { company: this.searchField } }).subscribe(e => {
+    this.http.get(this.config.api, { params: { company: this.searchField } }).subscribe(e => {
       this.liItems = e.json() as string[];
     })
   }

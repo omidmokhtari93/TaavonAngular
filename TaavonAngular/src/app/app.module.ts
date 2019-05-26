@@ -27,6 +27,7 @@ import { SearchReceiverDirective } from './shared/directives/search-receiver.dir
 import { SearchComponent } from './shared/components/search/search.component';
 import { DataService } from 'src/app/shared/services/data.service';
 import { TestComponent } from './shared/components/test/test.component';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 const appRoutes: Route[] = [
   { path: 'login', component: LoginComponent },
@@ -101,7 +102,8 @@ const notifierOptions: {} = {
     FormsModule,
     RouterModule.forRoot(appRoutes),
     NotifierModule.withConfig(notifierOptions),
-    DpDatePickerModule
+    DpDatePickerModule,
+    CKEditorModule
   ],
   providers: [
     DataService

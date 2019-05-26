@@ -1,4 +1,4 @@
-<div class="search-input" [style.width]="width" #parentdiv>
+<div class="search-input" [style.width]="width" [style.z-index]="zindex" #parentdiv>
   <input name="search-field" autocomplete="off" [placeholder]="placeholder" [(ngModel)]="searchField" (input)="search()"/>
   <div name="result-area" #resultWidth>
     <ul>

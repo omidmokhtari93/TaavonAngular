@@ -19,11 +19,11 @@
     <div class="row mt-3">
       <div class="col-md-12 position-relative">
         <div id="RecieverBadgeArea">
-          <span class="sans-xsmall bg-default text-white m-1 pl-1 pr-1 rounded"
+          <span class="sans-xsmall bg-primary text-white m-1 pl-1 pr-1 rounded"
                 (click)="removeBadge(receiver.id)"
                 *ngFor="let receiver of receivers">{{receiver.text}}</span>
         </div>
-        <app-search [config]="searchConfig" (output)="createCompanyList($event)"></app-search>
+        <app-search [config]="receiverConfig" (output)="createCompanyList($event)"></app-search>
         <div id="receiverDropDown" class="w-100 position-absolute">
         </div>
       </div>
@@ -32,10 +32,10 @@
       <div class="col-md-12">
         <div id="ReplicaBadgeArea">
           <span class="sans-xsmall bg-default text-white m-1 pl-1 pr-1 rounded"
-                (click)="removeReplicaBadge($event)"
-                *ngFor="let rep of replica">{{rep}}</span>
+                (click)="removeReplicaBadge(rep.id)"
+                *ngFor="let rep of replica">{{rep.text}}</span>
         </div>
-        <input class="form-control" placeholder="رونوشت به ..." />
+        <app-search [config]="replicaConfig" (output)="createReplicaList($event)"></app-search>
       </div>
     </div>
     <div class="row mt-3">
@@ -155,3 +155,5 @@
   </div>
 </div>
 <notifier-container></notifier-container>
+
+<ckeditor [editor]="Editor" [config]="editConfig"></ckeditor>
