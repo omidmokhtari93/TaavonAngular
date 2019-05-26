@@ -11,6 +11,8 @@ import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
   styleUrls: ['./new-letter.component.css']
 })
 export class NewLetterComponent implements OnInit {
+  //npm install --save @ckeditor/ckeditor5-angular
+  //npm install --save @ckeditor/ckeditor5-build-classic
   public Editor = ClassicEditor;
   editConfig = {
     fontFamily: {

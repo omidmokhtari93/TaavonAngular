@@ -1189,6 +1189,8 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 let NewLetterComponent = class NewLetterComponent {
     constructor(route, notifierService) {
         this.route = route;
+        //npm install --save @ckeditor/ckeditor5-angular
+        //npm install --save @ckeditor/ckeditor5-build-classic
         this.Editor = _ckeditor_ckeditor5_build_classic__WEBPACK_IMPORTED_MODULE_4__;
         this.editConfig = {
             fontFamily: {
