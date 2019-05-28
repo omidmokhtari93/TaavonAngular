@@ -1193,14 +1193,14 @@ let NewLetterComponent = class NewLetterComponent {
         //npm install --save @ckeditor/ckeditor5-build-classic
         this.Editor = _ckeditor_ckeditor5_build_classic__WEBPACK_IMPORTED_MODULE_4__;
         this.editConfig = {
-            fontFamily: {
+            toolbar: ['heading', '|', 'bold', 'italic', 'link', 'numberedList', 'blockQuote'],
+            heading: {
                 options: [
-                    'default',
-                    'Ubuntu, Arial, sans-serif',
-                    'Ubuntu Mono, Courier New, Courier, monospace'
+                    { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
+                    { model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
+                    { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' }
                 ]
-            },
-            toolbar: ['heading', 'bulletedList', 'numberedList', 'fontFamily', 'undo', 'redo']
+            }
         };
         this.receiverConfig = {
             placeholder: 'جستجوی شرکت ...',

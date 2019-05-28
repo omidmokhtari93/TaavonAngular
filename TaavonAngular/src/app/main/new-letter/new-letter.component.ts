@@ -15,14 +15,14 @@ export class NewLetterComponent implements OnInit {
   //npm install --save @ckeditor/ckeditor5-build-classic
   public Editor = ClassicEditor;
   editConfig = {
-    fontFamily: {
+    toolbar: ['heading', '|', 'bold', 'italic', 'link', 'numberedList', 'blockQuote'],
+    heading: {
       options: [
-        'default',
-        'Ubuntu, Arial, sans-serif',
-        'Ubuntu Mono, Courier New, Courier, monospace'
+        { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
+        { model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
+        { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' }
       ]
-    },
-    toolbar: ['heading', 'bulletedList', 'numberedList', 'fontFamily', 'undo', 'redo']
+    }
   }
   receiverConfig = {
     placeholder: 'جستجوی شرکت ...',
@@ -57,7 +57,7 @@ export class NewLetterComponent implements OnInit {
     this.notifier = notifierService;
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   createCompanyList(items: any) {
     if (this.receivers.find(x => x.id == items.id) == undefined) {
