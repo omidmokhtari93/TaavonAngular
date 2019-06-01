@@ -678,8 +678,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginComponent", function() { return LoginComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm2015/http.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var angular_notifier__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! angular-notifier */ "./node_modules/angular-notifier/esm2015/angular-notifier.js");
+/* harmony import */ var src_app_shared_services_login_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/shared/services/login.service */ "./src/app/shared/services/login.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -692,14 +691,12 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
-
 let LoginComponent = class LoginComponent {
-    constructor(_http, _route, notifierService) {
+    constructor(_http, loginService) {
         this._http = _http;
-        this._route = _route;
+        this.loginService = loginService;
         this.username = '';
         this.password = '';
-        this.notifier = notifierService;
     }
     ngOnInit() {
         if (JSON.parse(localStorage.getItem('RememberMe')) !== null) {
@@ -712,29 +709,23 @@ let LoginComponent = class LoginComponent {
         localStorage.removeItem('Username');
         localStorage.removeItem('Password');
         localStorage.removeItem('RememberMe');
-        sessionStorage.setItem('token', 'gfherthf6546df5g4egS');
+        sessionStorage.setItem('token', 'SbzlGl1Vwx1hRIQPAQZB');
         if (this.rememberMe) {
             localStorage.setItem('Username', this.username);
             localStorage.setItem('Password', this.password);
             localStorage.setItem('RememberMe', JSON.stringify(this.rememberMe));
         }
-        this._http.get('/api/login', { params: { Username: this.username, Password: this.password } }).subscribe(res => {
-            if (res.json().status == true) {
-                this._route.navigate(['main']);
-            }
-            else {
-                this.notifier.notify('error', res.json().message);
-            }
-        });
+        this.loginService.login(this.username, this.password);
     }
 };
 LoginComponent = __decorate([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
         selector: 'app-login',
         template: __webpack_require__(/*! ./login.component.html */ "./src/app/login/login.component.html"),
+        providers: [src_app_shared_services_login_service__WEBPACK_IMPORTED_MODULE_2__["LoginService"]],
         styles: [__webpack_require__(/*! ./login.component.css */ "./src/app/login/login.component.css")]
     }),
-    __metadata("design:paramtypes", [_angular_http__WEBPACK_IMPORTED_MODULE_1__["Http"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], angular_notifier__WEBPACK_IMPORTED_MODULE_3__["NotifierService"]])
+    __metadata("design:paramtypes", [_angular_http__WEBPACK_IMPORTED_MODULE_1__["Http"], src_app_shared_services_login_service__WEBPACK_IMPORTED_MODULE_2__["LoginService"]])
 ], LoginComponent);
 
 
@@ -2026,6 +2017,59 @@ DataService = __decorate([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
     __metadata("design:paramtypes", [])
 ], DataService);
+
+
+
+/***/ }),
+
+/***/ "./src/app/shared/services/login.service.ts":
+/*!**************************************************!*\
+  !*** ./src/app/shared/services/login.service.ts ***!
+  \**************************************************/
+/*! exports provided: LoginService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginService", function() { return LoginService; });
+/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm2015/http.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var angular_notifier__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! angular-notifier */ "./node_modules/angular-notifier/esm2015/angular-notifier.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+let LoginService = class LoginService {
+    constructor(http, route, notifierService) {
+        this.http = http;
+        this.route = route;
+        this.notifier = notifierService;
+    }
+    login(username, password) {
+        this.http.get('/api/login', { params: { Username: username, Password: password } }).subscribe(res => {
+            if (res.json().status == true) {
+                this.route.navigate(['main']);
+            }
+            else {
+                this.notifier.notify('error', res.json().message);
+            }
+        });
+    }
+};
+LoginService = __decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
+    __metadata("design:paramtypes", [_angular_http__WEBPACK_IMPORTED_MODULE_0__["Http"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], angular_notifier__WEBPACK_IMPORTED_MODULE_3__["NotifierService"]])
+], LoginService);
 
 
 

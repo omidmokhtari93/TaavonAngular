@@ -9,6 +9,7 @@
   <ItemGroup>
     <None Remove="src\app\shared\directives\files.service.ts" />
     <None Remove="src\app\shared\services\data.service.ts" />
+    <None Remove="src\app\shared\services\login.service.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -20,6 +21,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="src\app\shared\services\data.service.ts" />
     <TypeScriptCompile Include="src\app\shared\services\files.service.ts" />
+    <TypeScriptCompile Include="src\app\shared\services\login.service.ts" />
   </ItemGroup>
 
   <ItemGroup>
