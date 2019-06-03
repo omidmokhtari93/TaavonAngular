@@ -90,7 +90,7 @@ export class NewLetterComponent implements OnInit {
       this.notifier.notify('error', 'لطفا گیرنده نامه را مشخص  کنید');
       return;
     }
-    this.route.navigate(["main/new/A5"])
+    this.route.navigate(["main", "new", "A5"])
     $('#letter-modal').modal('show');
   }
 }
