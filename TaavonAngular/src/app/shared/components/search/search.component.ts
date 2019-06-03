@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { DataService } from 'src/app/shared/services/data.service';
 import { ViewChild } from '@angular/core';
 import { Http } from '@angular/http';
 import { HostListener } from '@angular/core';
