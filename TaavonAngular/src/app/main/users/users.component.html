@@ -51,12 +51,12 @@
         </div>
       </div>
       <div class="col-lg-4">
-        نام شرکت
-        <div id="badgeArea" style="position: relative;">
-          <input autocomplete="off" [(ngModel)]="company" tabindex="7" required dir="rtl" class="form-control text-right" id="txtCoSearch" placeholder="جستجوی شرکت ..." />
+        <div style="min-height: 27px;">
+          <span class="sans-xsmall bg-primary text-white m-1 pl-1 pr-1 rounded"
+                *ngFor="let comp of company"
+                (click)="removeCompany()">{{comp.text}}</span>
         </div>
-        <div id="CoSearchResulat">
-        </div>
+        <app-search [config]="companyConfig" (output)="selectCompany($event)"></app-search>
       </div>
     </div>
   </div>
