@@ -29,28 +29,7 @@ import { DataService } from 'src/app/shared/services/data.service';
 import { TestComponent } from './shared/components/test/test.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
-const appRoutes: Route[] = [
-  { path: 'login', component: LoginComponent },
-  { path: 'forget', component: ForgetPasswordComponent },
-  {
-    path: 'main', component: MainComponent, children: [
-      {
-        path: 'new', component: NewLetterComponent, children: [
-          { path: 'A4', component: A4Component },
-          { path: 'A5', component: A5Component }
-        ]
-      },
-      { path: 'received', component: ReceivedLetterComponent },
-      { path: 'sended', component: SendedLetterComponent },
-      { path: 'entry', component: LetterEntryComponent },
-      { path: 'search', component: SearchLetterComponent },
-      { path: 'indicator', component: IndicatorsComponent },
-      { path: 'news', component: NewsComponent },
-      { path: 'users', component: UsersComponent },
-      { path: 'editusers', component: EditUsersComponent },
-    ]
-  }
-]
+
 const notifierOptions: {} = {
   position: {
     horizontal: {
@@ -100,7 +79,6 @@ const notifierOptions: {} = {
     AppRoutingModule,
     HttpModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes),
     NotifierModule.withConfig(notifierOptions),
     DpDatePickerModule,
     CKEditorModule

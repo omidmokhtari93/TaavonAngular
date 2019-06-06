@@ -322,6 +322,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppRoutingModule", function() { return AppRoutingModule; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
+/* harmony import */ var _forget_password_forget_password_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./forget-password/forget-password.component */ "./src/app/forget-password/forget-password.component.ts");
+/* harmony import */ var _main_main_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./main/main.component */ "./src/app/main/main.component.ts");
+/* harmony import */ var _main_new_letter_new_letter_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./main/new-letter/new-letter.component */ "./src/app/main/new-letter/new-letter.component.ts");
+/* harmony import */ var _main_new_letter_a4_a4_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./main/new-letter/a4/a4.component */ "./src/app/main/new-letter/a4/a4.component.ts");
+/* harmony import */ var _main_new_letter_a5_a5_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./main/new-letter/a5/a5.component */ "./src/app/main/new-letter/a5/a5.component.ts");
+/* harmony import */ var _main_received_letter_received_letter_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./main/received-letter/received-letter.component */ "./src/app/main/received-letter/received-letter.component.ts");
+/* harmony import */ var _main_sended_letter_sended_letter_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./main/sended-letter/sended-letter.component */ "./src/app/main/sended-letter/sended-letter.component.ts");
+/* harmony import */ var _main_letter_entry_letter_entry_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./main/letter-entry/letter-entry.component */ "./src/app/main/letter-entry/letter-entry.component.ts");
+/* harmony import */ var _main_search_letter_search_letter_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./main/search-letter/search-letter.component */ "./src/app/main/search-letter/search-letter.component.ts");
+/* harmony import */ var _main_indicators_indicators_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./main/indicators/indicators.component */ "./src/app/main/indicators/indicators.component.ts");
+/* harmony import */ var _main_news_news_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./main/news/news.component */ "./src/app/main/news/news.component.ts");
+/* harmony import */ var _main_users_users_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./main/users/users.component */ "./src/app/main/users/users.component.ts");
+/* harmony import */ var _main_edit_users_edit_users_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./main/edit-users/edit-users.component */ "./src/app/main/edit-users/edit-users.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -330,7 +344,42 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 };
 
 
-const routes = [];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const routes = [
+    { path: 'login', component: _login_login_component__WEBPACK_IMPORTED_MODULE_2__["LoginComponent"] },
+    { path: 'forget', component: _forget_password_forget_password_component__WEBPACK_IMPORTED_MODULE_3__["ForgetPasswordComponent"] },
+    {
+        path: 'main', component: _main_main_component__WEBPACK_IMPORTED_MODULE_4__["MainComponent"], children: [
+            {
+                path: 'new', component: _main_new_letter_new_letter_component__WEBPACK_IMPORTED_MODULE_5__["NewLetterComponent"], children: [
+                    { path: 'A4', component: _main_new_letter_a4_a4_component__WEBPACK_IMPORTED_MODULE_6__["A4Component"] },
+                    { path: 'A5', component: _main_new_letter_a5_a5_component__WEBPACK_IMPORTED_MODULE_7__["A5Component"] }
+                ]
+            },
+            { path: 'received', component: _main_received_letter_received_letter_component__WEBPACK_IMPORTED_MODULE_8__["ReceivedLetterComponent"] },
+            { path: 'sended', component: _main_sended_letter_sended_letter_component__WEBPACK_IMPORTED_MODULE_9__["SendedLetterComponent"] },
+            { path: 'entry', component: _main_letter_entry_letter_entry_component__WEBPACK_IMPORTED_MODULE_10__["LetterEntryComponent"] },
+            { path: 'search', component: _main_search_letter_search_letter_component__WEBPACK_IMPORTED_MODULE_11__["SearchLetterComponent"] },
+            { path: 'indicator', component: _main_indicators_indicators_component__WEBPACK_IMPORTED_MODULE_12__["IndicatorsComponent"] },
+            { path: 'news', component: _main_news_news_component__WEBPACK_IMPORTED_MODULE_13__["NewsComponent"] },
+            { path: 'users', component: _main_users_users_component__WEBPACK_IMPORTED_MODULE_14__["UsersComponent"] },
+            { path: 'editusers', component: _main_edit_users_edit_users_component__WEBPACK_IMPORTED_MODULE_15__["EditUsersComponent"] },
+        ]
+    }
+];
 let AppRoutingModule = class AppRoutingModule {
 };
 AppRoutingModule = __decorate([
@@ -427,32 +476,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
 /* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm2015/http.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _main_new_letter_new_letter_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./main/new-letter/new-letter.component */ "./src/app/main/new-letter/new-letter.component.ts");
-/* harmony import */ var _main_received_letter_received_letter_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./main/received-letter/received-letter.component */ "./src/app/main/received-letter/received-letter.component.ts");
-/* harmony import */ var _main_sended_letter_sended_letter_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./main/sended-letter/sended-letter.component */ "./src/app/main/sended-letter/sended-letter.component.ts");
-/* harmony import */ var _main_letter_entry_letter_entry_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./main/letter-entry/letter-entry.component */ "./src/app/main/letter-entry/letter-entry.component.ts");
-/* harmony import */ var _main_search_letter_search_letter_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./main/search-letter/search-letter.component */ "./src/app/main/search-letter/search-letter.component.ts");
-/* harmony import */ var _main_indicators_indicators_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./main/indicators/indicators.component */ "./src/app/main/indicators/indicators.component.ts");
-/* harmony import */ var _main_news_news_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./main/news/news.component */ "./src/app/main/news/news.component.ts");
-/* harmony import */ var _main_users_users_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./main/users/users.component */ "./src/app/main/users/users.component.ts");
-/* harmony import */ var _main_edit_users_edit_users_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./main/edit-users/edit-users.component */ "./src/app/main/edit-users/edit-users.component.ts");
-/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
-/* harmony import */ var _main_main_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./main/main.component */ "./src/app/main/main.component.ts");
-/* harmony import */ var angular_notifier__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! angular-notifier */ "./node_modules/angular-notifier/esm2015/angular-notifier.js");
-/* harmony import */ var _forget_password_forget_password_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./forget-password/forget-password.component */ "./src/app/forget-password/forget-password.component.ts");
-/* harmony import */ var ng2_jalali_date_picker__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ng2-jalali-date-picker */ "./node_modules/ng2-jalali-date-picker/ng2-jalali-date-picker.js");
-/* harmony import */ var _shared_directives_letter_number_directive__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./shared/directives/letter-number.directive */ "./src/app/shared/directives/letter-number.directive.ts");
-/* harmony import */ var _main_new_letter_a4_a4_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./main/new-letter/a4/a4.component */ "./src/app/main/new-letter/a4/a4.component.ts");
-/* harmony import */ var _main_new_letter_a5_a5_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./main/new-letter/a5/a5.component */ "./src/app/main/new-letter/a5/a5.component.ts");
-/* harmony import */ var _main_users_sign_upload_sign_upload_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./main/users/sign-upload/sign-upload.component */ "./src/app/main/users/sign-upload/sign-upload.component.ts");
-/* harmony import */ var _shared_directives_search_receiver_directive__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./shared/directives/search-receiver.directive */ "./src/app/shared/directives/search-receiver.directive.ts");
-/* harmony import */ var _shared_components_search_search_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./shared/components/search/search.component */ "./src/app/shared/components/search/search.component.ts");
-/* harmony import */ var src_app_shared_services_data_service__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! src/app/shared/services/data.service */ "./src/app/shared/services/data.service.ts");
-/* harmony import */ var _shared_components_test_test_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./shared/components/test/test.component */ "./src/app/shared/components/test/test.component.ts");
-/* harmony import */ var _ckeditor_ckeditor5_angular__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! @ckeditor/ckeditor5-angular */ "./node_modules/@ckeditor/ckeditor5-angular/fesm2015/ckeditor-ckeditor5-angular.js");
+/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _main_new_letter_new_letter_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./main/new-letter/new-letter.component */ "./src/app/main/new-letter/new-letter.component.ts");
+/* harmony import */ var _main_received_letter_received_letter_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./main/received-letter/received-letter.component */ "./src/app/main/received-letter/received-letter.component.ts");
+/* harmony import */ var _main_sended_letter_sended_letter_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./main/sended-letter/sended-letter.component */ "./src/app/main/sended-letter/sended-letter.component.ts");
+/* harmony import */ var _main_letter_entry_letter_entry_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./main/letter-entry/letter-entry.component */ "./src/app/main/letter-entry/letter-entry.component.ts");
+/* harmony import */ var _main_search_letter_search_letter_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./main/search-letter/search-letter.component */ "./src/app/main/search-letter/search-letter.component.ts");
+/* harmony import */ var _main_indicators_indicators_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./main/indicators/indicators.component */ "./src/app/main/indicators/indicators.component.ts");
+/* harmony import */ var _main_news_news_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./main/news/news.component */ "./src/app/main/news/news.component.ts");
+/* harmony import */ var _main_users_users_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./main/users/users.component */ "./src/app/main/users/users.component.ts");
+/* harmony import */ var _main_edit_users_edit_users_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./main/edit-users/edit-users.component */ "./src/app/main/edit-users/edit-users.component.ts");
+/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
+/* harmony import */ var _main_main_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./main/main.component */ "./src/app/main/main.component.ts");
+/* harmony import */ var angular_notifier__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! angular-notifier */ "./node_modules/angular-notifier/esm2015/angular-notifier.js");
+/* harmony import */ var _forget_password_forget_password_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./forget-password/forget-password.component */ "./src/app/forget-password/forget-password.component.ts");
+/* harmony import */ var ng2_jalali_date_picker__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ng2-jalali-date-picker */ "./node_modules/ng2-jalali-date-picker/ng2-jalali-date-picker.js");
+/* harmony import */ var _shared_directives_letter_number_directive__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./shared/directives/letter-number.directive */ "./src/app/shared/directives/letter-number.directive.ts");
+/* harmony import */ var _main_new_letter_a4_a4_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./main/new-letter/a4/a4.component */ "./src/app/main/new-letter/a4/a4.component.ts");
+/* harmony import */ var _main_new_letter_a5_a5_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./main/new-letter/a5/a5.component */ "./src/app/main/new-letter/a5/a5.component.ts");
+/* harmony import */ var _main_users_sign_upload_sign_upload_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./main/users/sign-upload/sign-upload.component */ "./src/app/main/users/sign-upload/sign-upload.component.ts");
+/* harmony import */ var _shared_directives_search_receiver_directive__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./shared/directives/search-receiver.directive */ "./src/app/shared/directives/search-receiver.directive.ts");
+/* harmony import */ var _shared_components_search_search_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./shared/components/search/search.component */ "./src/app/shared/components/search/search.component.ts");
+/* harmony import */ var src_app_shared_services_data_service__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! src/app/shared/services/data.service */ "./src/app/shared/services/data.service.ts");
+/* harmony import */ var _shared_components_test_test_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./shared/components/test/test.component */ "./src/app/shared/components/test/test.component.ts");
+/* harmony import */ var _ckeditor_ckeditor5_angular__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! @ckeditor/ckeditor5-angular */ "./node_modules/@ckeditor/ckeditor5-angular/fesm2015/ckeditor-ckeditor5-angular.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -488,29 +536,6 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
-
-const appRoutes = [
-    { path: 'login', component: _login_login_component__WEBPACK_IMPORTED_MODULE_16__["LoginComponent"] },
-    { path: 'forget', component: _forget_password_forget_password_component__WEBPACK_IMPORTED_MODULE_19__["ForgetPasswordComponent"] },
-    {
-        path: 'main', component: _main_main_component__WEBPACK_IMPORTED_MODULE_17__["MainComponent"], children: [
-            {
-                path: 'new', component: _main_new_letter_new_letter_component__WEBPACK_IMPORTED_MODULE_7__["NewLetterComponent"], children: [
-                    { path: 'A4', component: _main_new_letter_a4_a4_component__WEBPACK_IMPORTED_MODULE_22__["A4Component"] },
-                    { path: 'A5', component: _main_new_letter_a5_a5_component__WEBPACK_IMPORTED_MODULE_23__["A5Component"] }
-                ]
-            },
-            { path: 'received', component: _main_received_letter_received_letter_component__WEBPACK_IMPORTED_MODULE_8__["ReceivedLetterComponent"] },
-            { path: 'sended', component: _main_sended_letter_sended_letter_component__WEBPACK_IMPORTED_MODULE_9__["SendedLetterComponent"] },
-            { path: 'entry', component: _main_letter_entry_letter_entry_component__WEBPACK_IMPORTED_MODULE_10__["LetterEntryComponent"] },
-            { path: 'search', component: _main_search_letter_search_letter_component__WEBPACK_IMPORTED_MODULE_11__["SearchLetterComponent"] },
-            { path: 'indicator', component: _main_indicators_indicators_component__WEBPACK_IMPORTED_MODULE_12__["IndicatorsComponent"] },
-            { path: 'news', component: _main_news_news_component__WEBPACK_IMPORTED_MODULE_13__["NewsComponent"] },
-            { path: 'users', component: _main_users_users_component__WEBPACK_IMPORTED_MODULE_14__["UsersComponent"] },
-            { path: 'editusers', component: _main_edit_users_edit_users_component__WEBPACK_IMPORTED_MODULE_15__["EditUsersComponent"] },
-        ]
-    }
-];
 const notifierOptions = {
     position: {
         horizontal: {
@@ -536,41 +561,40 @@ let AppModule = class AppModule {
 AppModule = __decorate([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         declarations: [
-            _app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"],
-            _main_new_letter_new_letter_component__WEBPACK_IMPORTED_MODULE_7__["NewLetterComponent"],
-            _main_received_letter_received_letter_component__WEBPACK_IMPORTED_MODULE_8__["ReceivedLetterComponent"],
-            _main_sended_letter_sended_letter_component__WEBPACK_IMPORTED_MODULE_9__["SendedLetterComponent"],
-            _main_letter_entry_letter_entry_component__WEBPACK_IMPORTED_MODULE_10__["LetterEntryComponent"],
-            _main_search_letter_search_letter_component__WEBPACK_IMPORTED_MODULE_11__["SearchLetterComponent"],
-            _main_indicators_indicators_component__WEBPACK_IMPORTED_MODULE_12__["IndicatorsComponent"],
-            _main_news_news_component__WEBPACK_IMPORTED_MODULE_13__["NewsComponent"],
-            _main_users_users_component__WEBPACK_IMPORTED_MODULE_14__["UsersComponent"],
-            _main_edit_users_edit_users_component__WEBPACK_IMPORTED_MODULE_15__["EditUsersComponent"],
-            _login_login_component__WEBPACK_IMPORTED_MODULE_16__["LoginComponent"],
-            _main_main_component__WEBPACK_IMPORTED_MODULE_17__["MainComponent"],
-            _forget_password_forget_password_component__WEBPACK_IMPORTED_MODULE_19__["ForgetPasswordComponent"],
-            _shared_directives_letter_number_directive__WEBPACK_IMPORTED_MODULE_21__["LetterNumberDirective"],
-            _main_new_letter_a4_a4_component__WEBPACK_IMPORTED_MODULE_22__["A4Component"],
-            _main_new_letter_a5_a5_component__WEBPACK_IMPORTED_MODULE_23__["A5Component"],
-            _main_users_sign_upload_sign_upload_component__WEBPACK_IMPORTED_MODULE_24__["SignUploadComponent"],
-            _shared_directives_search_receiver_directive__WEBPACK_IMPORTED_MODULE_25__["SearchReceiverDirective"],
-            _shared_components_search_search_component__WEBPACK_IMPORTED_MODULE_26__["SearchComponent"],
-            _shared_components_test_test_component__WEBPACK_IMPORTED_MODULE_28__["TestComponent"],
+            _app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"],
+            _main_new_letter_new_letter_component__WEBPACK_IMPORTED_MODULE_6__["NewLetterComponent"],
+            _main_received_letter_received_letter_component__WEBPACK_IMPORTED_MODULE_7__["ReceivedLetterComponent"],
+            _main_sended_letter_sended_letter_component__WEBPACK_IMPORTED_MODULE_8__["SendedLetterComponent"],
+            _main_letter_entry_letter_entry_component__WEBPACK_IMPORTED_MODULE_9__["LetterEntryComponent"],
+            _main_search_letter_search_letter_component__WEBPACK_IMPORTED_MODULE_10__["SearchLetterComponent"],
+            _main_indicators_indicators_component__WEBPACK_IMPORTED_MODULE_11__["IndicatorsComponent"],
+            _main_news_news_component__WEBPACK_IMPORTED_MODULE_12__["NewsComponent"],
+            _main_users_users_component__WEBPACK_IMPORTED_MODULE_13__["UsersComponent"],
+            _main_edit_users_edit_users_component__WEBPACK_IMPORTED_MODULE_14__["EditUsersComponent"],
+            _login_login_component__WEBPACK_IMPORTED_MODULE_15__["LoginComponent"],
+            _main_main_component__WEBPACK_IMPORTED_MODULE_16__["MainComponent"],
+            _forget_password_forget_password_component__WEBPACK_IMPORTED_MODULE_18__["ForgetPasswordComponent"],
+            _shared_directives_letter_number_directive__WEBPACK_IMPORTED_MODULE_20__["LetterNumberDirective"],
+            _main_new_letter_a4_a4_component__WEBPACK_IMPORTED_MODULE_21__["A4Component"],
+            _main_new_letter_a5_a5_component__WEBPACK_IMPORTED_MODULE_22__["A5Component"],
+            _main_users_sign_upload_sign_upload_component__WEBPACK_IMPORTED_MODULE_23__["SignUploadComponent"],
+            _shared_directives_search_receiver_directive__WEBPACK_IMPORTED_MODULE_24__["SearchReceiverDirective"],
+            _shared_components_search_search_component__WEBPACK_IMPORTED_MODULE_25__["SearchComponent"],
+            _shared_components_test_test_component__WEBPACK_IMPORTED_MODULE_27__["TestComponent"],
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
-            _app_routing_module__WEBPACK_IMPORTED_MODULE_5__["AppRoutingModule"],
+            _app_routing_module__WEBPACK_IMPORTED_MODULE_4__["AppRoutingModule"],
             _angular_http__WEBPACK_IMPORTED_MODULE_3__["HttpModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forRoot(appRoutes),
-            angular_notifier__WEBPACK_IMPORTED_MODULE_18__["NotifierModule"].withConfig(notifierOptions),
-            ng2_jalali_date_picker__WEBPACK_IMPORTED_MODULE_20__["DpDatePickerModule"],
-            _ckeditor_ckeditor5_angular__WEBPACK_IMPORTED_MODULE_29__["CKEditorModule"]
+            angular_notifier__WEBPACK_IMPORTED_MODULE_17__["NotifierModule"].withConfig(notifierOptions),
+            ng2_jalali_date_picker__WEBPACK_IMPORTED_MODULE_19__["DpDatePickerModule"],
+            _ckeditor_ckeditor5_angular__WEBPACK_IMPORTED_MODULE_28__["CKEditorModule"]
         ],
         providers: [
-            src_app_shared_services_data_service__WEBPACK_IMPORTED_MODULE_27__["DataService"]
+            src_app_shared_services_data_service__WEBPACK_IMPORTED_MODULE_26__["DataService"]
         ],
-        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]]
+        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]]
     })
 ], AppModule);
 
