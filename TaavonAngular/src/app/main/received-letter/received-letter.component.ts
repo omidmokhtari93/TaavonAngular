@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SlimLoadingBarService } from '@cime/ngx-slim-loading-bar';
 
 @Component({
   selector: 'app-received-letter',
@@ -7,7 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReceivedLetterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private slimLoadingBarService: SlimLoadingBarService) { }
+
+  startLoading() {
+    this.slimLoadingBarService.start(res => {
+      console.log(res);
+    });
+  }
+
+  stopLoading() {
+    this.slimLoadingBarService.stop();
+  }
+
+  completeLoading() {
+    this.slimLoadingBarService.complete();
+  }
 
   ngOnInit() {
   }

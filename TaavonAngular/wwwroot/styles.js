@@ -44,6 +44,17 @@ module.exports = [[module.i, "/*!\r\n * Material Design for Bootstrap 4\r\n * Ve
 
 /***/ }),
 
+/***/ "./node_modules/@angular-devkit/build-angular/src/angular-cli-files/plugins/raw-css-loader.js!./node_modules/postcss-loader/src/index.js?!./src/styles.css":
+/*!*****************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@angular-devkit/build-angular/src/angular-cli-files/plugins/raw-css-loader.js!./node_modules/postcss-loader/src??embedded!./src/styles.css ***!
+  \*****************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = [[module.i, "/* You can add global styles to this file, and also import other style files */\n.slim-loading-bar {\n  position: fixed;\n  margin: 0;\n  padding: 0;\n  top: 0;\n  left: 0;\n  right: 0;\n  z-index: 99999;\n}\n/* Styling for the Slim Loading Progress Bar itself */\n.slim-loading-bar-progress {\n  margin: 0;\n  padding: 0;\n  z-index: 99998;\n  background-color: rgba(46, 204, 113,1.0);\n  color: rgba(46, 204, 113,1.0);\n  box-shadow: 0 0 10px 0; /* Inherits the font color */\n  height: 2px;\n  opacity: 0;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9zdHlsZXMuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLDhFQUE4RTtBQUM5RTtFQUNFLGVBQWU7RUFDZixTQUFTO0VBQ1QsVUFBVTtFQUNWLE1BQU07RUFDTixPQUFPO0VBQ1AsUUFBUTtFQUNSLGNBQWM7QUFDaEI7QUFFQSxxREFBcUQ7QUFDckQ7RUFDRSxTQUFTO0VBQ1QsVUFBVTtFQUNWLGNBQWM7RUFDZCx3Q0FBd0M7RUFDeEMsNkJBQTZCO0VBQzdCLHNCQUFzQixFQUFFLDRCQUE0QjtFQUNwRCxXQUFXO0VBQ1gsVUFBVTtBQUNaIiwiZmlsZSI6InNyYy9zdHlsZXMuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLyogWW91IGNhbiBhZGQgZ2xvYmFsIHN0eWxlcyB0byB0aGlzIGZpbGUsIGFuZCBhbHNvIGltcG9ydCBvdGhlciBzdHlsZSBmaWxlcyAqL1xuLnNsaW0tbG9hZGluZy1iYXIge1xuICBwb3NpdGlvbjogZml4ZWQ7XG4gIG1hcmdpbjogMDtcbiAgcGFkZGluZzogMDtcbiAgdG9wOiAwO1xuICBsZWZ0OiAwO1xuICByaWdodDogMDtcbiAgei1pbmRleDogOTk5OTk7XG59XG5cbi8qIFN0eWxpbmcgZm9yIHRoZSBTbGltIExvYWRpbmcgUHJvZ3Jlc3MgQmFyIGl0c2VsZiAqL1xuLnNsaW0tbG9hZGluZy1iYXItcHJvZ3Jlc3Mge1xuICBtYXJnaW46IDA7XG4gIHBhZGRpbmc6IDA7XG4gIHotaW5kZXg6IDk5OTk4O1xuICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDQ2LCAyMDQsIDExMywxLjApO1xuICBjb2xvcjogcmdiYSg0NiwgMjA0LCAxMTMsMS4wKTtcbiAgYm94LXNoYWRvdzogMCAwIDEwcHggMDsgLyogSW5oZXJpdHMgdGhlIGZvbnQgY29sb3IgKi9cbiAgaGVpZ2h0OiAycHg7XG4gIG9wYWNpdHk6IDA7XG59XG4iXX0= */", '', '']]
+
+/***/ }),
+
 /***/ "./node_modules/angular-notifier/styles.css":
 /*!**************************************************!*\
   !*** ./node_modules/angular-notifier/styles.css ***!
@@ -673,17 +684,48 @@ if(false) {}
 
 /***/ }),
 
-/***/ 3:
-/*!**************************************************************************************************************************************************************!*\
-  !*** multi ./src/assets/css/bootstrap.min.css ./src/assets/css/mdb.min.css ./src/assets/css/font-awesome.min.css ./node_modules/angular-notifier/styles.css ***!
-  \**************************************************************************************************************************************************************/
+/***/ "./src/styles.css":
+/*!************************!*\
+  !*** ./src/styles.css ***!
+  \************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Omid\source\repos\TaavonAngular\TaavonAngular\src\assets\css\bootstrap.min.css */"./src/assets/css/bootstrap.min.css");
-__webpack_require__(/*! C:\Users\Omid\source\repos\TaavonAngular\TaavonAngular\src\assets\css\mdb.min.css */"./src/assets/css/mdb.min.css");
-__webpack_require__(/*! C:\Users\Omid\source\repos\TaavonAngular\TaavonAngular\src\assets\css\font-awesome.min.css */"./src/assets/css/font-awesome.min.css");
-module.exports = __webpack_require__(/*! C:\Users\Omid\source\repos\TaavonAngular\TaavonAngular\node_modules\angular-notifier\styles.css */"./node_modules/angular-notifier/styles.css");
+
+var content = __webpack_require__(/*! !../node_modules/@angular-devkit/build-angular/src/angular-cli-files/plugins/raw-css-loader.js!../node_modules/postcss-loader/src??embedded!./styles.css */ "./node_modules/@angular-devkit/build-angular/src/angular-cli-files/plugins/raw-css-loader.js!./node_modules/postcss-loader/src/index.js?!./src/styles.css");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ 3:
+/*!*******************************************************************************************************************************************************************************!*\
+  !*** multi ./src/styles.css ./src/assets/css/bootstrap.min.css ./src/assets/css/mdb.min.css ./src/assets/css/font-awesome.min.css ./node_modules/angular-notifier/styles.css ***!
+  \*******************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(/*! C:\Users\IT2\source\repos\TaavonAngular\TaavonAngular\src\styles.css */"./src/styles.css");
+__webpack_require__(/*! C:\Users\IT2\source\repos\TaavonAngular\TaavonAngular\src\assets\css\bootstrap.min.css */"./src/assets/css/bootstrap.min.css");
+__webpack_require__(/*! C:\Users\IT2\source\repos\TaavonAngular\TaavonAngular\src\assets\css\mdb.min.css */"./src/assets/css/mdb.min.css");
+__webpack_require__(/*! C:\Users\IT2\source\repos\TaavonAngular\TaavonAngular\src\assets\css\font-awesome.min.css */"./src/assets/css/font-awesome.min.css");
+module.exports = __webpack_require__(/*! C:\Users\IT2\source\repos\TaavonAngular\TaavonAngular\node_modules\angular-notifier\styles.css */"./node_modules/angular-notifier/styles.css");
 
 
 /***/ })

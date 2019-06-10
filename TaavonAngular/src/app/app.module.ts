@@ -28,6 +28,7 @@ import { SearchComponent } from './shared/components/search/search.component';
 import { DataService } from 'src/app/shared/services/data.service';
 import { TestComponent } from './shared/components/test/test.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { SlimLoadingBarModule } from '@cime/ngx-slim-loading-bar';
 
 
 const notifierOptions: {} = {
@@ -81,7 +82,8 @@ const notifierOptions: {} = {
     FormsModule,
     NotifierModule.withConfig(notifierOptions),
     DpDatePickerModule,
-    CKEditorModule
+    CKEditorModule,
+    SlimLoadingBarModule.forRoot()
   ],
   providers: [
     DataService

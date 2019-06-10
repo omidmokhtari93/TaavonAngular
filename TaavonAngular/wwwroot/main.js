@@ -501,12 +501,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_shared_services_data_service__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! src/app/shared/services/data.service */ "./src/app/shared/services/data.service.ts");
 /* harmony import */ var _shared_components_test_test_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./shared/components/test/test.component */ "./src/app/shared/components/test/test.component.ts");
 /* harmony import */ var _ckeditor_ckeditor5_angular__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! @ckeditor/ckeditor5-angular */ "./node_modules/@ckeditor/ckeditor5-angular/fesm2015/ckeditor-ckeditor5-angular.js");
+/* harmony import */ var _cime_ngx_slim_loading_bar__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! @cime/ngx-slim-loading-bar */ "./node_modules/@cime/ngx-slim-loading-bar/index.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -589,7 +591,8 @@ AppModule = __decorate([
             _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
             angular_notifier__WEBPACK_IMPORTED_MODULE_17__["NotifierModule"].withConfig(notifierOptions),
             ng2_jalali_date_picker__WEBPACK_IMPORTED_MODULE_19__["DpDatePickerModule"],
-            _ckeditor_ckeditor5_angular__WEBPACK_IMPORTED_MODULE_28__["CKEditorModule"]
+            _ckeditor_ckeditor5_angular__WEBPACK_IMPORTED_MODULE_28__["CKEditorModule"],
+            _cime_ngx_slim_loading_bar__WEBPACK_IMPORTED_MODULE_29__["SlimLoadingBarModule"].forRoot()
         ],
         providers: [
             src_app_shared_services_data_service__WEBPACK_IMPORTED_MODULE_26__["DataService"]
@@ -686,7 +689,7 @@ module.exports = ".login-body {\r\n  position: fixed; \r\n  top: 0; \r\n  left: 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"login-body\">\r\n  <div class=\"container p-5 sans\">\r\n    <div class=\"card m-auto text-center mt-lg-5\" style=\"width: 40%\">\r\n      <p class=\"card-header bg-primary text-white\">ورود به سیستم</p>\r\n      <div class=\"card-body\">\r\n        <input type=\"text\" id=\"defaultLoginFormEmail\" [(ngModel)]=\"username\" class=\"form-control mb-4 text-right rtl\" placeholder=\"نام کاربری\">\r\n        <input type=\"password\" id=\"defaultLoginFormPassword\" [(ngModel)]=\"password\" class=\"form-control mb-4 text-right rtl\" placeholder=\"رمز عبور\">\r\n        <div class=\"row sans-small mb-3\">\r\n          <div class=\"col-sm-5 text-left\">\r\n            <div class=\"align-middle\">\r\n              <input type=\"checkbox\" [(ngModel)]=\"rememberMe\" id=\"defaultLoginFormRemember\">\r\n              <label class=\"align-middle ml-1\" for=\"defaultLoginFormRemember\">مرا به خاطر بسپار</label>\r\n            </div>\r\n          </div>\r\n          <div class=\"col-sm-7 text-right\">\r\n            <a [routerLink]=\"['/forget']\">رمز عبور خود را فراموش کرده اید؟</a>\r\n          </div>\r\n        </div>\r\n        <button class=\"btn btn-info btn-block mb-0\" type=\"submit\" (click)=\"userLogin()\">ورود</button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <notifier-container></notifier-container>\r\n</div>\r\n"
+module.exports = "<div class=\"login-body\">\r\n  <div class=\"container p-5 sans\">\r\n    <div class=\"card m-auto text-center mt-lg-5\" style=\"width: 40%\">\r\n      <p class=\"card-header bg-primary text-white\">ورود به سیستم</p>\r\n      <div class=\"card-body\">\r\n        <input type=\"text\" id=\"defaultLoginFormEmail\" [(ngModel)]=\"username\" class=\"form-control mb-4 text-right rtl\" placeholder=\"نام کاربری\">\r\n        <input type=\"password\" id=\"defaultLoginFormPassword\" [(ngModel)]=\"password\" class=\"form-control mb-4 text-right rtl\" placeholder=\"رمز عبور\">\r\n        <div class=\"row sans-small mb-3\">\r\n          <div class=\"col-sm-5 text-left\">\r\n            <div class=\"align-middle\">\r\n              <input type=\"checkbox\" [(ngModel)]=\"rememberMe\" id=\"defaultLoginFormRemember\">\r\n              <label class=\"align-middle ml-1\" for=\"defaultLoginFormRemember\">مرا به خاطر بسپار</label>\r\n            </div>\r\n          </div>\r\n          <div class=\"col-sm-7 text-right\">\r\n            <a [routerLink]=\"['/forget']\">رمز عبور خود را فراموش کرده اید؟</a>\r\n          </div>\r\n        </div>\r\n        <button class=\"btn btn-info btn-block mb-0\" type=\"submit\" (click)=\"userLogin()\">ورود</button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <notifier-container></notifier-container>\r\n  <ngx-slim-loading-bar color=\"blue\"></ngx-slim-loading-bar>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -703,6 +706,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm2015/http.js");
 /* harmony import */ var src_app_shared_services_login_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/shared/services/login.service */ "./src/app/shared/services/login.service.ts");
+/* harmony import */ var _cime_ngx_slim_loading_bar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @cime/ngx-slim-loading-bar */ "./node_modules/@cime/ngx-slim-loading-bar/index.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -715,10 +719,12 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 let LoginComponent = class LoginComponent {
-    constructor(_http, loginService) {
+    constructor(_http, loginService, slimLoadingBarService) {
         this._http = _http;
         this.loginService = loginService;
+        this.slimLoadingBarService = slimLoadingBarService;
         this.username = '';
         this.password = '';
     }
@@ -730,6 +736,7 @@ let LoginComponent = class LoginComponent {
         }
     }
     userLogin() {
+        this.slimLoadingBarService.start();
         localStorage.removeItem('Username');
         localStorage.removeItem('Password');
         localStorage.removeItem('RememberMe');
@@ -740,6 +747,7 @@ let LoginComponent = class LoginComponent {
             localStorage.setItem('RememberMe', JSON.stringify(this.rememberMe));
         }
         this.loginService.login(this.username, this.password);
+        this.slimLoadingBarService.complete();
     }
 };
 LoginComponent = __decorate([
@@ -749,7 +757,9 @@ LoginComponent = __decorate([
         providers: [src_app_shared_services_login_service__WEBPACK_IMPORTED_MODULE_2__["LoginService"]],
         styles: [__webpack_require__(/*! ./login.component.css */ "./src/app/login/login.component.css")]
     }),
-    __metadata("design:paramtypes", [_angular_http__WEBPACK_IMPORTED_MODULE_1__["Http"], src_app_shared_services_login_service__WEBPACK_IMPORTED_MODULE_2__["LoginService"]])
+    __metadata("design:paramtypes", [_angular_http__WEBPACK_IMPORTED_MODULE_1__["Http"],
+        src_app_shared_services_login_service__WEBPACK_IMPORTED_MODULE_2__["LoginService"],
+        _cime_ngx_slim_loading_bar__WEBPACK_IMPORTED_MODULE_3__["SlimLoadingBarService"]])
 ], LoginComponent);
 
 
@@ -1105,7 +1115,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  a5 works!\n</p>\n"
+module.exports = "<p>\r\n  a5 works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -1378,7 +1388,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\r\n  received-letter works!\r\n</p>\r\n"
+module.exports = "<div>Hello world</div>\r\n<button (click)=\"startLoading()\">Start Loading</button>\r\n<button (click)=\"stopLoading()\">Stop Loading</button>\r\n<button (click)=\"completeLoading()\">Complete Loading</button>\r\n<ngx-slim-loading-bar></ngx-slim-loading-bar>\r\n"
 
 /***/ }),
 
@@ -1393,6 +1403,7 @@ module.exports = "<p>\r\n  received-letter works!\r\n</p>\r\n"
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ReceivedLetterComponent", function() { return ReceivedLetterComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _cime_ngx_slim_loading_bar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @cime/ngx-slim-loading-bar */ "./node_modules/@cime/ngx-slim-loading-bar/index.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1403,8 +1414,22 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 let ReceivedLetterComponent = class ReceivedLetterComponent {
-    constructor() { }
+    constructor(slimLoadingBarService) {
+        this.slimLoadingBarService = slimLoadingBarService;
+    }
+    startLoading() {
+        this.slimLoadingBarService.start(res => {
+            console.log(res);
+        });
+    }
+    stopLoading() {
+        this.slimLoadingBarService.stop();
+    }
+    completeLoading() {
+        this.slimLoadingBarService.complete();
+    }
     ngOnInit() {
     }
 };
@@ -1414,7 +1439,7 @@ ReceivedLetterComponent = __decorate([
         template: __webpack_require__(/*! ./received-letter.component.html */ "./src/app/main/received-letter/received-letter.component.html"),
         styles: [__webpack_require__(/*! ./received-letter.component.css */ "./src/app/main/received-letter/received-letter.component.css")]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [_cime_ngx_slim_loading_bar__WEBPACK_IMPORTED_MODULE_1__["SlimLoadingBarService"]])
 ], ReceivedLetterComponent);
 
 
@@ -1561,7 +1586,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card\">\n  <img class=\"img-thumbnail\" id=\"imgUserSign\" />\n  <div class=\"card-header bg-primary text-white\" style=\"font-weight: 800;\">ثبت امضا</div>\n  <div class=\"card-body bg-white text-dark\" style=\"text-align: center!important;\">\n    <label id=\"lbl_username\" style=\"display: block; font-size: 12pt;\" class=\"label bg-primary text-white\"></label>\n    <div id=\"fileArea\">\n      <form id=\"signform\">\n        <label id=\"chooselbl\">انتخاب تصویر امضا</label>\n        <input id=\"signfile\" onchange=\"DetectFile($(this),'pnlcontrols');\" type=\"file\" style=\"display: inline-block; margin: 5px;\" />\n      </form>\n    </div>\n    <div id=\"pnlcontrols\" style=\"display: none;\">\n      <div style=\"padding: 5px;\">\n        <button id=\"cropbutton\" class=\"btn btn-sm btn-info\" type=\"button\">برش</button>\n        <button id=\"scalebutton\" class=\"btn btn-sm btn-info\" type=\"button\">تغییر اندازه</button>\n        <button id=\"rotatebutton\" class=\"btn btn-sm btn-info\" type=\"button\">چرخش</button>\n        <button id=\"hflipbutton\" class=\"btn btn-sm btn-info\" type=\"button\">چرخش افقی</button>\n        <button id=\"vflipbutton\" class=\"btn btn-sm btn-info\" type=\"button\">چرخش عمودی</button>\n      </div>\n      <div style=\"width: 100%;\">\n        <div id=\"views\" class=\"img-thumbnail\" style=\"padding: 5px; z-index: -1; display: inline-block !important;\">\n        </div>\n      </div>\n      <button type=\"button\" id=\"uploadfile\" class=\"btn btn-primary\" onclick=\"UploadSign();\" style=\"width: 20%; position: relative;\">\n        <img src=\"images/loading.gif\" id=\"loadingsignupload\" />\n        ثبت امضا\n      </button>\n    </div>\n  </div>\n</div>\n\n"
+module.exports = "<div class=\"card\">\r\n  <img class=\"img-thumbnail\" id=\"imgUserSign\" />\r\n  <div class=\"card-header bg-primary text-white\" style=\"font-weight: 800;\">ثبت امضا</div>\r\n  <div class=\"card-body bg-white text-dark\" style=\"text-align: center!important;\">\r\n    <label id=\"lbl_username\" style=\"display: block; font-size: 12pt;\" class=\"label bg-primary text-white\"></label>\r\n    <div id=\"fileArea\">\r\n      <form id=\"signform\">\r\n        <label id=\"chooselbl\">انتخاب تصویر امضا</label>\r\n        <input id=\"signfile\" onchange=\"DetectFile($(this),'pnlcontrols');\" type=\"file\" style=\"display: inline-block; margin: 5px;\" />\r\n      </form>\r\n    </div>\r\n    <div id=\"pnlcontrols\" style=\"display: none;\">\r\n      <div style=\"padding: 5px;\">\r\n        <button id=\"cropbutton\" class=\"btn btn-sm btn-info\" type=\"button\">برش</button>\r\n        <button id=\"scalebutton\" class=\"btn btn-sm btn-info\" type=\"button\">تغییر اندازه</button>\r\n        <button id=\"rotatebutton\" class=\"btn btn-sm btn-info\" type=\"button\">چرخش</button>\r\n        <button id=\"hflipbutton\" class=\"btn btn-sm btn-info\" type=\"button\">چرخش افقی</button>\r\n        <button id=\"vflipbutton\" class=\"btn btn-sm btn-info\" type=\"button\">چرخش عمودی</button>\r\n      </div>\r\n      <div style=\"width: 100%;\">\r\n        <div id=\"views\" class=\"img-thumbnail\" style=\"padding: 5px; z-index: -1; display: inline-block !important;\">\r\n        </div>\r\n      </div>\r\n      <button type=\"button\" id=\"uploadfile\" class=\"btn btn-primary\" onclick=\"UploadSign();\" style=\"width: 20%; position: relative;\">\r\n        <img src=\"images/loading.gif\" id=\"loadingsignupload\" />\r\n        ثبت امضا\r\n      </button>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n"
 
 /***/ }),
 
@@ -1847,7 +1872,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "{{test.format}}\r\n"
+module.exports = "\r\n"
 
 /***/ }),
 
@@ -1868,26 +1893,17 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
 
 let TestComponent = class TestComponent {
-    constructor() { }
     ngOnInit() {
     }
 };
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
-    __metadata("design:type", Object)
-], TestComponent.prototype, "test", void 0);
 TestComponent = __decorate([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
         selector: 'app-test',
         template: __webpack_require__(/*! ./test.component.html */ "./src/app/shared/components/test/test.component.html"),
         styles: [__webpack_require__(/*! ./test.component.css */ "./src/app/shared/components/test/test.component.css")]
-    }),
-    __metadata("design:paramtypes", [])
+    })
 ], TestComponent);
 
 
@@ -2176,7 +2192,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Omid\source\repos\TaavonAngular\TaavonAngular\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\IT2\source\repos\TaavonAngular\TaavonAngular\src\main.ts */"./src/main.ts");
 
 
 /***/ })
