@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
 import { LoginService } from 'src/app/shared/services/login.service';
-import { SlimLoadingBarService } from '@cime/ngx-slim-loading-bar';
 
 @Component({
   selector: 'app-login',
@@ -11,8 +10,7 @@ import { SlimLoadingBarService } from '@cime/ngx-slim-loading-bar';
 })
 export class LoginComponent implements OnInit {
   constructor(private _http: Http,
-    private loginService: LoginService,
-    private slimLoadingBarService: SlimLoadingBarService) { }
+    private loginService: LoginService) { }
   username: string = '';
   password: string = '';
   rememberMe: boolean;
@@ -25,7 +23,6 @@ export class LoginComponent implements OnInit {
   }
 
   userLogin() {
-    this.slimLoadingBarService.start();
     localStorage.removeItem('Username');
     localStorage.removeItem('Password');
     localStorage.removeItem('RememberMe');
@@ -36,6 +33,5 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('RememberMe', JSON.stringify(this.rememberMe));
     }
     this.loginService.login(this.username, this.password)
-    this.slimLoadingBarService.complete();
   }
 }

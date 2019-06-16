@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SlimLoadingBarService } from '@cime/ngx-slim-loading-bar';
+import { Observable, Observer } from 'rxjs';
 
 @Component({
   selector: 'app-received-letter',
@@ -8,23 +8,30 @@ import { SlimLoadingBarService } from '@cime/ngx-slim-loading-bar';
 })
 export class ReceivedLetterComponent implements OnInit {
 
-  constructor(private slimLoadingBarService: SlimLoadingBarService) { }
-
-  startLoading() {
-    this.slimLoadingBarService.start(res => {
-      console.log(res);
-    });
-  }
-
-  stopLoading() {
-    this.slimLoadingBarService.stop();
-  }
-
-  completeLoading() {
-    this.slimLoadingBarService.complete();
-  }
-
+  constructor() { }
   ngOnInit() {
+    const obs = Observable.create((observer: Observer<string>) => {
+      setTimeout(() => {
+        observer.next('one');
+      }, 2000)
+      setTimeout(() => {
+        observer.error('error');
+      }, 4000)
+      setTimeout(() => {
+        observer.complete();
+      }, 6000)
+    });
+
+    obs.subscribe(
+      (data: string) => {
+        console.log(data);
+      }),
+      (error) => {
+        console.log(error);
+      },
+      () => {
+        console.log('success');
+      }
   }
 
 }

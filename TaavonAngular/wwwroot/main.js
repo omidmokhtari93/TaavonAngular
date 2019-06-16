@@ -706,7 +706,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm2015/http.js");
 /* harmony import */ var src_app_shared_services_login_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/shared/services/login.service */ "./src/app/shared/services/login.service.ts");
-/* harmony import */ var _cime_ngx_slim_loading_bar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @cime/ngx-slim-loading-bar */ "./node_modules/@cime/ngx-slim-loading-bar/index.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -719,12 +718,10 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
-
 let LoginComponent = class LoginComponent {
-    constructor(_http, loginService, slimLoadingBarService) {
+    constructor(_http, loginService) {
         this._http = _http;
         this.loginService = loginService;
-        this.slimLoadingBarService = slimLoadingBarService;
         this.username = '';
         this.password = '';
     }
@@ -736,7 +733,6 @@ let LoginComponent = class LoginComponent {
         }
     }
     userLogin() {
-        this.slimLoadingBarService.start();
         localStorage.removeItem('Username');
         localStorage.removeItem('Password');
         localStorage.removeItem('RememberMe');
@@ -747,7 +743,6 @@ let LoginComponent = class LoginComponent {
             localStorage.setItem('RememberMe', JSON.stringify(this.rememberMe));
         }
         this.loginService.login(this.username, this.password);
-        this.slimLoadingBarService.complete();
     }
 };
 LoginComponent = __decorate([
@@ -758,8 +753,7 @@ LoginComponent = __decorate([
         styles: [__webpack_require__(/*! ./login.component.css */ "./src/app/login/login.component.css")]
     }),
     __metadata("design:paramtypes", [_angular_http__WEBPACK_IMPORTED_MODULE_1__["Http"],
-        src_app_shared_services_login_service__WEBPACK_IMPORTED_MODULE_2__["LoginService"],
-        _cime_ngx_slim_loading_bar__WEBPACK_IMPORTED_MODULE_3__["SlimLoadingBarService"]])
+        src_app_shared_services_login_service__WEBPACK_IMPORTED_MODULE_2__["LoginService"]])
 ], LoginComponent);
 
 
@@ -1388,7 +1382,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div>Hello world</div>\r\n<button (click)=\"startLoading()\">Start Loading</button>\r\n<button (click)=\"stopLoading()\">Stop Loading</button>\r\n<button (click)=\"completeLoading()\">Complete Loading</button>\r\n<ngx-slim-loading-bar></ngx-slim-loading-bar>\r\n"
+module.exports = ""
 
 /***/ }),
 
@@ -1403,7 +1397,7 @@ module.exports = "<div>Hello world</div>\r\n<button (click)=\"startLoading()\">S
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ReceivedLetterComponent", function() { return ReceivedLetterComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _cime_ngx_slim_loading_bar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @cime/ngx-slim-loading-bar */ "./node_modules/@cime/ngx-slim-loading-bar/index.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1416,21 +1410,28 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 let ReceivedLetterComponent = class ReceivedLetterComponent {
-    constructor(slimLoadingBarService) {
-        this.slimLoadingBarService = slimLoadingBarService;
-    }
-    startLoading() {
-        this.slimLoadingBarService.start(res => {
-            console.log(res);
-        });
-    }
-    stopLoading() {
-        this.slimLoadingBarService.stop();
-    }
-    completeLoading() {
-        this.slimLoadingBarService.complete();
-    }
+    constructor() { }
     ngOnInit() {
+        const obs = rxjs__WEBPACK_IMPORTED_MODULE_1__["Observable"].create((observer) => {
+            setTimeout(() => {
+                observer.next('one');
+            }, 2000);
+            setTimeout(() => {
+                observer.error('error');
+            }, 4000);
+            setTimeout(() => {
+                observer.complete();
+            }, 6000);
+        });
+        obs.subscribe((data) => {
+            console.log(data);
+        }),
+            (error) => {
+                console.log(error);
+            },
+            () => {
+                console.log('success');
+            };
     }
 };
 ReceivedLetterComponent = __decorate([
@@ -1439,7 +1440,7 @@ ReceivedLetterComponent = __decorate([
         template: __webpack_require__(/*! ./received-letter.component.html */ "./src/app/main/received-letter/received-letter.component.html"),
         styles: [__webpack_require__(/*! ./received-letter.component.css */ "./src/app/main/received-letter/received-letter.component.css")]
     }),
-    __metadata("design:paramtypes", [_cime_ngx_slim_loading_bar__WEBPACK_IMPORTED_MODULE_1__["SlimLoadingBarService"]])
+    __metadata("design:paramtypes", [])
 ], ReceivedLetterComponent);
 
 
@@ -2092,6 +2093,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 /* harmony import */ var angular_notifier__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! angular-notifier */ "./node_modules/angular-notifier/esm2015/angular-notifier.js");
+/* harmony import */ var _cime_ngx_slim_loading_bar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @cime/ngx-slim-loading-bar */ "./node_modules/@cime/ngx-slim-loading-bar/index.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2105,13 +2107,16 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 let LoginService = class LoginService {
-    constructor(http, route, notifierService) {
+    constructor(http, route, notifierService, slimLoadingBarService) {
         this.http = http;
         this.route = route;
+        this.slimLoadingBarService = slimLoadingBarService;
         this.notifier = notifierService;
     }
     login(username, password) {
+        this.slimLoadingBarService.start();
         this.http.get('/api/login', { params: { Username: username, Password: password } }).subscribe(res => {
             if (res.json().status == true) {
                 this.route.navigate(['main']);
@@ -2119,12 +2124,19 @@ let LoginService = class LoginService {
             else {
                 this.notifier.notify('error', res.json().message);
             }
+            this.slimLoadingBarService.complete();
+        }, (er) => {
+            this.notifier.notify('error', '.خطا !! اتصال اینترنت خود را بررسی نمایید');
+            this.slimLoadingBarService.complete();
         });
     }
 };
 LoginService = __decorate([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
-    __metadata("design:paramtypes", [_angular_http__WEBPACK_IMPORTED_MODULE_0__["Http"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], angular_notifier__WEBPACK_IMPORTED_MODULE_3__["NotifierService"]])
+    __metadata("design:paramtypes", [_angular_http__WEBPACK_IMPORTED_MODULE_0__["Http"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+        angular_notifier__WEBPACK_IMPORTED_MODULE_3__["NotifierService"],
+        _cime_ngx_slim_loading_bar__WEBPACK_IMPORTED_MODULE_4__["SlimLoadingBarService"]])
 ], LoginService);
 
 
