@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ViewChild } from '@angular/core';
-import { DataService } from 'src/app/shared/services/data.service';
 
 @Component({
   selector: 'app-forget-password',
@@ -8,8 +6,11 @@ import { DataService } from 'src/app/shared/services/data.service';
   styleUrls: ['./forget-password.component.css']
 })
 export class ForgetPasswordComponent implements OnInit {
-  constructor(private searchConfig: DataService) { }
-  ngOnInit() {
-    this.searchConfig.setConfig({ placeholder: 'جستجوی شرکت ...', width: '80%' });
+  exp = true
+  isDisabled = true
+  constructor() { }
+  ngOnInit() { }
+  Callphone(e) {
+    console.log(e);
   }
 }

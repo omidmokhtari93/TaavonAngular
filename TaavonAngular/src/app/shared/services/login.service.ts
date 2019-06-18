@@ -15,17 +15,14 @@ export class LoginService {
   }
 
   login(username: string, password: string) {
-    this.slimLoadingBarService.start();
     this.http.get('/api/login', { params: { Username: username, Password: password } }).subscribe(res => {
       if (res.json().status == true) {
         this.route.navigate(['main'])
       } else {
         this.notifier.notify('error', res.json().message);
       }
-      this.slimLoadingBarService.complete();
     }, (er) => {
         this.notifier.notify('error', '.خطا !! اتصال اینترنت خود را بررسی نمایید');
-        this.slimLoadingBarService.complete();
     })
   }
 }

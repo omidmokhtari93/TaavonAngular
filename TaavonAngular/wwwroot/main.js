@@ -623,7 +623,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--<input class=\"{{fc}}\" />\r\n<br />\r\n<input [class]=\"exp == true ? bgLight : formControl\" />\r\n<br />\r\n\r\n<input class=\"{{exp == true ? bgLight : formControl}}\" />\r\n<br />\r\n<button [disabled]='isDisabled'>Try Me property</button>\r\n<br />\r\n<button disabled='{{isDisabled}}'>Try Me interplution</button>\r\n<br />\r\n<button bind-disabled='isDisabled'>Try Me bind</button>\r\n<br />\r\n\r\n<input #searchBox />\r\n\r\n<button (click)=\"Callphone(searchBox.value)\">Call</button>\r\n<br />\r\n\r\n<input [ngModel]=\"username\" (ngModelChange)=\"username = $event\">\r\n\r\n<p>Hello {{username}}!</p>-->\r\n\r\n<app-search></app-search>\r\n"
+module.exports = "<input class=\"{{fc}}\" />\r\n<br />\r\n<input [class]=\"exp == true ? bgLight : formControl\" />\r\n<br />\r\n\r\n<input class=\"{{exp ? 'border-success' : 'form-control'}}\" />\r\n<br />\r\n<button [disabled]='isDisabled'>Try Me property</button>\r\n<br />\r\n<button disabled=\"{{isDisabled}}\">Try Me interplution</button>\r\n<br />\r\n<button bind-disabled='isDisabled'>Try Me bind</button>\r\n<br />\r\n\r\n<input #searchBox />\r\n\r\n<button (click)=\"Callphone(searchBox.value)\">Call</button>\r\n<br />\r\n\r\n<input [ngModel]=\"username\" (ngModelChange)=\"username = $event\">\r\n\r\n<p>Hello {{username}}!</p>\r\n\r\n<input [style.color]=\"color\" [(ngModel)]=\"color\" />\r\n<p>{{color}}</p>\r\n"
 
 /***/ }),
 
@@ -638,7 +638,6 @@ module.exports = "<!--<input class=\"{{fc}}\" />\r\n<br />\r\n<input [class]=\"e
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ForgetPasswordComponent", function() { return ForgetPasswordComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var src_app_shared_services_data_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/shared/services/data.service */ "./src/app/shared/services/data.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -649,13 +648,14 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-
 let ForgetPasswordComponent = class ForgetPasswordComponent {
-    constructor(searchConfig) {
-        this.searchConfig = searchConfig;
+    constructor() {
+        this.exp = true;
+        this.isDisabled = true;
     }
-    ngOnInit() {
-        this.searchConfig.setConfig({ placeholder: 'جستجوی شرکت ...', width: '80%' });
+    ngOnInit() { }
+    Callphone(e) {
+        console.log(e);
     }
 };
 ForgetPasswordComponent = __decorate([
@@ -664,7 +664,7 @@ ForgetPasswordComponent = __decorate([
         template: __webpack_require__(/*! ./forget-password.component.html */ "./src/app/forget-password/forget-password.component.html"),
         styles: [__webpack_require__(/*! ./forget-password.component.css */ "./src/app/forget-password/forget-password.component.css")]
     }),
-    __metadata("design:paramtypes", [src_app_shared_services_data_service__WEBPACK_IMPORTED_MODULE_1__["DataService"]])
+    __metadata("design:paramtypes", [])
 ], ForgetPasswordComponent);
 
 
@@ -689,7 +689,7 @@ module.exports = ".login-body {\r\n  position: fixed; \r\n  top: 0; \r\n  left: 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"login-body\">\r\n  <div class=\"container p-5 sans\">\r\n    <div class=\"card m-auto text-center mt-lg-5\" style=\"width: 40%\">\r\n      <p class=\"card-header bg-primary text-white\">ورود به سیستم</p>\r\n      <div class=\"card-body\">\r\n        <input type=\"text\" id=\"defaultLoginFormEmail\" [(ngModel)]=\"username\" class=\"form-control mb-4 text-right rtl\" placeholder=\"نام کاربری\">\r\n        <input type=\"password\" id=\"defaultLoginFormPassword\" [(ngModel)]=\"password\" class=\"form-control mb-4 text-right rtl\" placeholder=\"رمز عبور\">\r\n        <div class=\"row sans-small mb-3\">\r\n          <div class=\"col-sm-5 text-left\">\r\n            <div class=\"align-middle\">\r\n              <input type=\"checkbox\" [(ngModel)]=\"rememberMe\" id=\"defaultLoginFormRemember\">\r\n              <label class=\"align-middle ml-1\" for=\"defaultLoginFormRemember\">مرا به خاطر بسپار</label>\r\n            </div>\r\n          </div>\r\n          <div class=\"col-sm-7 text-right\">\r\n            <a [routerLink]=\"['/forget']\">رمز عبور خود را فراموش کرده اید؟</a>\r\n          </div>\r\n        </div>\r\n        <button class=\"btn btn-info btn-block mb-0\" type=\"submit\" (click)=\"userLogin()\">ورود</button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <notifier-container></notifier-container>\r\n  <ngx-slim-loading-bar color=\"blue\"></ngx-slim-loading-bar>\r\n</div>\r\n"
+module.exports = "<div class=\"login-body\">\r\n  <div class=\"container p-5 sans\">\r\n    <div class=\"card m-auto text-center mt-lg-5\" style=\"width: 40%\">\r\n      <p class=\"card-header bg-primary text-white\">ورود به سیستم</p>\r\n      <div class=\"card-body\">\r\n        <input type=\"text\" id=\"defaultLoginFormEmail\" [(ngModel)]=\"username\" class=\"form-control mb-4 text-right rtl\" placeholder=\"نام کاربری\">\r\n        <input type=\"password\" id=\"defaultLoginFormPassword\" [(ngModel)]=\"password\" class=\"form-control mb-4 text-right rtl\" placeholder=\"رمز عبور\">\r\n        <div class=\"row sans-small mb-3\">\r\n          <div class=\"col-sm-5 text-left\">\r\n            <div class=\"align-middle\">\r\n              <input type=\"checkbox\" [(ngModel)]=\"rememberMe\" id=\"defaultLoginFormRemember\">\r\n              <label class=\"align-middle ml-1\" for=\"defaultLoginFormRemember\">مرا به خاطر بسپار</label>\r\n            </div>\r\n          </div>\r\n          <div class=\"col-sm-7 text-right\">\r\n            <a [routerLink]=\"['/forget']\">رمز عبور خود را فراموش کرده اید؟</a>\r\n          </div>\r\n        </div>\r\n        <button class=\"btn btn-info btn-block mb-0\" type=\"submit\" (click)=\"userLogin()\">ورود</button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <notifier-container></notifier-container>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -731,6 +731,8 @@ let LoginComponent = class LoginComponent {
             this.password = localStorage.getItem('Password');
             this.rememberMe = JSON.parse(localStorage.getItem('RememberMe'));
         }
+    }
+    ngOnDestroy() {
     }
     userLogin() {
         localStorage.removeItem('Username');
@@ -978,6 +980,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm2015/http.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _shared_services_data_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../shared/services/data.service */ "./src/app/shared/services/data.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -990,10 +993,12 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 let MainComponent = class MainComponent {
-    constructor(_http, _route) {
+    constructor(_http, _route, dataService) {
         this._http = _http;
         this._route = _route;
+        this.dataService = dataService;
     }
     ngOnInit() {
         this.loadScript();
@@ -1019,7 +1024,9 @@ MainComponent = __decorate([
         template: __webpack_require__(/*! ./main.component.html */ "./src/app/main/main.component.html"),
         styles: [__webpack_require__(/*! ./main.component.css */ "./src/app/main/main.component.css")]
     }),
-    __metadata("design:paramtypes", [_angular_http__WEBPACK_IMPORTED_MODULE_1__["Http"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+    __metadata("design:paramtypes", [_angular_http__WEBPACK_IMPORTED_MODULE_1__["Http"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+        _shared_services_data_service__WEBPACK_IMPORTED_MODULE_3__["DataService"]])
 ], MainComponent);
 
 
@@ -1382,7 +1389,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "<p>recieved worked</p>\r\n"
 
 /***/ }),
 
@@ -1397,7 +1404,7 @@ module.exports = ""
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ReceivedLetterComponent", function() { return ReceivedLetterComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var _shared_services_data_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../shared/services/data.service */ "./src/app/shared/services/data.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1410,28 +1417,11 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 let ReceivedLetterComponent = class ReceivedLetterComponent {
-    constructor() { }
+    constructor(dataService) {
+        this.dataService = dataService;
+    }
     ngOnInit() {
-        const obs = rxjs__WEBPACK_IMPORTED_MODULE_1__["Observable"].create((observer) => {
-            setTimeout(() => {
-                observer.next('one');
-            }, 2000);
-            setTimeout(() => {
-                observer.error('error');
-            }, 4000);
-            setTimeout(() => {
-                observer.complete();
-            }, 6000);
-        });
-        obs.subscribe((data) => {
-            console.log(data);
-        }),
-            (error) => {
-                console.log(error);
-            },
-            () => {
-                console.log('success');
-            };
+        this.dataService.data.next('somthing like this');
     }
 };
 ReceivedLetterComponent = __decorate([
@@ -1440,7 +1430,7 @@ ReceivedLetterComponent = __decorate([
         template: __webpack_require__(/*! ./received-letter.component.html */ "./src/app/main/received-letter/received-letter.component.html"),
         styles: [__webpack_require__(/*! ./received-letter.component.css */ "./src/app/main/received-letter/received-letter.component.css")]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [_shared_services_data_service__WEBPACK_IMPORTED_MODULE_1__["DataService"]])
 ], ReceivedLetterComponent);
 
 
@@ -2050,29 +2040,15 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
 
 
 let DataService = class DataService {
     constructor() {
-        //defaultConfig: { palceholder: 'جستجو ...', width: '100%' }
-        this.configData = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"](null);
-        this.getConfig = this.configData.asObservable();
-        this.data = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"](null);
-        this.getData = this.data.asObservable();
-    }
-    setConfig(data) {
-        this.configData.next(data);
-    }
-    setData(data) {
-        this.data.next(data);
+        this.data = new rxjs__WEBPACK_IMPORTED_MODULE_1__["Subject"]();
     }
 };
 DataService = __decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
-    __metadata("design:paramtypes", [])
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])()
 ], DataService);
 
 
@@ -2116,7 +2092,6 @@ let LoginService = class LoginService {
         this.notifier = notifierService;
     }
     login(username, password) {
-        this.slimLoadingBarService.start();
         this.http.get('/api/login', { params: { Username: username, Password: password } }).subscribe(res => {
             if (res.json().status == true) {
                 this.route.navigate(['main']);
@@ -2124,10 +2099,8 @@ let LoginService = class LoginService {
             else {
                 this.notifier.notify('error', res.json().message);
             }
-            this.slimLoadingBarService.complete();
         }, (er) => {
             this.notifier.notify('error', '.خطا !! اتصال اینترنت خود را بررسی نمایید');
-            this.slimLoadingBarService.complete();
         });
     }
 };

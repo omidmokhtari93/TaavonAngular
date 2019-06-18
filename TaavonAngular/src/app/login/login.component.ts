@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Http } from '@angular/http';
 import { LoginService } from 'src/app/shared/services/login.service';
 
@@ -8,7 +8,7 @@ import { LoginService } from 'src/app/shared/services/login.service';
   styleUrls: ['./login.component.css'],
   providers: [LoginService]
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit , OnDestroy{
   constructor(private _http: Http,
     private loginService: LoginService) { }
   username: string = '';
@@ -20,6 +20,10 @@ export class LoginComponent implements OnInit {
       this.password = localStorage.getItem('Password');
       this.rememberMe = JSON.parse(localStorage.getItem('RememberMe'));
     }
+  }
+
+  ngOnDestroy(): void {
+
   }
 
   userLogin() {
