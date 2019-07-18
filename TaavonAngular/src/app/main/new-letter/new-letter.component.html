@@ -85,45 +85,49 @@
       </div>
     </div>
     <hr />
+
     <div class="row">
-      <div class="col-md-12">
-        <div class="card">
-          <div class="card-body bg-light">
-            <p>مدت زمان پاسخ</p>
-            <div class="row" dir="rtl">
-              <div class="col-md-6">
-                <div class="button-group mt-1">
-                  <input type="radio" [value]="1" [(ngModel)]="responseType" id="unlimit" name="response-type">
-                  <label for="unlimit">نامحدود</label>
-                  <input type="radio" [value]="2" [(ngModel)]="responseType" id="hours" name="response-type">
-                  <label for="hours">ساعت</label>
-                  <input type="radio" [value]="3" [(ngModel)]="responseType" id="days" name="response-type">
-                  <label for="days">روز</label>
-                </div>
+      <div class="col-md-6">
+        <div class="card card-body bg-light">
+          <p>مدت زمان پاسخ</p>
+          <div class="row" dir="rtl">
+            <div class="col-md-12">
+              <div class="button-group">
+                <input type="radio" [value]="1" [(ngModel)]="responseType" id="unlimit" name="response-type">
+                <label for="unlimit">نامحدود</label>
+                <input type="radio" [value]="2" [(ngModel)]="responseType" id="hours" name="response-type">
+                <label for="hours">ساعت</label>
+                <input type="radio" [value]="3" [(ngModel)]="responseType" id="days" name="response-type">
+                <label for="days">روز</label>
               </div>
-              <div class="col-md-6">
-                <input type="number" class="form-control text-center" placeholder="مدت زمان" [(ngModel)]="responseTime" *ngIf="responseType !== 1"/>
-              </div>
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="col-md-12">
+              <input type="number" class="form-control text-center" placeholder="مدت زمان" [(ngModel)]="responseTime" *ngIf="responseType !== 1" />
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="card card-body bg-light mt-3">
-      <p>پیوست</p>
-      <div class="row">
-        <div class="col-md-6 border-right">
-          <div class="button-group">
-            <input type="radio" [value]="true" [checked]="hasfile" [(ngModel)]="hasfile" id="pdar" name="attachment">
-            <label for="pdar">دارد</label>
-            <input type="radio" [value]="false" [checked]="!hasfile" [(ngModel)]="hasfile" id="pnadar" name="attachment">
-            <label for="pnadar">ندارد</label>
+      <div class="col-md-6">
+        <div class="card card-body bg-light">
+          <p>پیوست</p>
+          <div class="row">
+            <div class="col-md-6 border-right">
+              <div class="button-group">
+                <input type="radio" [value]="true" [checked]="hasfile" [(ngModel)]="hasfile" id="pdar" name="attachment">
+                <label for="pdar">دارد</label>
+                <input type="radio" [value]="false" [checked]="!hasfile" [(ngModel)]="hasfile" id="pnadar" name="attachment">
+                <label for="pnadar">ندارد</label>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="col-md-6">
-          <div *ngIf="hasfile">
-            <span>انتخاب فایل ها</span>
-            <input style="direction: rtl;" multiple type="file"/>
+          <div class="row mt-2">
+            <div class="col-md-12">
+              <div *ngIf="hasfile" style="line-height: 33px;">
+                <input style="direction: rtl;" multiple type="file" />
+              </div>
+            </div>
           </div>
         </div>
       </div>
