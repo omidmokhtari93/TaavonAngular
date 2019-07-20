@@ -589,6 +589,7 @@ AppModule = __decorate([
             _app_routing_module__WEBPACK_IMPORTED_MODULE_4__["AppRoutingModule"],
             _angular_http__WEBPACK_IMPORTED_MODULE_3__["HttpModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"],
             angular_notifier__WEBPACK_IMPORTED_MODULE_17__["NotifierModule"].withConfig(notifierOptions),
             ng2_jalali_date_picker__WEBPACK_IMPORTED_MODULE_19__["DpDatePickerModule"],
             _ckeditor_ckeditor5_angular__WEBPACK_IMPORTED_MODULE_28__["CKEditorModule"],
@@ -689,7 +690,7 @@ module.exports = ".login-body {\r\n  position: fixed; \r\n  top: 0; \r\n  left: 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"login-body\">\r\n  <div class=\"container p-5 sans\">\r\n    <div class=\"card m-auto text-center mt-lg-5\" style=\"width: 40%\">\r\n      <p class=\"card-header bg-primary text-white\">ورود به سیستم</p>\r\n      <div class=\"card-body\">\r\n        <input type=\"text\" id=\"defaultLoginFormEmail\" [(ngModel)]=\"username\" class=\"form-control mb-4 text-right rtl\" placeholder=\"نام کاربری\">\r\n        <input type=\"password\" id=\"defaultLoginFormPassword\" [(ngModel)]=\"password\" class=\"form-control mb-4 text-right rtl\" placeholder=\"رمز عبور\">\r\n        <div class=\"row sans-small mb-3\">\r\n          <div class=\"col-sm-5 text-left\">\r\n            <div class=\"align-middle\">\r\n              <input type=\"checkbox\" [(ngModel)]=\"rememberMe\" id=\"defaultLoginFormRemember\">\r\n              <label class=\"align-middle ml-1\" for=\"defaultLoginFormRemember\">مرا به خاطر بسپار</label>\r\n            </div>\r\n          </div>\r\n          <div class=\"col-sm-7 text-right\">\r\n            <a [routerLink]=\"['/forget']\">رمز عبور خود را فراموش کرده اید؟</a>\r\n          </div>\r\n        </div>\r\n        <button class=\"btn btn-info btn-block mb-0\" type=\"submit\" (click)=\"userLogin()\">ورود</button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <notifier-container></notifier-container>\r\n</div>\r\n"
+module.exports = "<div class=\"login-body\">\r\n  <div class=\"container p-5 sans\">\r\n    <div class=\"card m-auto text-center mt-lg-5\" style=\"width: 40%\">\r\n      <p class=\"card-header bg-primary text-white\">ورود به سیستم</p>\r\n      <div class=\"card-body\">\r\n        <form [formGroup]=\"signInForm\" (ngSubmit)=\"onLogin()\">\r\n          <input type=\"text\"\r\n                 id=\"username\"\r\n                 formControlName=\"username\"\r\n                 class=\"form-control mb-4 text-right rtl\"\r\n                 placeholder=\"نام کاربری\">\r\n          <input type=\"password\"\r\n                 id=\"password\"\r\n                 formControlName=\"password\"\r\n                 class=\"form-control mb-4 text-right rtl\"\r\n                 placeholder=\"رمز عبور\">\r\n          <div class=\"row sans-small mb-3\">\r\n            <div class=\"col-sm-5 text-left\">\r\n              <div class=\"align-middle\">\r\n                <input type=\"checkbox\"\r\n                       id=\"rememberMe\"\r\n                       formControlName=\"rememberMe\">\r\n                <label class=\"align-middle ml-1\" for=\"rememberMe\">مرا به خاطر بسپار</label>\r\n              </div>\r\n            </div>\r\n            <div class=\"col-sm-7 text-right\">\r\n              <a [routerLink]=\"['/forget']\">رمز عبور خود را فراموش کرده اید؟</a>\r\n            </div>\r\n          </div>\r\n          <button class=\"btn btn-info btn-block mb-0\" type=\"submit\">ورود</button>\r\n        </form>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <notifier-container></notifier-container>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -704,8 +705,8 @@ module.exports = "<div class=\"login-body\">\r\n  <div class=\"container p-5 san
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginComponent", function() { return LoginComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm2015/http.js");
-/* harmony import */ var src_app_shared_services_login_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/shared/services/login.service */ "./src/app/shared/services/login.service.ts");
+/* harmony import */ var src_app_shared_services_login_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/shared/services/login.service */ "./src/app/shared/services/login.service.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -719,43 +720,46 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 let LoginComponent = class LoginComponent {
-    constructor(_http, loginService) {
-        this._http = _http;
+    constructor(loginService) {
         this.loginService = loginService;
-        this.username = '';
-        this.password = '';
+        this.remember = false;
     }
     ngOnInit() {
-        if (JSON.parse(localStorage.getItem('RememberMe')) !== null) {
-            this.username = localStorage.getItem('Username');
-            this.password = localStorage.getItem('Password');
-            this.rememberMe = JSON.parse(localStorage.getItem('RememberMe'));
+        this.signInForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormGroup"]({
+            username: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required),
+            password: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required),
+            rememberMe: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null)
+        });
+        if (localStorage.getItem('RememberMe') == 'true') {
+            this.signInForm.setValue({
+                username: localStorage.getItem('Username'),
+                password: localStorage.getItem('Password'),
+                rememberMe: localStorage.getItem('RememberMe')
+            });
         }
     }
-    ngOnDestroy() {
-    }
-    userLogin() {
+    ngOnDestroy() { }
+    onLogin() {
         localStorage.removeItem('Username');
         localStorage.removeItem('Password');
         localStorage.removeItem('RememberMe');
         sessionStorage.setItem('token', 'SbzlGl1Vwx1hRIQPAQZB');
-        if (this.rememberMe) {
-            localStorage.setItem('Username', this.username);
-            localStorage.setItem('Password', this.password);
-            localStorage.setItem('RememberMe', JSON.stringify(this.rememberMe));
+        if (this.signInForm.value.rememberMe) {
+            localStorage.setItem('Username', this.signInForm.value.username);
+            localStorage.setItem('Password', this.signInForm.value.password);
+            localStorage.setItem('RememberMe', this.signInForm.value.rememberMe);
         }
-        this.loginService.login(this.username, this.password);
+        this.loginService.login(this.signInForm.value.username, this.signInForm.value.password);
     }
 };
 LoginComponent = __decorate([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
         selector: 'app-login',
         template: __webpack_require__(/*! ./login.component.html */ "./src/app/login/login.component.html"),
-        providers: [src_app_shared_services_login_service__WEBPACK_IMPORTED_MODULE_2__["LoginService"]],
+        providers: [src_app_shared_services_login_service__WEBPACK_IMPORTED_MODULE_1__["LoginService"]],
         styles: [__webpack_require__(/*! ./login.component.css */ "./src/app/login/login.component.css")]
     }),
-    __metadata("design:paramtypes", [_angular_http__WEBPACK_IMPORTED_MODULE_1__["Http"],
-        src_app_shared_services_login_service__WEBPACK_IMPORTED_MODULE_2__["LoginService"]])
+    __metadata("design:paramtypes", [src_app_shared_services_login_service__WEBPACK_IMPORTED_MODULE_1__["LoginService"]])
 ], LoginComponent);
 
 
@@ -980,7 +984,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm2015/http.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _shared_services_data_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../shared/services/data.service */ "./src/app/shared/services/data.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -993,12 +996,10 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
-
 let MainComponent = class MainComponent {
-    constructor(_http, _route, dataService) {
+    constructor(_http, _route) {
         this._http = _http;
         this._route = _route;
-        this.dataService = dataService;
     }
     ngOnInit() {
         this.loadScript();
@@ -1025,8 +1026,7 @@ MainComponent = __decorate([
         styles: [__webpack_require__(/*! ./main.component.css */ "./src/app/main/main.component.css")]
     }),
     __metadata("design:paramtypes", [_angular_http__WEBPACK_IMPORTED_MODULE_1__["Http"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-        _shared_services_data_service__WEBPACK_IMPORTED_MODULE_3__["DataService"]])
+        _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
 ], MainComponent);
 
 
@@ -1177,7 +1177,7 @@ module.exports = "#RecieverBadgeArea span, #ReplicaBadgeArea span{\r\n  cursor: 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card rtl text-right sans\">\r\n  <div class=\"card-header text-white bg-primary\">ارسال نامه</div>\r\n  <div class=\"card-body\">\r\n    <div class=\"w-100 ltr\">\r\n      <input class=\"form-control text-center\" readonly style=\"width: 25%\" placeholder=\"تاریخ\"\r\n             [(ngModel)]=\"selectedDate\" [dpDayPicker]=\"datePickerConfig\" theme=\"dp-material\" />\r\n    </div>\r\n    <hr class=\"mt-0\" />\r\n    <div class=\"row\">\r\n      <div class=\"col-md-6\">\r\n        عنوان نامه\r\n        <input class=\"form-control\" dir=\"rtl\" [(ngModel)]=\"letterSubject\"/>\r\n      </div>\r\n      <div class=\"col-md-6\">\r\n        فرستنده\r\n        <input class=\"form-control\" dir=\"rtl\" readonly [(ngModel)]=\"sender\"/>\r\n      </div>\r\n    </div>\r\n    <div class=\"row mt-3\">\r\n      <div class=\"col-md-12 position-relative\">\r\n        <div id=\"RecieverBadgeArea\">\r\n          <span class=\"sans-xsmall bg-primary text-white m-1 pl-1 pr-1 rounded\"\r\n                (click)=\"removeBadge(receiver.id)\"\r\n                *ngFor=\"let receiver of receivers\">{{receiver.text}}</span>\r\n        </div>\r\n        <app-search [config]=\"receiverConfig\" (output)=\"createCompanyList($event)\"></app-search>\r\n        <div id=\"receiverDropDown\" class=\"w-100 position-absolute\">\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"row mt-3\">\r\n      <div class=\"col-md-12\">\r\n        <div id=\"ReplicaBadgeArea\">\r\n          <span class=\"sans-xsmall bg-default text-white m-1 pl-1 pr-1 rounded\"\r\n                (click)=\"removeReplicaBadge(rep.id)\"\r\n                *ngFor=\"let rep of replica\">{{rep.text}}</span>\r\n        </div>\r\n        <app-search [config]=\"replicaConfig\" (output)=\"createReplicaList($event)\"></app-search>\r\n      </div>\r\n    </div>\r\n    <div class=\"row mt-3\">\r\n      <div class=\"col-md-12\">\r\n        متن رونوشت\r\n        <textarea class=\"form-control\" rows=\"3\" style=\"resize: none;\" [(ngModel)]=\"replicaText\"></textarea>\r\n      </div>\r\n    </div>\r\n    <hr />\r\n    <div class=\"row mt-3\">\r\n      <div class=\"col-md-12\">\r\n        <div class=\"row\">\r\n          <div class=\"col-md-3 pr-3\">\r\n            <p>نیاز به پاسخ</p>\r\n            <div class=\"button-group\">\r\n              <input type=\"radio\" id=\"reposnse-yes\" name=\"resp\" [value]=\"true\" [(ngModel)]=\"needResponse\" [checked]=\"needResponse\">\r\n              <label for=\"reposnse-yes\">دارد</label>\r\n              <input type=\"radio\" id=\"response-no\" name=\"resp\" checked [value]=\"false\" [(ngModel)]=\"needResponse\" [checked]=\"!needResponse\">\r\n              <label for=\"response-no\">ندارد</label>\r\n            </div>\r\n          </div>\r\n          <div class=\"col-md-3 pr-3 border-right\">\r\n            <p>سایز نامه</p>\r\n            <div class=\"button-group\">\r\n              <input type=\"radio\" id=\"A4size\" name=\"size\" checked [value]=\"true\" [(ngModel)]=\"letterSize\" [checked]=\"letterSize\">\r\n              <label for=\"A4size\">A4</label>\r\n              <input type=\"radio\" id=\"A5size\" name=\"size\" [value]=\"false\" [(ngModel)]=\"letterSize\" [checked]=\"!letterSize\">\r\n              <label for=\"A5size\">A5</label>\r\n            </div>\r\n          </div>\r\n          <div class=\"col-md-6 pr-3 border-right\" dir=\"rtl\">\r\n            <p>نوع نامه</p>\r\n            <div class=\"button-group\">\r\n              <input type=\"radio\" id=\"adi\" name=\"type\" checked [value]=\"0\" [(ngModel)]=\"letterType\">\r\n              <label for=\"adi\">عادی</label>\r\n              <input type=\"radio\" id=\"eb\" name=\"type\" [value]=\"1\" [(ngModel)]=\"letterType\">\r\n              <label for=\"eb\">ابلاغیه</label>\r\n              <input type=\"radio\" id=\"mo\" name=\"type\" [value]=\"2\" [(ngModel)]=\"letterType\">\r\n              <label for=\"mo\">مهم</label>\r\n              <input type=\"radio\" id=\"fo\" name=\"type\" [value]=\"3\" [(ngModel)]=\"letterType\">\r\n              <label for=\"fo\">فوری</label>\r\n              <input type=\"radio\" id=\"khfo\" name=\"type\" [value]=\"4\" [(ngModel)]=\"letterType\">\r\n              <label for=\"khfo\">خیلی فوری</label>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <hr />\r\n\r\n    <div class=\"row\">\r\n      <div class=\"col-md-6\">\r\n        <div class=\"card card-body bg-light\">\r\n          <p>مدت زمان پاسخ</p>\r\n          <div class=\"row\" dir=\"rtl\">\r\n            <div class=\"col-md-12\">\r\n              <div class=\"button-group\">\r\n                <input type=\"radio\" [value]=\"1\" [(ngModel)]=\"responseType\" id=\"unlimit\" name=\"response-type\">\r\n                <label for=\"unlimit\">نامحدود</label>\r\n                <input type=\"radio\" [value]=\"2\" [(ngModel)]=\"responseType\" id=\"hours\" name=\"response-type\">\r\n                <label for=\"hours\">ساعت</label>\r\n                <input type=\"radio\" [value]=\"3\" [(ngModel)]=\"responseType\" id=\"days\" name=\"response-type\">\r\n                <label for=\"days\">روز</label>\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <div class=\"row mt-2\">\r\n            <div class=\"col-md-12\">\r\n              <input type=\"number\" class=\"form-control text-center\" placeholder=\"مدت زمان\" [(ngModel)]=\"responseTime\" *ngIf=\"responseType !== 1\" />\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div class=\"col-md-6\">\r\n        <div class=\"card card-body bg-light\">\r\n          <p>پیوست</p>\r\n          <div class=\"row\">\r\n            <div class=\"col-md-6 border-right\">\r\n              <div class=\"button-group\">\r\n                <input type=\"radio\" [value]=\"true\" [checked]=\"hasfile\" [(ngModel)]=\"hasfile\" id=\"pdar\" name=\"attachment\">\r\n                <label for=\"pdar\">دارد</label>\r\n                <input type=\"radio\" [value]=\"false\" [checked]=\"!hasfile\" [(ngModel)]=\"hasfile\" id=\"pnadar\" name=\"attachment\">\r\n                <label for=\"pnadar\">ندارد</label>\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <div class=\"row mt-2\">\r\n            <div class=\"col-md-12\">\r\n              <div *ngIf=\"hasfile\" style=\"line-height: 33px;\">\r\n                <input style=\"direction: rtl;\" multiple type=\"file\" />\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"row mt-3\">\r\n      <div class=\"col-md-12 text-left\">\r\n        <button class=\"btn btn-info\" (click)=\"createLetter()\">تولید نامه</button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"modal fade show\" id=\"letter-modal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">\r\n  <div class=\"modal-dialog modal-lg\" role=\"document\">\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <h5 class=\"modal-title\" id=\"exampleModalLabel\"> title</h5>\r\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n          <span aria-hidden=\"true\">&times;</span>\r\n        </button>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        <router-outlet></router-outlet>\r\n      </div>\r\n      <div class=\"modal-footer d-block\">\r\n        <button type=\"button\" id=\"btn\" class=\"btn btn-primary sans\">ارسال نامه</button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n<notifier-container></notifier-container>\r\n\r\n<!--<ckeditor [editor]=\"Editor\" [config]=\"editConfig\"></ckeditor>-->\r\n"
+module.exports = "<div class=\"card rtl text-right sans\">\r\n  <div class=\"card-header text-white bg-primary\">ارسال نامه</div>\r\n  <div class=\"card-body\">\r\n    <div class=\"w-100 ltr\">\r\n      <input class=\"form-control text-center\" readonly style=\"width: 25%\" placeholder=\"تاریخ\"\r\n             [(ngModel)]=\"selectedDate\" [dpDayPicker]=\"datePickerConfig\" theme=\"dp-material\" />\r\n    </div>\r\n    <hr class=\"mt-0\" />\r\n    <div class=\"row\">\r\n      <div class=\"col-md-6\">\r\n        عنوان نامه\r\n        <input class=\"form-control\" dir=\"rtl\" [(ngModel)]=\"letterSubject\" />\r\n      </div>\r\n      <div class=\"col-md-6\">\r\n        فرستنده\r\n        <input class=\"form-control\" dir=\"rtl\" readonly [(ngModel)]=\"sender\" />\r\n      </div>\r\n    </div>\r\n    <div class=\"row mt-3\">\r\n      <div class=\"col-md-12 position-relative\">\r\n        <div id=\"RecieverBadgeArea\">\r\n          <span class=\"sans-xsmall bg-primary text-white m-1 pl-1 pr-1 rounded\"\r\n                (click)=\"removeBadge(receiver.id)\"\r\n                *ngFor=\"let receiver of receivers\">{{receiver.text}}</span>\r\n        </div>\r\n        <app-search [config]=\"receiverConfig\" (output)=\"createCompanyList($event)\"></app-search>\r\n        <div id=\"receiverDropDown\" class=\"w-100 position-absolute\">\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"row mt-3\">\r\n      <div class=\"col-md-12\">\r\n        <div id=\"ReplicaBadgeArea\">\r\n          <span class=\"sans-xsmall bg-default text-white m-1 pl-1 pr-1 rounded\"\r\n                (click)=\"removeReplicaBadge(rep.id)\"\r\n                *ngFor=\"let rep of replica\">{{rep.text}}</span>\r\n        </div>\r\n        <app-search [config]=\"replicaConfig\" (output)=\"createReplicaList($event)\"></app-search>\r\n      </div>\r\n    </div>\r\n    <div class=\"row mt-3\">\r\n      <div class=\"col-md-12\">\r\n        متن رونوشت\r\n        <textarea class=\"form-control\" rows=\"3\" style=\"resize: none;\" [(ngModel)]=\"replicaText\"></textarea>\r\n      </div>\r\n    </div>\r\n    <hr />\r\n    <div class=\"row mt-3\">\r\n      <div class=\"col-md-12\">\r\n        <div class=\"row\">\r\n          <div class=\"col-md-3 pr-3\">\r\n            <p>نیاز به پاسخ</p>\r\n            <div class=\"button-group\">\r\n              <input type=\"radio\" id=\"reposnse-yes\" name=\"resp\" [value]=\"true\" [(ngModel)]=\"needResponse\" [checked]=\"needResponse\">\r\n              <label for=\"reposnse-yes\">دارد</label>\r\n              <input type=\"radio\" id=\"response-no\" name=\"resp\" checked [value]=\"false\" [(ngModel)]=\"needResponse\" [checked]=\"!needResponse\">\r\n              <label for=\"response-no\">ندارد</label>\r\n            </div>\r\n          </div>\r\n          <div class=\"col-md-3 pr-3 border-right\">\r\n            <p>سایز نامه</p>\r\n            <div class=\"button-group\">\r\n              <input type=\"radio\" id=\"A4size\" name=\"size\" checked [value]=\"true\" [(ngModel)]=\"letterSize\" [checked]=\"letterSize\">\r\n              <label for=\"A4size\">A4</label>\r\n              <input type=\"radio\" id=\"A5size\" name=\"size\" [value]=\"false\" [(ngModel)]=\"letterSize\" [checked]=\"!letterSize\">\r\n              <label for=\"A5size\">A5</label>\r\n            </div>\r\n          </div>\r\n          <div class=\"col-md-6 pr-3 border-right\" dir=\"rtl\">\r\n            <p>نوع نامه</p>\r\n            <div class=\"button-group\">\r\n              <input type=\"radio\" id=\"adi\" name=\"type\" checked [value]=\"0\" [(ngModel)]=\"letterType\">\r\n              <label for=\"adi\">عادی</label>\r\n              <input type=\"radio\" id=\"eb\" name=\"type\" [value]=\"1\" [(ngModel)]=\"letterType\">\r\n              <label for=\"eb\">ابلاغیه</label>\r\n              <input type=\"radio\" id=\"mo\" name=\"type\" [value]=\"2\" [(ngModel)]=\"letterType\">\r\n              <label for=\"mo\">مهم</label>\r\n              <input type=\"radio\" id=\"fo\" name=\"type\" [value]=\"3\" [(ngModel)]=\"letterType\">\r\n              <label for=\"fo\">فوری</label>\r\n              <input type=\"radio\" id=\"khfo\" name=\"type\" [value]=\"4\" [(ngModel)]=\"letterType\">\r\n              <label for=\"khfo\">خیلی فوری</label>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <hr />\r\n    <div class=\"row\">\r\n      <div class=\"col-md-6\">\r\n        <div class=\"card card-body bg-light\">\r\n          <p>مدت زمان پاسخ</p>\r\n          <div class=\"row\" dir=\"rtl\">\r\n            <div class=\"col-md-12\">\r\n              <div class=\"button-group\">\r\n                <input type=\"radio\" [value]=\"1\" [(ngModel)]=\"responseType\" id=\"unlimit\" name=\"response-type\">\r\n                <label for=\"unlimit\">نامحدود</label>\r\n                <input type=\"radio\" [value]=\"2\" [(ngModel)]=\"responseType\" id=\"hours\" name=\"response-type\">\r\n                <label for=\"hours\">ساعت</label>\r\n                <input type=\"radio\" [value]=\"3\" [(ngModel)]=\"responseType\" id=\"days\" name=\"response-type\">\r\n                <label for=\"days\">روز</label>\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <div class=\"row mt-2\">\r\n            <div class=\"col-md-12\">\r\n              <input type=\"number\" class=\"form-control text-center\" placeholder=\"مدت زمان\" [(ngModel)]=\"responseTime\" *ngIf=\"responseType !== 1\" />\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div class=\"col-md-6\">\r\n        <div class=\"card card-body bg-light\">\r\n          <p>پیوست</p>\r\n          <div class=\"row\">\r\n            <div class=\"col-md-6 border-right\">\r\n              <div class=\"button-group\">\r\n                <input type=\"radio\" [value]=\"true\" [checked]=\"hasfile\" [(ngModel)]=\"hasfile\" id=\"pdar\" name=\"attachment\">\r\n                <label for=\"pdar\">دارد</label>\r\n                <input type=\"radio\" [value]=\"false\" [checked]=\"!hasfile\" [(ngModel)]=\"hasfile\" id=\"pnadar\" name=\"attachment\">\r\n                <label for=\"pnadar\">ندارد</label>\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <div class=\"row mt-2\">\r\n            <div class=\"col-md-12\">\r\n              <div *ngIf=\"hasfile\" style=\"line-height: 33px;\">\r\n                <input style=\"direction: rtl;\" multiple type=\"file\" />\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"row mt-3\">\r\n      <div class=\"col-md-12 text-left\">\r\n        <button class=\"btn btn-info\" (click)=\"createLetter()\">تولید نامه</button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"modal fade show\" id=\"letter-modal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">\r\n  <div class=\"modal-dialog modal-lg\" role=\"document\">\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <h5 class=\"modal-title\" id=\"exampleModalLabel\"> title</h5>\r\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n          <span aria-hidden=\"true\">&times;</span>\r\n        </button>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        <router-outlet></router-outlet>\r\n      </div>\r\n      <div class=\"modal-footer d-block\">\r\n        <button type=\"button\" id=\"btn\" class=\"btn btn-primary sans\">ارسال نامه</button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n<notifier-container></notifier-container>\r\n\r\n<!--<ckeditor [editor]=\"Editor\" [config]=\"editConfig\"></ckeditor>-->\r\n"
 
 /***/ }),
 

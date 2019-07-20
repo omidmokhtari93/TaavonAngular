@@ -3,20 +3,32 @@
     <div class="card m-auto text-center mt-lg-5" style="width: 40%">
       <p class="card-header bg-primary text-white">ورود به سیستم</p>
       <div class="card-body">
-        <input type="text" id="defaultLoginFormEmail" [(ngModel)]="username" class="form-control mb-4 text-right rtl" placeholder="نام کاربری">
-        <input type="password" id="defaultLoginFormPassword" [(ngModel)]="password" class="form-control mb-4 text-right rtl" placeholder="رمز عبور">
-        <div class="row sans-small mb-3">
-          <div class="col-sm-5 text-left">
-            <div class="align-middle">
-              <input type="checkbox" [(ngModel)]="rememberMe" id="defaultLoginFormRemember">
-              <label class="align-middle ml-1" for="defaultLoginFormRemember">مرا به خاطر بسپار</label>
+        <form [formGroup]="signInForm" (ngSubmit)="onLogin()">
+          <input type="text"
+                 id="username"
+                 formControlName="username"
+                 class="form-control mb-4 text-right rtl"
+                 placeholder="نام کاربری">
+          <input type="password"
+                 id="password"
+                 formControlName="password"
+                 class="form-control mb-4 text-right rtl"
+                 placeholder="رمز عبور">
+          <div class="row sans-small mb-3">
+            <div class="col-sm-5 text-left">
+              <div class="align-middle">
+                <input type="checkbox"
+                       id="rememberMe"
+                       formControlName="rememberMe">
+                <label class="align-middle ml-1" for="rememberMe">مرا به خاطر بسپار</label>
+              </div>
+            </div>
+            <div class="col-sm-7 text-right">
+              <a [routerLink]="['/forget']">رمز عبور خود را فراموش کرده اید؟</a>
             </div>
           </div>
-          <div class="col-sm-7 text-right">
-            <a [routerLink]="['/forget']">رمز عبور خود را فراموش کرده اید؟</a>
-          </div>
-        </div>
-        <button class="btn btn-info btn-block mb-0" type="submit" (click)="userLogin()">ورود</button>
+          <button class="btn btn-info btn-block mb-0" type="submit">ورود</button>
+        </form>
       </div>
     </div>
   </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Http } from '@angular/http';
 import { LoginService } from 'src/app/shared/services/login.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -8,34 +9,37 @@ import { LoginService } from 'src/app/shared/services/login.service';
   styleUrls: ['./login.component.css'],
   providers: [LoginService]
 })
-export class LoginComponent implements OnInit , OnDestroy{
-  constructor(private _http: Http,
-    private loginService: LoginService) { }
-  username: string = '';
-  password: string = '';
-  rememberMe: boolean;
+export class LoginComponent implements OnInit, OnDestroy {
+  signInForm: FormGroup
+  remember = false;
+  constructor(private loginService: LoginService) { }
   ngOnInit() {
-    if (JSON.parse(localStorage.getItem('RememberMe')) !== null) {
-      this.username = localStorage.getItem('Username');
-      this.password = localStorage.getItem('Password');
-      this.rememberMe = JSON.parse(localStorage.getItem('RememberMe'));
+    this.signInForm = new FormGroup({
+      username: new FormControl(null, Validators.required),
+      password: new FormControl(null, Validators.required),
+      rememberMe: new FormControl(null)
+    })
+    if (localStorage.getItem('RememberMe') == 'true') {
+      this.signInForm.setValue({
+        username: localStorage.getItem('Username'),
+        password: localStorage.getItem('Password'),
+        rememberMe: localStorage.getItem('RememberMe')
+      })
     }
   }
 
-  ngOnDestroy(): void {
+  ngOnDestroy(): void { }
 
-  }
-
-  userLogin() {
+  onLogin() {
     localStorage.removeItem('Username');
     localStorage.removeItem('Password');
     localStorage.removeItem('RememberMe');
     sessionStorage.setItem('token', 'SbzlGl1Vwx1hRIQPAQZB');
-    if (this.rememberMe) {
-      localStorage.setItem('Username', this.username);
-      localStorage.setItem('Password', this.password);
-      localStorage.setItem('RememberMe', JSON.stringify(this.rememberMe));
+    if (this.signInForm.value.rememberMe) {
+      localStorage.setItem('Username', this.signInForm.value.username);
+      localStorage.setItem('Password', this.signInForm.value.password);
+      localStorage.setItem('RememberMe', this.signInForm.value.rememberMe);
     }
-    this.loginService.login(this.username, this.password)
+    this.loginService.login(this.signInForm.value.username, this.signInForm.value.password)
   }
 }

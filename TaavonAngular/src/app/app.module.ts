@@ -1,8 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { Route, RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NewLetterComponent } from './main/new-letter/new-letter.component';
@@ -80,6 +79,7 @@ const notifierOptions: {} = {
     AppRoutingModule,
     HttpModule,
     FormsModule,
+    ReactiveFormsModule,
     NotifierModule.withConfig(notifierOptions),
     DpDatePickerModule,
     CKEditorModule,

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
 import { Router } from '@angular/router';
-import { DataService } from '../shared/services/data.service';
 
 @Component({
   selector: 'app-main',
@@ -10,8 +9,7 @@ import { DataService } from '../shared/services/data.service';
 })
 export class MainComponent implements OnInit {
   constructor(private _http: Http,
-    private _route: Router,
-    private dataService: DataService) { }
+    private _route: Router) { }
   ngOnInit() {
     this.loadScript();
   }
